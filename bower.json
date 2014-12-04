@@ -1,0 +1,14 @@
+{
+  "name": "groupoffice-client",
+  "description": "The Group-Office Webclient based on AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/intermesh/groupoffice-material-client",
+  "license": "AGPL",
+  "private": false,
+  "dependencies": {
+    "angular": "latest",
+    "angular-material": "~0.6.0",
+    "angular-ui-router": "~0.2.13"
+  },
+  "devDependencies": {}
+}
