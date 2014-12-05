@@ -11,7 +11,7 @@
  * @param {Model} The models this store is for.
  * @param {object=} loadParams Extra GET parameters for the store action
  */
-angular.module('GO.data')
+angular.module('GO.core')
 		.factory('Store', ['$http', 'Utils', 'Model', '$q', function($http, Utils, Model, $q) {
 
 				var Store = function(restRoute, loadParams) {
@@ -65,7 +65,7 @@ angular.module('GO.data')
 					
 					var deferred = $q.defer();
 
-					Utils.promiseSuccessDecorator(deferred.promise);
+//					Utils.promiseSuccessDecorator(deferred.promise);
 
 					$http.get(Utils.url(this.restRoute, defaultParams))
 							.success(function(data) {

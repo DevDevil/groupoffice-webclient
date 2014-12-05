@@ -2,8 +2,10 @@
 
 // Declare app level module which depends on views, and components
 angular.module('GO', [
-  'ngMaterial',
-  'ui.router'
+  'ui.router',
+  
+  'GO.core',
+  'GO.core.controllers'
 ]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
@@ -17,9 +19,19 @@ angular.module('GO', [
 						})
 						.state('login', {
 							url: "/login",
-							templateUrl: "views/login.html"
-//							controller: 'LoginController'
+							templateUrl: "views/login.html",
+							controller: 'LoginController'
 						});
 						
 
-			}]);
+			}])
+			.run(function (Utils) {
+				//FastClick.attach(document.body);
+
+				//Special config
+				//$rootScope.title = appTitle;
+				
+				Utils.setBaseUrl("../../groupoffice-server/html/index.php");
+			});
+		
+		

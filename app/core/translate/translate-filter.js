@@ -1,6 +1,6 @@
 /**
  * @ngdoc filter
- * @name GO.core.Translate:t
+ * @name GO.Translate:t
  * @kind function
  *
  * @description
@@ -27,7 +27,7 @@
 			</div>
 		</file>
     <file name="script.js">
-			angular.module('myTranslatedModule', ["GO.core"])
+			angular.module('myTranslatedModule', ["GO"])
 				.config(['TranslateProvider', function(TranslateProvider) {
 						TranslateProvider.setLanguage('nl');
 

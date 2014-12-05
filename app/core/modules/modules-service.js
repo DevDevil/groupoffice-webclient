@@ -7,7 +7,7 @@
  * @description
  * Module manager to register modules
  */
-angular.module('GO')
+angular.module('GO.core')
 		.provider('modules', [function ModulesProvider() {
 
 				var modules = {};
@@ -22,10 +22,9 @@ angular.module('GO')
 				 *
 				 * @param {string} id The id of the module. Note that there must be a ui.router state for this id as well.
 				 * @param {string} title The title of the module in English.
-				 * @param {string} iconCls The class for the icon of FontAwesome. eg. "fa-user" {@link http://fortawesome.github.io/Font-Awesome/}
 				 */
-				this.addModule = function(id, title, iconCls) {
-					var module = {id: id, title: title, iconCls: iconCls};
+				this.addModule = function(id, title) {
+					var module = {id: id, title: title};
 
 					modules[id.toLowerCase()] = module;
 				};
@@ -141,7 +140,7 @@ angular.module('GO')
 		
 		
 		
-angular.module('GO.modules')
+angular.module('GO.core')
 		.provider('settings', [function SettingsProvider() {
 
 				var pages = [];

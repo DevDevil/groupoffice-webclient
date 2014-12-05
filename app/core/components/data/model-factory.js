@@ -13,7 +13,7 @@
  * @param {string} deleteRoute The controller route to delete a model
  * @param {string} baseParams GET parameters for each request
  */
-angular.module('GO.data')
+angular.module('GO.core')
 		.factory('Model', ['$http', '$q', '$timeout', 'Utils', function($http, $q, $timeout, Utils) {
 
 				var Model = function(controllerRoute,  baseParams) {
@@ -99,7 +99,7 @@ angular.module('GO.data')
 
 					var deferred = $q.defer();
 
-					Utils.promiseSuccessDecorator(deferred.promise);
+//					Utils.promiseSuccessDecorator(deferred.promise);
 					
 					
 					this.setBusy(true);
@@ -357,7 +357,7 @@ angular.module('GO.data')
 
 					var deferred = $q.defer();
 
-					Utils.promiseSuccessDecorator(deferred.promise);
+//					Utils.promiseSuccessDecorator(deferred.promise);
 					
 //					var modifiedAttributes = this.isNew() ? this.attributes : this.getModifiedAttributes();
 					var modifiedAttributes = this.getModifiedAttributes();
@@ -532,7 +532,7 @@ angular.module('GO.data')
 					
 					var deferred = $q.defer();
 					
-					Utils.promiseSuccessDecorator(deferred.promise);
+//					Utils.promiseSuccessDecorator(deferred.promise);
 					
 				
 					this.setBusy(true);

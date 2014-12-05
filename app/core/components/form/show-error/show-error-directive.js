@@ -1,6 +1,6 @@
 /*ng-class=\"{ in: isOpen(), fade: animation() }*/
-angular.module('GO.form')
-		.directive('imShowError', ['Translate', '$parse', '$sce', '$timeout',
+angular.module('GO.core')
+		.directive('goShowError', ['Translate', '$parse', '$sce', '$timeout',
 			function (Translate, $parse, $sce, $timeout) {
 
 				return {
@@ -10,18 +10,11 @@ angular.module('GO.form')
 					scope: {
 						'for': '@',
 						'attributeName': '@?',
-						imModel: '=?'
+						goModel: '=?'
 					},
 					// require that the element is a child of form
 					require: '^form',
-					template: '\
-							<div class="error-balloon bottom" ng-class="{active: hasErrors()}">\
-								<div class="error-balloon-arrow"></div>\
-								<div class="error-balloon-inner">\
-									<div class="error" ng-if="invalid" ng-repeat="(errorKey, invalid) in formEl.$error" ng-bind-html="showError(errorKey)"></div>\
-								</div>\
-							</div>\
-						',
+					templateUrl: 'core/components/form/show-error/show-error.html',
 					// executed as the controller for the directive
 					controller: function ($scope, $element, $attrs) {
 						$scope.form = $element.controller("form");
@@ -43,22 +36,19 @@ angular.module('GO.form')
 							}
 
 
-							if ($scope.imModel) {
+							if ($scope.goModel) {
 
-								$scope.$watch('imModel.validationErrors["' + $scope.attributeName + '"]', function (newValue, oldValue) {
+								$scope.$watch('goModel.validationErrors["' + $scope.attributeName + '"]', function (newValue, oldValue) {
 
 
 									if (newValue) {
-
-
-
 										serverError = newValue;
 
-										var currentValue = $scope.imModel[$scope.attributeName];
+										var currentValue = $scope.goModel[$scope.attributeName];
 
 										$scope.formEl.$setValidity('server', false);
 
-										var unregister = $scope.$watch('imModel["' + $scope.attributeName + '"]', function (newValue, oldValue) {
+										var unregister = $scope.$watch('goModel["' + $scope.attributeName + '"]', function (newValue, oldValue) {
 
 											if (currentValue !== newValue) {
 
@@ -68,7 +58,7 @@ angular.module('GO.form')
 												$timeout(function () {
 													$scope.formEl.$setValidity('server', true);
 													serverError = null;
-													delete $scope.imModel.validationErrors[$scope.attributeName];
+													delete $scope.goModel.validationErrors[$scope.attributeName];
 
 
 													unregister();
