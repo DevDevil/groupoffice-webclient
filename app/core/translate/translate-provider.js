@@ -1,6 +1,6 @@
 /**
  * @ngdoc service
- * @name GO.core.Translate
+ * @name GO.Translate
  *
  * @description
  * Translate text with this service and provider
@@ -22,7 +22,7 @@
 			</div>
 		</file>
     <file name="script.js">
-			angular.module('myTranslatedModule', ["GO.core"])
+			angular.module('myTranslatedModule', ["GO"])
 				.config(['TranslateProvider', function(TranslateProvider) {
 						TranslateProvider.setLanguage('nl');
 
@@ -68,8 +68,8 @@ angular.module('GO.core')
 
 									/**
 									* @ngdoc method
-									* @name GO.core.Translate#t
-									* @methodOf GO.core.Translate
+									* @name GO.Translate#t
+									* @methodOf GO.Translate
 									* @description
 									* Translates a string into the configured language
 									*

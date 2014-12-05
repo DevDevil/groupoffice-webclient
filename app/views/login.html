@@ -1,17 +1,31 @@
+<form name="loginForm" novalidate go-submit="login(user)" role="form">
+	<h1>{{"Login" | goT}}</h1>
 
+	<div class="row">
+		<label for="username">
+			{{"Username" | goT}}
+		</label>
 
-<md-content>
-	<md-toolbar class="md-whiteframe-z1">
-      <h2 class="md-toolbar-tools">
-        <span>Login</span>
-      </h2>
-    </md-toolbar>
-    <md-card style="width: 50%;margin:20px auto;">
-		
+		<input id="username" name="username" type="text" ng-model="user.username" placeholder="{{'Username'| goT}}" required autofocus>
+		<go-show-error for="username"></go-show-error>
+	</div>
 
-		<md-text-float label="Username" ng-model="user.username"></md-text-float>
-		<md-text-float label="Password" ng-model="user.password" type="password"></md-text-float>
-		<md-button>Clear</md-button>
-		<md-button class="md-primary">OK</md-button>
-	</md-card>
-</md-content>
+	<div class="row">
+		<label for="password">
+			{{"Password" | goT}}
+		</label>
+
+		<input id="password" name="password" type="password" ng-model="user.password" placeholder="{{'Password'| goT}}" required>
+
+		<go-show-error for="password"></go-show-error>
+	</div>
+
+	<div class="row">
+		<label>
+			<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| goT}}
+		</label>
+	</div>
+
+	<input type="submit" class="btn btn-primary" value="{{'Login'| goT}}"/>
+
+</form>

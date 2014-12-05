@@ -1,1 +1,0 @@
-angular.module('GO.data', ['GO.core']);

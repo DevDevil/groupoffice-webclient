@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name GO.core.match
+ * @name GO.match
  * @element input
  * @function
  *
@@ -11,7 +11,7 @@
  *
  * @example
 
-	 <example module="GO.core">
+	 <example module="GO">
      <file name="index.html">
 			<form name="userForm"  novalidate>
 				<input type="password" ng-model="password" autocomplete="off" />
@@ -21,8 +21,8 @@
 		</file>
 	 </example>
  */
-angular.module('GO.form')
-    .directive('imMatch', function () {
+angular.module('GO.core')
+    .directive('goMatch', function () {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -33,7 +33,7 @@ angular.module('GO.form')
                 scope.$watch(function() {
                     return (ctrl.$pristine && angular.isUndefined(ctrl.$modelValue)) || scope.imMatch === ctrl.$modelValue;
                 }, function(currentValue) {
-                    ctrl.$setValidity('imMatch', currentValue);
+                    ctrl.$setValidity('goMatch', currentValue);
                 });
             }
         };

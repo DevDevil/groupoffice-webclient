@@ -1,6 +1,6 @@
 
-angular.module('GO.form')
-		.directive('imSubmit', ['$log','Alerts','Translate',
+angular.module('GO.core')
+		.directive('goSubmit', ['$log','Alerts','Translate',
 			function($log, Alerts, Translate) {
 
 				return {
@@ -8,7 +8,7 @@ angular.module('GO.form')
 					restrict: 'A',
 					// create a copy of the scope, inheriting the data
 					scope: {
-						imSubmit: '&'
+						goSubmit: '&'
 					},
 					// require that the element is a child of form
 					require: ['form'],
@@ -21,6 +21,8 @@ angular.module('GO.form')
 							throw "form must have a name!";
 						
 						var form = $element.controller("form");
+						
+						console.log('ja');
 						
 						$element.on('submit', function($event){	
 							
@@ -44,7 +46,7 @@ angular.module('GO.form')
 //							form.submitted = true;	
 								
 							if($scope.$parent[formName].$valid){
-								$scope.imSubmit();
+								$scope.goSubmit();
 							}else{
 								
 								//otherwise popups don't show in modal windows.

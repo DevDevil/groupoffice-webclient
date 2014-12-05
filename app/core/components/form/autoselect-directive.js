@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name GO.core.autofocus
+ * @name GO.autofocus
  * @element input
  * @function
  *
@@ -11,7 +11,7 @@
  * firefox
  *
  * @example
-    <example module="GO.core">
+    <example module="GO">
      <file name="index.html">
       <input ng-Model="text" autofocus>
 		 </file>

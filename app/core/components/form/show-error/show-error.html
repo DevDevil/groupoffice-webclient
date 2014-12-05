@@ -1,0 +1,6 @@
+<div class="error-balloon" ng-class="{active: hasErrors()}">
+	<div class="error-balloon-arrow"></div>
+	<div class="error-balloon-inner">
+		<div class="error" ng-if="invalid" ng-repeat="(errorKey, invalid) in formEl.$error" ng-bind="showError(errorKey)"></div>
+	</div>
+</div>
