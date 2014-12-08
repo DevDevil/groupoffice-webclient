@@ -1,0 +1,59 @@
+input.ng-invalid.ng-dirty, form.ng-submitted input.ng-invalid {
+	border-color: $danger-border !important;
+}
+
+input.ng-valid.ng-dirty, form.ng-submitted input.ng-valid {
+	border-color: $success-border !important;
+}
+
+
+textarea { 
+	resize: none; 
+}
+
+
+form{
+	
+	fieldset{
+		border: 1px solid $border-color;
+		padding: 20px;
+		background-color:white;
+	}
+	
+	legend{
+		font-size: 1.2em;
+		
+	}
+	
+	.row{
+		margin-bottom: 10px;
+
+		label, input{
+			height:24px;
+		}
+
+		label{
+			/*font-weight: bold;*/
+			margin-right: 10px;
+			
+			input[type=checkbox]{
+				height: auto;
+				position: relative;
+				vertical-align: middle;
+				bottom: 1px;
+			}
+		}
+
+		input{
+			background: transparent;
+			border:0;
+			border-bottom: 2px solid black;
+			
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			
+			&:focus{
+				border-color:blue;
+			}
+		}
+	}
+}

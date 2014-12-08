@@ -1,0 +1,58 @@
+.show-error {
+	position: absolute;
+	z-index: 1070;
+	display: block;
+	font-size: 12px;
+	line-height: 1.4;
+	visibility: visible;
+	opacity:0.9;
+
+	transition: all 0.2s ease-in-out;
+
+
+	padding: 5px 0;
+	margin-top: 0px;
+	margin-left:10px;
+
+
+	.inner {
+		max-width: 300px;
+		padding: 3px 8px;
+		color: $danger-text;
+		text-decoration: none;
+		background-color: $danger-bg;
+		border-radius: 4px;
+	}
+
+	.arrow {
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-color: transparent;
+		border-style: solid;
+
+		top: 0;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 0 5px 5px;
+		border-bottom-color: $danger-bg;
+	}
+
+
+	/*	&.active{
+			opacity: .9;
+		}*/
+
+	&.ng-hide{
+		opacity: 0;
+	}
+}
+
+
+.im-input-group-multiple{
+	.error-balloon{
+		bottom: -34px;
+	}
+}
+
+

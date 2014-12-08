@@ -80,8 +80,8 @@ angular.module('GO.core')
 						var serverError = null;
 						var messages = {};
 
-						if ($attrs.imMessages) {
-							var messagesGetter = $parse($attrs.imMessages);
+						if ($attrs.goMessages) {
+							var messagesGetter = $parse($attrs.goMessages);
 
 							messages = messagesGetter();
 						}
@@ -89,8 +89,10 @@ angular.module('GO.core')
 //						console.log($scope.form);
 
 						$scope.hasErrors = function () {
-
-							return $scope.formEl && !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.$submitted);
+							
+							var hasErrors = $scope.formEl && !$scope.formEl.$valid && ($scope.formEl.$dirty || $scope.form.$submitted);
+							
+							return hasErrors;
 						};
 
 
@@ -164,7 +166,7 @@ angular.module('GO.core')
 								case 'required':
 									return Translate.t('This field is required');
 
-								case 'imMatch':
+								case 'goMatch':
 									return Translate.t('The values don\'t match');
 
 								case 'email':

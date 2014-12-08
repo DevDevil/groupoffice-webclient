@@ -22,7 +22,6 @@ angular.module('GO.core')
 						
 						var form = $element.controller("form");
 						
-						console.log('ja');
 						
 						$element.on('submit', function($event){	
 							

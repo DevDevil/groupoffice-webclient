@@ -1,4 +1,13 @@
+@charset "UTF-8";
+
 @import 'config';
+@import 'angular';
+@import 'form';
+@import 'buttons';
+
+//components
+@import '../core/components/form/show-error/show-error';
+@import '../core/alerts/alerts';
 
 html{
 	margin:0;
@@ -8,6 +17,8 @@ html{
 
 body{
 	font-family: $base-font;	
+	font-color: $primary-color;
+	font-size: 12px;
 	background-color: $body-bg-color;
 }
 

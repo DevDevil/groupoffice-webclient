@@ -1,0 +1,33 @@
+.go-alerts{
+	
+	
+	position:absolute;
+	
+	bottom: 10px;
+	right: 20px;
+	
+	div{
+		opacity: 0.8;
+		
+		padding: 10px;
+		
+		margin-bottom: 10px;
+		
+		border-radius: 2px;
+		border-width: 1px;	
+		border-style: solid;
+
+
+		&.warning{
+			background-color: $warning-bg;
+			border-color: $warning-border;
+			color: $warning-text;
+		}
+
+		&.danger{
+			background-color: $danger-bg;
+			border-color: $danger-border;
+			color: $danger-text;
+		}
+	}
+}
