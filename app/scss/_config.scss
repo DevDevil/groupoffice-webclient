@@ -4,6 +4,11 @@ $body-bg-color: #f1f1f1;
 $border-color: #ddd;
 
 
+$active-bg: #428bca;
+$active-text: white;
+$active-border: darken(adjust-hue($active-bg, -10), 7%);
+
+
 $success-text: #3c763d !default;
 $success-bg: #dff0d8 !default;
 $success-border: darken(adjust-hue($success-bg, -10), 5%) !default;

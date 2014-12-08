@@ -1,1 +1,25 @@
-Kitchensink
+<h1>Kitchensink</h1>
+
+<div ng-controller="KsAutocompleteController">
+
+
+	
+
+	<form>
+		
+		<div class="row">
+			<label for="test">
+				Type "cat"
+			</label>
+
+			<input type="text" go-autocomplete="model as model.name for model in store.items" ng-model="test">
+		</div>
+		
+		Model value:
+		<pre>
+			{{test| json}}
+		</pre>
+
+	</form>
+
+</div>

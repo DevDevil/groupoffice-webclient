@@ -5,28 +5,19 @@
 
 
 		<div class="row">
-			<label for="username">
-				{{"Username"| goT}}
-			</label>
-
+			<label for="username">{{"Username"| goT}}</label>
 			<input id="username" name="username" type="text" ng-model="user.username" placeholder="{{'Username'| goT}}" required autofocus>
 			<go-show-error for="username"></go-show-error>
 		</div>
 
 		<div class="row">
-			<label for="password">
-				{{"Password"| goT}}
-			</label>
-
+			<label for="password">{{"Password"| goT}}</label>
 			<input id="password" name="password" type="password" ng-model="user.password" placeholder="{{'Password'| goT}}" required>
-
 			<go-show-error for="password"></go-show-error>
 		</div>
 
 		<div class="row">
-			<label>
-				<input type="checkbox" ng-model="user.remember"> {{'Remember my login'| goT}}
-			</label>
+			<label><input type="checkbox" ng-model="user.remember"> {{'Remember my login'| goT}}</label>
 		</div>
 		
 		

@@ -126,16 +126,16 @@ angular.module('GO.core')
 				 * }.bind($scope.store);
 				 * </pre>
 				 */
-				Store.prototype.loadData = function(data) {					
+				Store.prototype.loadData = function(dataArray) {					
 							
-					for (var i = 0; i < data.length; i++) {					
+					for (var i = 0, l = dataArray.length; i < l; i++) {					
 
 						var model = this.createModel();
-						model.loadData(data[i]);
+						model.loadData(dataArray[i]);
 					
 						this.items.push(model);
 					}
-				};
+				};				
 				
 				Store.prototype.createModel = function(){
 					
