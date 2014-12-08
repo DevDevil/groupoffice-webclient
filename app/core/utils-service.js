@@ -10,7 +10,7 @@ angular.module('GO.core').
 				service('Utils', [function() {
 
 						var Utils = function() {
-							this.baseUrl = localStorage.baseUrl || "../../groupoffice-server/html/index.php";
+							this.baseUrl = localStorage.baseUrl || "../../groupoffice-server/html/index.php/";
 
 							//Use sessionStorage from browser so it survives browser reloads
 							this.defaultParams = angular.fromJson(sessionStorage.defaultParams);
@@ -20,7 +20,7 @@ angular.module('GO.core').
 						Utils.prototype.setBaseUrl = function(url) {
 
 							//Use localStorage to remember it for the user
-							this.baseUrl = localStorage.baseUrl = url;//url.replace(/^\s+|[\s\/]+$/g, '') + '/';
+							this.baseUrl = localStorage.baseUrl = url.replace(/^\s+|[\s\/]+$/g, '') + '/';
 						};
 
 
@@ -44,11 +44,14 @@ angular.module('GO.core').
 						Utils.prototype.url = function(route, params) {
 							if (!route && !params)
 								return this.baseUrl;
-							var url = this.baseUrl + "?r="+route;
+							
+							var url = this.baseUrl+route;
 
 							params = params || {};
 
 							angular.extend(params, this.defaultParams);
+							
+							var amp = false;
 
 							if (params) {
 								for (var name in params) {
@@ -56,7 +59,14 @@ angular.module('GO.core').
 										params[name]=angular.toJson(params[name]);							
 									}
 									
-									url += "&" + name + "=" + encodeURIComponent(params[name]);
+									if(amp){
+										url += '&';
+									}else{
+										url += '?';
+										amp = true;
+									}
+									
+									url += name + "=" + encodeURIComponent(params[name]);
 								}
 							}
 							return url;

@@ -1,10 +1,10 @@
-angular.module('GO.core').directive('imNumeric', function($filter, $locale) {
+angular.module('GO.core').directive('goNumeric', function($filter, $locale) {
     return {
         restrict: 'A',
         require: 'ngModel',
         link: function(scope, element, attr, ngModel) {
 			
-			element.addClass('im-numeric');
+			element.addClass('go-numeric');
 			
 			//Autoselect value
 			element.bind('focus', function(event, el){				
