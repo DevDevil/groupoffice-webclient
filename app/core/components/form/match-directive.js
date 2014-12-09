@@ -15,7 +15,7 @@
      <file name="index.html">
 			<form name="userForm"  novalidate>
 				<input type="password" ng-model="password" autocomplete="off" />
-				<input type="password" name="passwordConfirm" ng-model="passwordConfirm"  im-match="password" autocomplete="off" />
+				<input type="password" name="passwordConfirm" ng-model="passwordConfirm"  go-match="password" autocomplete="off" />
 				<p style="color:red" ng-show="userForm.passwordConfirm.$error.imMatch">The passwords don't match.</p>
 			</form>
 		</file>
@@ -27,11 +27,11 @@ angular.module('GO.core')
             require: 'ngModel',
             restrict: 'A',
             scope: {
-                imMatch: '='
+                goMatch: '='
             },
             link: function(scope, elem, attrs, ctrl) {
                 scope.$watch(function() {
-                    return (ctrl.$pristine && angular.isUndefined(ctrl.$modelValue)) || scope.imMatch === ctrl.$modelValue;
+                    return (ctrl.$pristine && angular.isUndefined(ctrl.$modelValue)) || scope.goMatch === ctrl.$modelValue;
                 }, function(currentValue) {
                     ctrl.$setValidity('goMatch', currentValue);
                 });

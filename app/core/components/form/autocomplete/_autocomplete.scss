@@ -1,0 +1,30 @@
+ul.dropdown{
+	position:absolute;
+
+	
+	background-clip: padding-box;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+	display: none;
+	float: left;
+	font-size: 14px;
+	left: 0;
+	list-style: outside none none;
+	margin: 2px 0 0;
+	min-width: 160px;
+	padding: 5px 0;
+	position: absolute;
+	top: 100%;
+	z-index: 1000;
+	li{
+		padding: 6px;
+		
+		&.active{
+			background-color: $active-bg;
+			color: $active-text;
+		}
+	}
+	
+}
