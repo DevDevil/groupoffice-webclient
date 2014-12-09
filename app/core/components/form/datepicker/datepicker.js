@@ -433,8 +433,8 @@ angular.module('GO.core')
 			showButtonBar: true
 		})
 
-		.directive('datepickerPopup', ['$compile', '$parse', '$document', 'GoPosition', 'dateFilter', 'GoDateParser', 'datepickerPopupConfig', '$timeout',
-			function ($compile, $parse, $document, GoPosition, dateFilter, GoDateParser, datepickerPopupConfig, $timeout) {
+		.directive('datepickerPopup', ['$compile', '$parse', '$document', 'GoPosition', 'dateFilter', 'GoDateParser', 'datepickerPopupConfig', '$locale', '$timeout',
+			function ($compile, $parse, $document, GoPosition, dateFilter, GoDateParser, datepickerPopupConfig, $locale, $timeout) {
 				return {
 					restrict: 'EA',
 					require: 'ngModel',
@@ -462,9 +462,13 @@ angular.module('GO.core')
 						scope.getText = function (key) {
 							return scope[key + 'Text'] || datepickerPopupConfig[key + 'Text'];
 						};
+						
+						if(!element.attr('placeholder')){
+							element.attr('placeholder', $locale.DATETIME_FORMATS.shortDate);
+						}
 
-						attrs.$observe('datepickerPopup', function (value) {
-							dateFormat = value || datepickerPopupConfig.datepickerPopup;
+						attrs.$observe('datepickerPopup', function (value) {										
+							dateFormat = value || $locale.DATETIME_FORMATS.shortDate; //datepickerPopupConfig.datepickerPopup;
 							ngModel.$render();
 						});
 

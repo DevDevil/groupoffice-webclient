@@ -21,11 +21,26 @@
 				Date
 			</label>
 
-			<input type="text" ng-model="formModel.date" datepicker-popup="dd-MM-yyyy" />
-			
-			<!--<input type="date" name="date" id="date" ng-model="formModel.date" placeholder="yyyy-MM-dd">-->
+			<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
 		</div>
+		
+		
+		<div class="row">
+			<label for="number">
+				Number
+			</label>
+
+			<input id="number" name="number" ng-model="formModel.number" go-numeric />
+		</div>
+		
+	
 
 	</form>
+	
+	
+	<pre>
+	{{formModel | json}}
+
+	</pre>
 
 </div>

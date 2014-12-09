@@ -9,6 +9,10 @@
 	
 	button{
 		padding: 4px;
+		
+		&.active{
+			box-shadow: none;
+		}
 	}
 	
 	button[role=heading]{

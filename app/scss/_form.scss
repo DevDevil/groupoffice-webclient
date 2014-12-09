@@ -44,9 +44,15 @@ form{
 				vertical-align: middle;
 				bottom: 1px;
 			}
+			
+			
 		}
 
-		input{			
+		input{		
+			
+			outline: 0;
+			box-shadow:none;
+			
 			display: inline-block;
 
 			background: transparent;
@@ -57,7 +63,12 @@ form{
 			
 			&:focus{
 				border-color: $active-border;
+				
 			}
+		}
+		
+		input[disabled]{
+			border-color: $border-color;
 		}
 	}
 }
