@@ -1,0 +1,21 @@
+.go-date-picker-popup {
+	z-index: 10;
+	background-color: #fff;
+	border: solid 1px #000;
+	text-align: center;
+	display: block;
+	position: absolute;
+	padding: 5px;
+	
+	button{
+		padding: 4px;
+	}
+	
+	button[role=heading]{
+		width: 100%;
+	}
+	
+	.toolbar{
+		padding: 10px;
+	}
+}

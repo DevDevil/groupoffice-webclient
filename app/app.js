@@ -2,10 +2,14 @@
 
 // Declare app level module which depends on views, and components
 angular.module('GO', [
+  'ngAnimate',
+	
   'ui.router',
   
-  'GO.core',
-  'GO.core.controllers'
+  'GO.core',  
+  'GO.core.controllers',
+  
+  'GO.kitchensink'
 ]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
@@ -34,4 +38,4 @@ angular.module('GO', [
 				Utils.setBaseUrl("../../groupoffice-server/html/index.php");
 			});
 		
-		
+angular.module('GO.kitchensink.controllers', []);

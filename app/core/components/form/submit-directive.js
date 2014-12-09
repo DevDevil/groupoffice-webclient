@@ -22,7 +22,6 @@ angular.module('GO.core')
 						
 						var form = $element.controller("form");
 						
-						console.log('ja');
 						
 						$element.on('submit', function($event){	
 							
@@ -47,6 +46,8 @@ angular.module('GO.core')
 								
 							if($scope.$parent[formName].$valid){
 								$scope.goSubmit();
+								
+								Alerts.addAlert(Translate.t("Saved successfully"), "success");
 							}else{
 								
 								//otherwise popups don't show in modal windows.

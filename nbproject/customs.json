@@ -1,0 +1,14 @@
+{
+	"attributes": {
+		"go-submit": {
+			"context": "form"
+		}
+	},
+	"elements": {
+		"go-show-error": {
+			"attributes": {
+				"for": {}
+			}
+		}
+	}
+}

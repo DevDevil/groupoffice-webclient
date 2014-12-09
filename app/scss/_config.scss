@@ -1,2 +1,28 @@
 $base-font: 'Roboto';
+$primary-color: #333;
 $body-bg-color: #f1f1f1;
+$border-color: #ddd;
+
+
+$active-bg: #428bca;
+$active-text: white;
+$active-border: darken(adjust-hue($active-bg, -10), 7%);
+
+
+$success-text: #3c763d !default;
+$success-bg: #dff0d8 !default;
+$success-border: darken(adjust-hue($success-bg, -10), 5%) !default;
+
+$info-text: #31708f !default;
+$info-bg: #d9edf7 !default;
+$info-border: darken(adjust-hue($info-bg, -10), 7%) !default;
+
+$warning-text: #8a6d3b !default;
+$warning-bg: #fcf8e3 !default;
+$warning-border: darken(adjust-hue($warning-bg, -10), 5%) !default;
+
+$danger-text: #a94442 !default;
+$danger-bg: #f2dede !default;
+$danger-border: darken(adjust-hue($danger-bg, -10), 5%) !default;
+
+
