@@ -12,7 +12,19 @@ angular.module('GO.kitchensink.controllers').
 				},{
 					name: "Dog",
 					value: "dog"
+				},{
+					name: "Horse",
+					value: "horse"
+				},{
+					name: "A very long result indeed. This is crazy long.",
+					value: "cow"
 				}]);
+			
+			
+			$scope.formModel = {
+				autocomplete: null,
+				date: new Date()
+			};
 				
 
 			}]);

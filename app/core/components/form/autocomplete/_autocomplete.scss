@@ -1,11 +1,14 @@
-ul.dropdown{
+ul.go-autocomplete-list{
 	position:absolute;
 
 	
 	background-clip: padding-box;
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-radius: 4px;
+	border-radius: 2px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
 	display: none;
 	float: left;
@@ -20,6 +23,11 @@ ul.dropdown{
 	z-index: 1000;
 	li{
 		padding: 6px;
+		
+		border-top: 1px solid $border-color;
+		&:first-child{
+			border-top: 0;
+		}
 		
 		&.active{
 			background-color: $active-bg;

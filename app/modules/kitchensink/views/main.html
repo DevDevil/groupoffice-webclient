@@ -8,17 +8,23 @@
 	<form>
 		
 		<div class="row">
-			<label for="test">
-				Type "cat"
+			<label for="autocomplete">
+				Autocomplete
 			</label>
 
-			<input type="text" go-autocomplete="model as model.name for model in store.items" ng-model="test">
-		</div>
+			<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in store.items" ng-model="formModel.autocomplete">
+		</div>	
 		
-		Model value:
-		<pre>
-			{{test| json}}
-		</pre>
+		
+		<div class="row">
+			<label for="date">
+				Date
+			</label>
+
+			<input type="text" ng-model="formModel.date" datepicker-popup="dd-MM-yyyy" />
+			
+			<!--<input type="date" name="date" id="date" ng-model="formModel.date" placeholder="yyyy-MM-dd">-->
+		</div>
 
 	</form>
 
