@@ -42,10 +42,14 @@ form{
 			input{
 				border:0 !important;
 
-				display:inline;
+
 				box-shadow:none;
-				width:auto;
+
 				min-width:20px;
+
+				width: 80px;
+				overflow: visible;
+				display: inline-block;
 
 				padding:0;
 

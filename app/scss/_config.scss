@@ -1,6 +1,7 @@
+//variable names should start with the type like 'color', 'padding'
+//not body-color but color-body.
 
 $body-bg-color: #f1f1f1;
-
 
 
 $active-bg: #428bca;
@@ -28,8 +29,8 @@ $danger-border: darken(adjust-hue($danger-bg, -10), 5%) !default;
 $code-bg-color: $cGrey9;
 $code-example-bg-color: $cGrey5;
 
-$link-color: $cGoBlue5;
-$link-hover-color: $cGoBlue7;
+$link-color: $cGoBlue7;
+$link-hover-color: $cGoBlue5;
 
 
 $header-bg-color: $cGoBlue7;
