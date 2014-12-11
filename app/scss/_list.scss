@@ -1,0 +1,24 @@
+ul.comma-list {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		.fa{
+			display:inline;
+			padding-right:2px;
+		}
+	};
+
+	li:after {
+		content: ", ";
+	};
+
+	li:last-child:after {
+		content: "";
+	};
+}

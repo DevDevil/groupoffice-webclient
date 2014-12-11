@@ -1,0 +1,59 @@
+form{
+	.row {
+		.go-multiselect{
+			
+			@extend .form-input;
+			
+			> ul:first-child{	
+				display: inline;
+				margin: 0;
+				padding: 0;
+
+
+				> li {
+					display: inline;
+					list-style: none;
+					margin: 0;
+					padding: 0;
+
+					i {
+						display:none;
+					}
+
+					&:hover{
+						i{
+							display:inline;
+						}
+					}
+
+
+				};
+
+				/*		> li:after {
+							content: ", ";
+						};*/
+
+				/*		>li:last-child:after {
+							content: "";
+						};*/
+			};
+
+
+			input{
+				border:0 !important;
+
+				display:inline;
+				box-shadow:none;
+				width:auto;
+				min-width:20px;
+
+				padding:0;
+
+				&.ng-dirty {
+					border-color: none !important;
+					box-shadow: none !important;
+				}
+			}
+		}
+	}
+}

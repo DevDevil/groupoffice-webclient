@@ -1,7 +1,6 @@
-$base-font: 'Roboto';
-$primary-color: #333;
+
 $body-bg-color: #f1f1f1;
-$border-color: #ddd;
+
 
 
 $active-bg: #428bca;
@@ -25,4 +24,86 @@ $danger-text: #a94442 !default;
 $danger-bg: #f2dede !default;
 $danger-border: darken(adjust-hue($danger-bg, -10), 5%) !default;
 
+
+$code-bg-color: $cGrey9;
+$code-example-bg-color: $cGrey5;
+
+$link-color: $cGoBlue5;
+$link-hover-color: $cGoBlue7;
+
+
+$header-bg-color: $cGoBlue7;
+$header-menu-bg-color: $cGoBlue5;
+
+$avatar-bg-color: $cGrey2;
+
+$menu-item-color: $cGrey9;
+
+
+
+/**
+ * 1. Colors
+ */
+
+
+/**
+ * 2. Bird's eye view of z-index
+ */
+$zDropdown:100;
+$zPopover:110;
+$zTooltip:130;
+$zFixedNavbar:130;
+$zModalBackdrop:140;
+$zModal:150;
+
+/**
+ * 3. Fonts
+ */
+$font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+$font-size: 13px;
+$font-weight:400;
+$font-color: #333;
+$border-radius:2px;
+$line-height: 24px;
+$letter-spacing: 0.1px;
+$border-color: $cGrey3;
+
+/**
+ * 4. Widget specific
+ */
+$tabBarHeight: 40px;
+$toolbarHeight: 70px;
+
+
+// When an element is selected
+%selected {
+	//background-color: $cGoBlue2;
+	color: $cGoBlue7;
+	//text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+}
+// When mouse hovers over element
+%hover {
+	background-color: $cGoBlue1;
+	color: black;
+}
+
+// When clicked
+%active {
+	//background-image: none;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+	color: white;
+	background-color: $cGoBlue2;
+	> a {
+		color: white;
+	}
+}
+
+%panel {
+	overflow: hidden; //only inside panel can scroll
+	position: relative;
+}
+
+%hidden{
+	display: none;
+}
 

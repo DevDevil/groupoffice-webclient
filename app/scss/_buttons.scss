@@ -81,6 +81,11 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 
 
 	padding: 6px 12px;
+	
+	margin-right: 6px;
+	&:last-child{
+		margin-right: 0px;
+	}
 
 	border-radius: 2px;
 

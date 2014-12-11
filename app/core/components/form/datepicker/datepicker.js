@@ -463,14 +463,16 @@ angular.module('GO.core')
 							return scope[key + 'Text'] || datepickerPopupConfig[key + 'Text'];
 						};
 						
-						if(!element.attr('placeholder')){
-							element.attr('placeholder', $locale.DATETIME_FORMATS.shortDate);
-						}
 
 						attrs.$observe('datepickerPopup', function (value) {										
-							dateFormat = value || $locale.DATETIME_FORMATS.shortDate; //datepickerPopupConfig.datepickerPopup;
+							dateFormat = value || $locale.DATETIME_FORMATS.shortDate.replace('yy','yyyy'); //datepickerPopupConfig.datepickerPopup;
 							ngModel.$render();
 						});
+						
+						
+						if(!element.attr('placeholder')){
+							element.attr('placeholder', dateFormat);
+						}
 
 						// popup element used to display calendar
 						var popupEl = angular.element('<div datepicker-popup-wrap><div datepicker></div></div>');

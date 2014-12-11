@@ -23,7 +23,12 @@ angular.module('GO.kitchensink.controllers').
 			
 			$scope.formModel = {
 				autocomplete: null,
-				date: new Date()
+				date: new Date(),
+				multiselect: [{name: "Cat"}]
+			};
+			
+			$scope.getMultiselectModels = function(input){ 
+				return [];// $scope.store.items;
 			};
 				
 

@@ -1,0 +1,50 @@
+<!--<h1>Kitchensink</h1>-->
+
+<div class="card" ng-controller="KsAutocompleteController">
+
+	<form>
+		
+		<div class="row">
+			<label for="autocomplete">
+				Autocomplete
+			</label>
+
+			<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in store.items" ng-model="formModel.autocomplete">
+		</div>	
+		
+		
+		<div class="row">
+			<label for="date">
+				Date
+			</label>
+
+			<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
+		</div>
+		
+		
+		<div class="row">
+			<label for="number">
+				Number
+			</label>
+
+			<input id="number" name="number" ng-model="formModel.number" go-numeric />
+		</div>
+		
+		<div class="row">
+			<label for="multiselect">
+				Multiselect
+			</label>
+
+			<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
+		</div>
+		
+	
+
+	</form>
+	
+	
+	<pre>
+	{{formModel | json}}
+	</pre>
+
+</div>
