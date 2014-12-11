@@ -20,6 +20,9 @@ angular.module('GO.kitchensink.controllers').
 					value: "cow"
 				}]);
 			
+			$scope.getAutoCompleteData = function(input){
+				return $scope.store.items;
+			};
 			
 			$scope.formModel = {
 				autocomplete: null,

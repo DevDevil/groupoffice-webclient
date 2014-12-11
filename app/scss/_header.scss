@@ -1,0 +1,46 @@
+body > header:first-child {
+	color: $header-color;
+	height: 100px;
+	background-color: $header-bg-color;
+	line-height: 100px;
+	padding: 0 15px;
+
+	a{
+		color: inherit;
+	}
+
+	.left{
+
+		> * {
+			margin-right: 15px;
+		}
+
+		.logo {
+			height: 45px;
+			display: inline-block;
+			padding-left: 60px;
+			line-height: 45px;
+			background-image: url('../resources/groupoffice-logo.png');
+			background-position: left middle;
+			background-repeat: no-repeat;
+		}
+	}
+
+	.right{
+		text-align:right;
+
+		> * {
+			line-height: $line-height;
+			margin-left: 15px;
+		}
+	}
+}
+
+
+body > main {
+	position: absolute;
+	top:100px;
+	bottom: 0;
+	width: 100%;
+	overflow:hidden;
+}
