@@ -5,7 +5,10 @@ input.ng-invalid.ng-dirty, form.ng-submitted input.ng-invalid {
 input.ng-valid.ng-dirty, form.ng-submitted input.ng-valid {
 	border-color: $success-border !important;
 }
-
+input {
+	font-family: "Roboto";
+	font-size: 12px;
+}
 
 textarea { 
 	resize: none; 
