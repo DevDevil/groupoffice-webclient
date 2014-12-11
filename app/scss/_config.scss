@@ -34,6 +34,8 @@ $link-hover-color: $cGoBlue7;
 
 $header-bg-color: $cGoBlue7;
 $header-menu-bg-color: $cGoBlue5;
+$header-color: white;
+
 
 $avatar-bg-color: $cGrey2;
 
@@ -90,12 +92,8 @@ $toolbarHeight: 70px;
 // When clicked
 %active {
 	//background-image: none;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-	color: white;
+	//text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 	background-color: $cGoBlue2;
-	> a {
-		color: white;
-	}
 }
 
 %panel {
