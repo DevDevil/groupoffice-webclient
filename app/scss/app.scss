@@ -8,12 +8,12 @@
 
 @import "fonts";
 @import "icons";
-@import "code";
-@import "utils";
 @import "list";
 @import "defaults";
 @import "widgets";
-@import "master";
+@import "dialog";
+@import "header";
+@import "utils";
 
 //components
 @import '../core/components/form/show-error/show-error';
