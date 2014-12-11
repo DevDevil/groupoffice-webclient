@@ -1,21 +1,21 @@
 'use strict';
 
-angular.module('GO.kitchensink.controllers', []);
+angular.module('GO.contacts.controllers', []);
 
 // Declare app level module which depends on views, and components
-angular.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
+angular.module('GO.contacts', ['GO.core', 'GO.contacts.controllers']).
 		//Register the module
 		config(['modulesProvider', function(modulesProvider) {
-				modulesProvider.addModule('kitchensink', 'Kitchen sink');
+				modulesProvider.addModule('contacts', 'Contacts');
 			}]).
 
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				
 				// Now set up the states
 				$stateProvider
-						.state('kitchensink', {
-							url: "/kitchensink",
-							templateUrl: "modules/kitchensink/views/form.html"
+						.state('contacts', {
+							url: "/contacts",
+							templateUrl: "modules/contacts/views/main.html"
 						});
 						
 

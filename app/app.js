@@ -9,7 +9,8 @@ angular.module('GO', [
   'GO.core',  
   'GO.core.controllers',
   
-  'GO.kitchensink'
+  'GO.kitchensink',
+  'GO.contacts'
 ]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
@@ -38,4 +39,3 @@ angular.module('GO', [
 				Utils.setBaseUrl("../../groupoffice-server/html/index.php");
 			});
 		
-angular.module('GO.kitchensink.controllers', []);

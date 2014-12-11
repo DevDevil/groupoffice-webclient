@@ -2,6 +2,12 @@
 // 2. Data Lists
 //--------------------------------------------------------------
 
+$padding-list-index: 80px;
+
+.pad-list-index{
+	padding-left: $padding-list-index;
+}
+
 // Abstract menu item for dropdowns and lists etc
 %menuitem {
 	font-size: 1.2em;
@@ -13,15 +19,23 @@
 		@extend %active;
 	}
 	
+	&.index ~ li{
+		> a{
+			padding-left: $padding-list-index;
+		}
+	}
+	
 	> a {
 		display:table-cell;
 		vertical-align: middle;
 /*		white-space: nowrap;*/
 		overflow: hidden;
 		color: inherit;
-		padding: 5px 12px;
+		padding: 8px 12px;		
+		
 		&.selected { @extend %selected;	}
 	}
+	
 	> a {
 		color: inherit;
 		&:hover { @extend %hover;	}
@@ -35,15 +49,16 @@
 		border-bottom: 1px solid $cGrey2;
 	}
 	.avatar {
-		float:left;
+		display:inline-block;
+		vertical-align: middle;
 		margin-right: 20px;
 	}
-	&.header,
-	.header {
+	&.index,
+	.index {
 		&:first-child{ border:0; }
 		font-size: 1.5em;
 		font-weight: 700;
-		text-indent: -40px;
+		text-indent: 24px;
 		color: $cGoBlue7;
 		cursor: default;
 		display:block;
@@ -73,12 +88,13 @@ ul.list {
 	li {
 		@extend %menuitem;
 		
-		padding-left: 40px;
+/*		padding-left: 40px;
 		width: 100%;
 		> a {
 			overflow: hidden;
-			padding: 8px 10px;
-		}
+			//padding: 8px 10px;
+		}*/
+
 	}
 }
 
@@ -143,9 +159,11 @@ section.tabs {
 menu[type="toolbar"] {
 	display:table;
 	width:100%;
-	height: 78px;
-	> li {
-		color:white;
+	height: 60px;
+	color: $link-color;
+	border-bottom: 1px solid $border-color;
+	border-right:  1px solid $border-color;
+	//> li {		
 		a{ color: inherit; }
 		list-style-type:none;
 		display:table-cell;
@@ -158,9 +176,9 @@ menu[type="toolbar"] {
 			display: inline-block; 
 			min-width: 30px;
 		}
-	}
+	//}
 	& + * {
-		top: 78px;
+		top: 60px;
 	}
 }
 

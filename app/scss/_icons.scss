@@ -16,12 +16,14 @@ i[class] {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
+	
+	font-size:23px; 
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-i.big { font-size:23px; }
+
 
 i {
 	&.person:before {content: "\e601";}
