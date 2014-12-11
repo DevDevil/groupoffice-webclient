@@ -10,6 +10,9 @@ angular.module('GO.core').directive('goNumeric', function($filter, $locale) {
 			element.bind('focus', function(event, el){				
 				event.target.select();
 			});
+			
+			element.attr('type', 'text');
+			element.attr('pattern', '\\d*');
          
             var decN = scope.$eval(attr.decimalPlaces); // this is the decimal-places attribute
  
@@ -26,8 +29,7 @@ angular.module('GO.core').directive('goNumeric', function($filter, $locale) {
                        - (match[2] ? +match[2] : 0));
             }
          
-            function fromUser(text) {			
-				
+            function fromUser(text) {		
 				if(text === ""){
 					//empty text means clear the value
 					return null;
@@ -42,9 +44,13 @@ angular.module('GO.core').directive('goNumeric', function($filter, $locale) {
             function toUser(n) {
                 return $filter('number')(n, decN); // locale-aware formatting
             }
+			
+
          
-            ngModel.$parsers.push(fromUser);
-            ngModel.$formatters.push(toUser);
+            ngModel.$parsers = [fromUser];
+            ngModel.$formatters = [toUser];
+			
+
          
             element.bind('blur', function() {
                 element.val(toUser(ngModel.$modelValue));

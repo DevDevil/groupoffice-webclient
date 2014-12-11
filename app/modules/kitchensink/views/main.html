@@ -1,31 +1,180 @@
-<h1>Kitchensink</h1>
 
-<div ng-controller="KsAutocompleteController">
+		<div class="wrapper">
+			<div class="col w1-3 panel">
+				<menu type="toolbar">
+					<li>
+						<a href="#"><i class="big i-navigation-menu"></i></a>
+						<menu class="dd">
+								<h2><a href="#">All <i class="i-navigation-arrow-drop-down"></i></a></h2>
+								<ul class="top-right">
+									<li><a class="selected" href="#">All</a></li>
+									<li><a href="#">Family</a></li>
+									<li><a href="#">Friends</a></li>
+									<li><a href="#">Collegas</a></li>
+								</ul>
+						</menu>
+					</li>
+					<li>
+						<!--<input type="search" /><i class="search"></i>-->
+						<a href="#"><i class="big i-action-search"></i></a>
+						<menu class="dd">
+						<a href="#">
+						<i class="big i-navigation-more-vert"></i>
+					</a>
+						<ul class="top-left">
+							<li><a href="#">Refresh</a></li>
+							<li><a href="#">Add Contact</a></li>
+							<li><a href="#">Export</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Settings</a></li>
+						</ul>
+						</menu>
+					</li>
+				</menu>
+				<ul class="list panel">
+					<li class="header">A</li>
+					<li>
+						<a href="#">
+							<div class="avatar">
+								<img src="modules/kitchensink/res/thumb1.jpg" />
+							</div>
+							<strong>Alejandro Lengue</strong><br>
+							<small>Mobile</small>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Alexandre Schwethelm</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar">
+								<img src="modules/kitchensink/res/thumb2.jpg" />
+							</div>
+							<strong>Andreas Braga</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar">
+								<img src="modules/kitchensink/res/thumb3.jpg" />
+							</div>
+							<strong>Asher Ariel</strong>
+						</a>
+					</li>
+					<li class="header">B</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Bruce Polph</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar">
+								<img src="modules/kitchensink/res/thumb4.jpg" />
+							</div>
+							<strong>Bill Eldridge</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Brandon Eley</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Bob Gizynski</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Bruce Polph</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar">
+								<img src="modules/kitchensink/res/thumb4.jpg" />
+							</div>
+							<strong>Bill Eldridge</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Brandon Eley</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<div class="avatar"></div>
+							<strong>Bob Gizynski</strong>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col w2-3">
+				<div class="card" style="margin-top:18px">
+					<header style="height: 360px; background: url('modules/kitchensink/res/contact.png');">
+						<menu class="toolbar">
+							<div class="right">
+								<a href="#"><i class="edit"></i></a>
+								<a href="#"><i class="menu"></i></a>
+							</div>
 
+						</menu>
+						<h2>Alejandro Lengue</h2>
+					</header>
+					<section class="tabs" style="height: 250px">
+						<menu>
+							<a href="#" class="active">Info</a>
+							<a href="#">Projecten</a>
+							<a href="#">Facturen</a>
+							<a href="#">Contracten</a>
+							<a href="#">Offertes</a>
+							<a href="#">More</a>
+						</menu>
+						<div class="active pad" style="height:350px;">
+							<!-- first tab -->
+							<ul class="list">
+								<li class="header"><i class="i-communication-phone"></i></li>
+								<li>
+									<label>
+									<strong>+31 (0)6 123456789</strong><br>
+									<small>Mobile</small>
+									</label>
+								</li>
+								<li>
+									<label>
+									<strong>+31 (0)70 123456789</strong><br>
+									<small>Work</small>
+										</label>
+								</li>
+								<li class="header"><i class="i-communication-email"></i>
+								</li>
+								<li>
+									<label>
+									<strong>aleengue@virtualorbis.com</strong><br>
+									<small>Work</small>
+										</label>
+								</li>
+							</ul>
+						</div>
+					</section>
 
-	
-
-	<form>
-		
-		<div class="row">
-			<label for="autocomplete">
-				Autocomplete
-			</label>
-
-			<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in store.items" ng-model="formModel.autocomplete">
-		</div>	
-		
-		
-		<div class="row">
-			<label for="date">
-				Date
-			</label>
-
-			<input type="text" ng-model="formModel.date" datepicker-popup="dd-MM-yyyy" />
-			
-			<!--<input type="date" name="date" id="date" ng-model="formModel.date" placeholder="yyyy-MM-dd">-->
+				</div>
+			</div>
 		</div>
+<<<<<<< HEAD
 
 	</form>
 
 </div>
+=======
+>>>>>>> 52cae5cf9e1f856b177875aecf013f1f90b1b792

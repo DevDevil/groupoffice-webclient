@@ -6,7 +6,7 @@ angular.module('GO', [
 	
   'ui.router',
   
-  'GO.core',  
+  'GO.core',
   'GO.core.controllers',
   
   'GO.kitchensink'
@@ -20,6 +20,10 @@ angular.module('GO', [
 						.state('404', {
 							url: "/404",
 							templateUrl: "views/404.html"
+						})
+						.state('michael', {
+							url: "/michael",
+							templateUrl: "views/michael.html"
 						})
 						.state('login', {
 							url: "/login",

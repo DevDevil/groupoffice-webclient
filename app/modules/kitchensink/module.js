@@ -13,7 +13,7 @@ angular.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
 				$stateProvider
 						.state('kitchensink', {
 							url: "/kitchensink",
-							templateUrl: "modules/kitchensink/views/main.html"
+							templateUrl: "modules/kitchensink/views/form.html"
 						});
 						
 

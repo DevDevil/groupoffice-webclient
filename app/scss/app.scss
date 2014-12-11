@@ -1,33 +1,24 @@
 @charset "UTF-8";
 
-@import 'config';
+@import "colors";
+@import "config";
 @import 'angular';
 @import 'form';
 @import 'buttons';
+
+@import "fonts";
+@import "icons";
+@import "code";
+@import "utils";
+@import "list";
+@import "defaults";
+@import "widgets";
+@import "master";
 
 //components
 @import '../core/components/form/show-error/show-error';
 @import '../core/alerts/alerts';
 @import "../core/components/form/autocomplete/autocomplete";
 @import "../core/components/form/datepicker/datepicker";
-
-html{
-	margin:0;
-	padding:0;
-	overflow: hidden;
-}
-
-body{
-	font-family: $base-font;	
-	font-color: $primary-color;
-	font-size: 12px;
-	background-color: $body-bg-color;
-}
-
-pre {
-	white-space: pre-wrap;  
-}
-
-a {
-	cursor:pointer;
-}
+@import "../core/components/form/numeric/_numeric.scss";
+@import "../core/components/form/multiselect/multiselect";

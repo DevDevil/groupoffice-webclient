@@ -45,19 +45,19 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 	color: $color;
 	background-color: $background;
 	border-color: $border;
-	&:hover, &:focus, &.focus, &:active{
+	&:hover, &:focus, &.focus, &:active, &.active{
 		background-color: darken($background, 10%);
 		border-color: darken($border, 12%);
 	}
 
 }
 // Button sizes
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+/*@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
 	padding: $padding-vertical $padding-horizontal;
 	font-size: $font-size;
 	line-height: $line-height;
 	border-radius: $border-radius;
-}
+}*/
 
 
 
@@ -81,6 +81,11 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 
 
 	padding: 6px 12px;
+	
+	margin-right: 6px;
+	&:last-child{
+		margin-right: 0px;
+	}
 
 	border-radius: 2px;
 
@@ -139,31 +144,6 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 		@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 	}
 }
-
-
-
-// Block button
-// --------------------------------------------------
-.btn-block {
-	display: block;
-	width: 100%;
-}
-// Vertically space out multiple block buttons
-.btn-block + .btn-block {
-	margin-top: 5px;
-}
-// Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-	&.btn-block {
-		width: 100%;
-	}
-}
-
-
-
-
 
 
 //For grouping button (should work on other elements as well later)

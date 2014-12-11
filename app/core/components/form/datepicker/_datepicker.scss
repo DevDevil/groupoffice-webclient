@@ -1,7 +1,7 @@
 .go-date-picker-popup {
 	z-index: 10;
 	background-color: #fff;
-	border: solid 1px #000;
+	border: solid 1px $border-color;
 	text-align: center;
 	display: block;
 	position: absolute;
@@ -9,6 +9,10 @@
 	
 	button{
 		padding: 4px;
+		
+		&.active{
+			box-shadow: none;
+		}
 	}
 	
 	button[role=heading]{
