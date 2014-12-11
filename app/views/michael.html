@@ -1,14 +1,10 @@
 baaa
+<button onclick="document.getElementById('d').classList.add('open')">Dont click me!</button>
 
-
-<?php 
-	$html->section(['class'=>'dialog']);
-?>
-
-<section class="modal">
+<section id="d" class="modal">
 	<div class="dialog">
 		<h1>Oh no!</h1>
 		<p>You pressed the button! Well that's gone and torn it, hasn't it?</p>
-		<button>Sorry</button>
+		<button onclick="document.getElementById('d').classList.remove('open')">Sorry</button>
 	</div>
 </section>
