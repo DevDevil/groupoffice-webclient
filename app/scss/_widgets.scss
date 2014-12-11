@@ -163,7 +163,7 @@ menu[type="toolbar"] {
 	color: $link-color;
 	border-bottom: 1px solid $border-color;
 	border-right:  1px solid $border-color;
-	//> li {		
+	> li {		
 		a{ color: inherit; }
 		list-style-type:none;
 		display:table-cell;
@@ -176,7 +176,7 @@ menu[type="toolbar"] {
 			display: inline-block; 
 			min-width: 30px;
 		}
-	//}
+	}
 	& + * {
 		top: 60px;
 	}
