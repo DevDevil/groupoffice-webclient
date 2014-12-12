@@ -48,11 +48,7 @@ $padding-list-index: 80px;
 		background-color: $border-color;
 		border-bottom: 1px solid $cGrey2;
 	}
-	.avatar {
-		display:inline-block;
-		vertical-align: middle;
-		margin-right: 20px;
-	}
+
 	&.index,
 	.index {
 		&:first-child{ border:0; }
@@ -102,8 +98,10 @@ ul.list {
  * TABS
  */
 section.tabs {
-	@extend %panel;
-	> menu, .tab-bar {
+	@extend .panel;
+	
+	top: 180px;
+	> menu {
 		display:flex;
 		flex-direction:row;
 		width:100%;
@@ -136,19 +134,14 @@ section.tabs {
 			top: $tabBarHeight;
 		}
 	}
-	> div {
-		@extend %hidden;
-		opacity: 0;
+	> div {		
 		position: absolute;
 		background-color: white;
 		overflow: hidden;
 		bottom: 0;
 		top: 0;
 		width: 100%;
-		&.active {
-			visibility: visible;
-			opacity: 1;
-		}
+		
 	}
 }
 
@@ -164,10 +157,16 @@ menu[type="toolbar"] {
 	border-bottom: 1px solid $border-color;
 	border-right:  1px solid $border-color;
 	> li {		
-		a{ color: inherit; }
+		a{ 
+			color: inherit;			
+		}
+		> a, menu > a {
+			font-size:23px;
+		}
 		list-style-type:none;
 		display:table-cell;
 		vertical-align: middle;
+		
 		&:last-child { 
 			text-align: right;
 			padding-right:16px;
@@ -224,8 +223,16 @@ nav > li, menu.dd {
 	width: 50px;
 	height: 50px;
 	overflow:hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
 	img {
-		min-width: 50px;
-		height:50px;
+		min-width: 100%;
+		height:100%;
+	}
+	
+	&.big{
+		height: 80px;
+		width: 80px;		
 	}
 }

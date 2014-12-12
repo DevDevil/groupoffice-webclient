@@ -47,3 +47,27 @@ strong {
 	color: $cGrey9;
 	font-weight: 400;
 }
+
+//h1 is used only in the header
+
+h2{
+	font-size: 2.8em;
+	font-weight: 400;
+	margin-bottom: 15px;
+	color: black;
+	
+	&:last-child{
+		margin-bottom: 0px;
+	}
+}
+
+h3{
+	font-size: 1.6em;
+	font-weight: 400;
+	margin-bottom: 10px;
+	color: black;
+	
+	&:last-child{
+		margin-bottom: 0px;
+	}
+}
