@@ -43,11 +43,12 @@ $padding-list-index: 80px;
 		&:active { @extend %active;}
 	}
 	&.divider {
-		height: 1px;
+		/*height: 1px;*/
+		height: 0px;
 		margin: 5px 0px;
 		overflow: hidden;
-		background-color: $border-color;
-		border-bottom: 1px solid $cGrey2;
+		/*background-color: $border-color;*/
+		border-bottom: 1px solid $border-color;;
 	}
 
 	&.index,
@@ -66,6 +67,7 @@ $padding-list-index: 80px;
 		height: 0px;
 		text-transform: uppercase;
 		border-top: 1px solid $border-color;
+
 	}
 }
 
@@ -111,6 +113,7 @@ section.list{
 		
 		&.index{
 			color: $font-color;
+			margin-top:12px;
 		}
 	}
 }
@@ -248,4 +251,29 @@ menu.popup{
 		height: 80px;
 		width: 80px;		
 	}
+}
+
+
+
+aside{
+	@extend .col;
+	width: 15%;
+	
+	.panel{		
+		box-shadow: 2px 0px 2px 0px  $border-color;
+		
+		.list{
+			i{
+				margin: 0px 20px;
+				font-size: 1.2em;
+				color: $font-color;
+			}
+			
+			a{
+				color: $link-color;
+				padding: 12px 12px;
+				//font-weight: 800;
+			}
+		}
+	}	
 }
