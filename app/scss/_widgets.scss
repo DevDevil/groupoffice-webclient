@@ -20,10 +20,11 @@ $padding-list-index: 80px;
 	}
 	
 	&.index ~ li{
-		> a{
+		> a, > label{
 			padding-left: $padding-list-index;
 		}
 	}
+	
 	
 	> a {
 		display:table-cell;
@@ -52,7 +53,9 @@ $padding-list-index: 80px;
 	&.index,
 	.index {
 		&:first-child{ border:0; }
-		font-size: 1.5em;
+		
+		padding-left: 0 !important;
+		font-size: 1.7em;
 		font-weight: 700;
 		text-indent: 24px;
 		color: $cGoBlue7;
@@ -69,28 +72,46 @@ $padding-list-index: 80px;
 %dropdown {
 	position: absolute;
 	list-style-type: none;
-	z-index: $zDropdown;
+	z-index: $zDropdown;	
+		
 	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 	min-width: 160px;
 	margin: 0;
 	background-color: white;
 	border: 1px solid $border-color;
+	
+	transform-origin: left top 0;
+	
+	&.top-right{
+		transform-origin: right top 0;
+	}
+	
 	//border-radius: $borderRadius $borderRadius;
 }
 
-ul.list {
-	//@extend %list;
+ul.list{
 	list-style-type: none;
-	li {
+	>* {
 		@extend %menuitem;
-		
-/*		padding-left: 40px;
-		width: 100%;
-		> a {
-			overflow: hidden;
-			//padding: 8px 10px;
-		}*/
+	}
+}
 
+section.list{
+	
+	//@extends ul.list;
+	
+	>*{
+		padding: 8px 12px;	
+		@extend %menuitem;
+		&.index ~ *{			
+			/*> a, > label{*/
+				padding-left: $padding-list-index;
+			/*}*/
+		}
+		
+		&.index{
+			color: $font-color;
+		}
 	}
 }
 
@@ -98,9 +119,14 @@ ul.list {
  * TABS
  */
 section.tabs {
-	@extend .panel;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
 	
-	top: 180px;
+	top: $height-panel-content-header; //todo how can we make this more dynamic?
+	width: 100%;
+	
 	> menu {
 		display:flex;
 		flex-direction:row;
@@ -157,12 +183,7 @@ menu[type="toolbar"] {
 	border-bottom: 1px solid $border-color;
 	border-right:  1px solid $border-color;
 	> li {		
-		a{ 
-			color: inherit;			
-		}
-		> a, menu > a {
-			font-size:23px;
-		}
+		
 		list-style-type:none;
 		display:table-cell;
 		vertical-align: middle;
@@ -185,34 +206,26 @@ menu[type="toolbar"] {
  * DROPDOWN
  */
 
-nav > li, menu.dd {
-	display: inline-block;
-	list-style-type: none;
-	position: relative;
-	&:hover > ul { transform: scale(1); }
-	> ul { // DROP MENU
-		   @extend %dropdown;
-		   transform: scale(0);
-		   text-align: left;
-		   position: absolute;
-		   background: none repeat scroll 0 0 #fff;
-		   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
-		   overflow: auto;
-		   transition: transform 0.2s ease-out 0s;
-		   &.top-right {
-			   left: 0;
-			   top: 0;
-			   transform-origin: left top 0;
-		   }
-		   &.top-left {
-			   right: 0;
-			   top: 0;
-			   transform-origin: right top 0;
-		   }
-		   > li {
-			   @extend %menuitem;
-		   }
+button {
+	
+	&:focus + menu { 
+		transform: scale(1) translateY(-38px);		
 	}
+}
+
+menu.popup{
+	display: block !important;
+
+	@extend %dropdown;
+	
+	transform: scale(0) translateY(-38px);
+	text-align: left;	
+	transition: transform 0.2s ease-out 0s;
+
+	> li {
+		@extend %menuitem;
+	}
+	
 }
 
 

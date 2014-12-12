@@ -2,31 +2,29 @@
 <div class="col w1-3">
 	<menu type="toolbar" class="pad-list-index">
 		<li>
-			<menu class="dd">
-				<a href="#">All <i class="arrow-down"></i></a>
-				<ul class="top-right">
-					<li><a class="selected" href="#">All</a></li>
-					<li><a href="#">Family</a></li>
-					<li><a href="#">Friends</a></li>
-					<li><a href="#">Collegas</a></li>
-				</ul>
+			<button class="menu">All <i class="arrow-down"></i></button>
+			<menu class="popup">
+				<li><a class="selected">All</a></li>
+				<li><a>Family</a></li>
+				<li><a>Friends</a></li>
+				<li><a>Collegas</a></li>
 			</menu>
 		</li>
 		<li>
 			<!--<input type="search" /><i class="search"></i>-->
-			<a href="#"><i class="big search"></i></a>
+<!--			<a><i class="search"></i></a>
 			<menu class="dd">
-				<a href="#">
-					<i class="big menu-dot"></i>
+				<a>
+					<i class="menu-dot"></i>
 				</a>
 				<ul class="top-left">
-					<li><a href="#">Refresh</a></li>
-					<li><a href="#">Add Contact</a></li>
-					<li><a href="#">Export</a></li>
+					<li><a>Refresh</a></li>
+					<li><a>Add Contact</a></li>
+					<li><a>Export</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Settings</a></li>
+					<li><a>Settings</a></li>
 				</ul>
-			</menu>
+			</menu>-->
 		</li>
 	</menu>
 
@@ -35,7 +33,7 @@
 	<ul class="list panel">
 		<li class="index">A</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb1.jpg" />
 				</div>
@@ -45,7 +43,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<i class="avatar"></i>
 
@@ -54,7 +52,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb2.jpg" />
 				</div>
@@ -62,7 +60,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb3.jpg" />
 				</div>
@@ -71,13 +69,13 @@
 		</li>
 		<li class="index">B</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Bruce Polph</strong>
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb4.jpg" />
 				</div>
@@ -85,25 +83,25 @@
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Brandon Eley</strong>
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Bob Gizynski</strong>
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Bruce Polph</strong>
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb4.jpg" />
 				</div>
@@ -111,13 +109,13 @@
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Brandon Eley</strong>
 			</a>
 		</li>
 		<li>
-			<a href="#">
+			<a>
 				<div class="avatar"></div>
 				<strong>Bob Gizynski</strong>
 			</a>
@@ -131,54 +129,58 @@
 		<header>
 			<menu type="toolbar">
 				<li>
-					<a><i class="pencil"></i></a>
-					<a><i class="menu-dot"></i></a>
+					<button><i class="pencil"></i></button>
+					<button><i class="menu-dot"></i></button>
 				</li>
 			</menu>
-			<div class="vertical-middle">
-				<div>
-					<div class="avatar big"></div>					
-				</div>
-				<div>
-					<h2>Alejandro Lengue</h2>
-					<h3>Virtual orbis</h3>
-				</div>
-			</div>
+			
+			<div class="avatar big"></div>			
+			<div class="title">				
+				<h2>Alejandro Lengue</h2>
+				<h3>Virtual orbis</h3>
+			</div>			
 		</header>
 		<section class="tabs">
 			<menu>
-				<a href="#" class="active">Info</a>
-				<a href="#">Projecten</a>
-				<a href="#">Facturen</a>
-				<a href="#">Contracten</a>
-				<a href="#">Offertes</a>
-				<a href="#">More</a>
+				<a class="active">Info</a>
+				<a>Projecten</a>
+				<a>Facturen</a>
+				<a>Contracten</a>
+				<a>Offertes</a>
+				<a>More</a>
 			</menu>
 			<div class="active pad">
+				
+				
+
+				
+				
 				<!-- first tab -->
-				<ul class="list">
-					<li class="header"><i class="i-communication-phone"></i></li>
-					<li>
-						<label>
-							<strong>+31 (0)6 123456789</strong><br>
-							<small>Mobile</small>
-						</label>
-					</li>
-					<li>
-						<label>
-							<strong>+31 (0)70 123456789</strong><br>
-							<small>Work</small>
-						</label>
-					</li>
-					<li class="header"><i class="i-communication-email"></i>
-					</li>
-					<li>
-						<label>
-							<strong>aleengue@virtualorbis.com</strong><br>
-							<small>Work</small>
-						</label>
-					</li>
-				</ul>
+				<section class="list">
+					<div class="index"><i class="phone"></i></div>
+					<a href="tel:123432432">
+						<strong>+31 (0)6 123456789</strong><br />
+						<small>Mobile</small>
+					</a>
+
+					<a href="tel:123432432">
+						<strong>+31 (0)70 123456789</strong><br>
+						<small>Work</small>
+					</a>
+					
+					<div class="index"><i class="email"></i></div>
+					
+					<a href="mailto:test@intermesh.nl">
+						<strong>aleengue@virtualorbis.com</strong><br>
+						<small>Work</small>
+					</a>
+					
+					<div>
+						<strong>CEO</strong><br>
+						<small>Function</small>						
+					</div>
+					
+				</section>
 			</div>
 		</section>
 

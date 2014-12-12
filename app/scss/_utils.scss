@@ -5,14 +5,7 @@
 		
 }
 
-.vertical-middle{
-	display: table;
-	height:100%;
-	>*{
-		vertical-align:middle;
-		display: table-cell;
-	}
-}
+
 
 //Panel always fits to the parent and should be in a column container
 .panel{
@@ -29,11 +22,15 @@
 		border-right: 0px;
 	}
 	
-	header {
-		height: $height-content-header;	
+	>header {
+		height: $height-panel-content-header;	//section.tabs depends on this var. How can we make this more dynamic?
 		padding: 30px;
 		
+		position: relative;
+		
 		.avatar{
+			float:left;
+			@extend %middle;
 			margin-right: 30px;
 		}
 		
@@ -43,6 +40,12 @@
 			left:0px;
 			right:0px;
 			border-bottom: 0px;
+		}
+		
+		.title{
+			float:left;
+			@extend %middle;
+			
 		}
 	}
 }

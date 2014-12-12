@@ -42,7 +42,7 @@ $avatar-bg-color: $cGoBlue2;
 
 $menu-item-color: $cGrey9;
 
-
+$height-panel-content-header: 180px;
 
 /**
  * 1. Colors
@@ -71,11 +71,13 @@ $line-height: 24px;
 $letter-spacing: 0.1px;
 $border-color: $cGrey3;
 
+$height-button: 1.7em;
+
 /**
  * 4. Widget specific
  */
 $tabBarHeight: 40px;
-$toolbarHeight: 70px;
+//$toolbarHeight: 70px;
 
 
 // When an element is selected
@@ -106,3 +108,10 @@ $toolbarHeight: 70px;
 	display: none;
 }
 
+//Only works in absolute or relative containers!
+%middle{
+	position:relative;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-block;
+}
