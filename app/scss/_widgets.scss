@@ -143,9 +143,11 @@ section.tabs {
 menu[type="toolbar"] {
 	display:table;
 	width:100%;
-	height: 78px;
+	height: 60px;
+	color: $link-color;
+	border-bottom: 1px solid $border-color;
+	border-right:  1px solid $border-color;
 	> li {
-		color:white;
 		a{ color: inherit; }
 		list-style-type:none;
 		display:table-cell;
