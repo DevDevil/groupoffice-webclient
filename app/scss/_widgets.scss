@@ -12,9 +12,8 @@ $padding-list-index: 80px;
 %menuitem {
 	font-size: 1.2em;
 	color: $color-menu-item;
-	display:table;
 	width: 100%;
-	
+	display:block;	
 	&.active{
 		@extend %active;
 	}
@@ -27,8 +26,9 @@ $padding-list-index: 80px;
 	
 	
 	> a {
-		display:table-cell;
-		vertical-align: middle;
+		display:block;
+		position:relative;
+		
 		overflow: hidden;
 		color: inherit;
 		padding: 8px 12px;		
@@ -37,6 +37,19 @@ $padding-list-index: 80px;
 		&.selected { @extend %selected;	}
 		&:hover { @extend %hover;	}
 		&:active { @extend %active;}
+		
+		.avatar {
+			float: left;
+		}
+		.description {
+			position:absolute;
+			top: 50%;
+			left: 150px;
+			transform: translateY(-50%);
+			display:block;
+		}
+		
+		
 	}
 	&.divider {
 		/*height: 1px;*/
@@ -50,27 +63,46 @@ $padding-list-index: 80px;
 	&.index,
 	.index {
 		&:first-child{ border:0; }
-		
-		padding-left: 0 !important;
-		font-size: 1.7em;
-		font-weight: 700;
-		text-indent: 24px;
-		color: $cGoBlue7;
 		cursor: default;
 		display:block;
 		overflow:visible;
-		line-height: 60px;
+		
 		height: 0px;
-		text-transform: uppercase;
+		
+		line-height:0px;
+		padding:0;
+		margin:0;
+		margin-top:0px !important;
+		margin-left: 80px;
+		
+		
 		border-top: 1px solid $border-color;
+		position: relative;
+		h2, i{
+			text-transform: uppercase;
+			color: $color-link;
+			position:absolute;
+			top: 20px;
+			left: -50px;
+			font-size: 1.3em;
+			font-weight: 700;
+			z-index: $z-popover;
+		}
+		
+		h2{
+			top: 30px;
+		}
 
 	}
 }
 
-%dropdown {
+%popup {
 	position: absolute;
 	list-style-type: none;
 	z-index: $z-dropdown;	
+	
+	left: 0px;
+	right: auto;
 		
 	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 	min-width: 160px;
@@ -82,9 +114,16 @@ $padding-list-index: 80px;
 	
 	&.top-right{
 		transform-origin: right top 0;
+		left: auto;
+		right: 0px;
 	}
 	
 	//border-radius: $borderRadius $borderRadius;
+}
+
+.dropdown{
+	position:relative;
+	display: inline-block;
 }
 
 ul.list{
@@ -215,7 +254,7 @@ button {
 menu.popup{
 	display: block !important;
 
-	@extend %dropdown;
+	@extend %popup;
 	
 	transform: scale(0) translateY(-38px);
 	text-align: left;	

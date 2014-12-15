@@ -1,5 +1,5 @@
 ul.go-autocomplete-list{
-	@extend %dropdown;
+	@extend %popup;
 	li{
 		@extend %menuitem;
 	}

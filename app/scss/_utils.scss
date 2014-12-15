@@ -1,3 +1,21 @@
+%panel {
+	overflow: hidden; //only inside panel can scroll
+	position: relative;
+}
+
+%hidden{
+	display: none;
+}
+
+//Only works in absolute or relative containers!
+%middle{
+	position:relative;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-block;
+}
+
+
 .card {
 		border-radius: 2px;
 		background-color: white;

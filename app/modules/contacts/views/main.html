@@ -28,42 +28,48 @@
 	
 	<menu type="toolbar" class="pad-list-index">
 		<li>
-			<button class="menu">All <i class="arrow-down"></i></button>
-			<menu class="popup">
-				<li><a class="selected">All</a></li>
-				<li><a>Family</a></li>
-				<li><a>Friends</a></li>
-				<li><a>Collegas</a></li>
-			</menu>
+			<div class="dropdown">
+				<button class="menu">All <i class="arrow-down"></i></button>
+				<menu class="popup">
+					<li><a class="selected">All</a></li>
+					<li><a>Family</a></li>
+					<li><a>Friends</a></li>
+					<li><a>Collegas</a></li>
+				</menu>
+			</div>
 		</li>
 		<li>
 			<!--<input type="search" /><i class="search"></i>-->
 			<button ><i class="search"></i></button>
-			<button class="menu"><i class="menu-dot"></i></button>
-			<menu class="popup top-right">
-				
-				<li><a>Refresh</a></li>
-				<li><a>Add Contact</a></li>
-				<li><a>Export</a></li>
-				<li class="divider"></li>
-				<li><a>Settings</a></li>
+			
+			<div class="dropdown">
+				<button class="menu"><i class="menu-dot"></i></button>
+				<menu class="popup top-right">
 
-			</menu>
+					<li><a>Refresh</a></li>
+					<li><a>Add Contact</a></li>
+					<li><a>Export</a></li>
+					<li class="divider"></li>
+					<li><a>Settings</a></li>
+
+				</menu>
+			</div>
 		</li>
 	</menu>
 
 
 
 	<ul class="list panel">
-		<li class="index">A</li>
+		<li class="index"><h2>A</h2></li>
 		<li>
 			<a>
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb1.jpg" />
 				</div>
-				Alejandro Lengue
-				
-				
+				<span class="description">
+					Alejandro Lengue<br />
+					<small>Virtual Orbis</small>
+				</span>
 			</a>
 		</li>
 		<li>
@@ -72,7 +78,9 @@
 					<i class="avatar"></i>
 
 				</div>
-				<strong>Alexandre Schwethelm</strong>
+				<span class="description">
+					Alexandre Schwethelm
+				</span>
 			</a>
 		</li>
 		<li>
@@ -80,7 +88,7 @@
 				<div class="avatar">
 					<img src="modules/kitchensink/res/thumb2.jpg" />
 				</div>
-				<strong>Andreas Braga</strong>
+				<span class="description">Andreas Braga</span>
 			</a>
 		</li>
 		<li>
@@ -91,7 +99,7 @@
 				<strong>Asher Ariel</strong>
 			</a>
 		</li>
-		<li class="index">B</li>
+		<li class="index"><h2>B</h2></li>
 		<li>
 			<a>
 				<div class="avatar"></div>
