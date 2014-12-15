@@ -1,9 +1,9 @@
 input.ng-invalid.ng-dirty, form.ng-submitted input.ng-invalid {
-	border-color: $danger-border !important;
+	border-color: $color-danger-border !important;
 }
 
 input.ng-valid.ng-dirty, form.ng-submitted input.ng-valid {
-	border-color: $success-border !important;
+	border-color: $color-success-border !important;
 }
 
 
@@ -65,7 +65,7 @@ form{
 			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 			
 			&:focus{
-				border-color: $active-border;
+				border-color: $color-active-border;
 				
 			}
 		}

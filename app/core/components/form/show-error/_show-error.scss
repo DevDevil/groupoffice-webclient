@@ -18,9 +18,9 @@
 	.inner {
 		max-width: 300px;
 		padding: 3px 8px;
-		color: $danger-text;
+		color: $color-danger-text;
 		text-decoration: none;
-		background-color: $danger-bg;
+		background-color: $color-danger-bg;
 		border-radius: 4px;
 	}
 
@@ -35,7 +35,7 @@
 		left: 50%;
 		margin-left: -5px;
 		border-width: 0 5px 5px;
-		border-bottom-color: $danger-bg;
+		border-bottom-color: $color-danger-bg;
 	}
 
 

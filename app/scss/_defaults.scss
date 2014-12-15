@@ -9,7 +9,7 @@ html,
 body {
 	height: 100%;
 	max-width: 100%;
-	//background-color: white;
+	background-color: $color-body-bg;
 	//overflow: hidden;
 }
 body {
@@ -24,10 +24,10 @@ body {
 
 a {
 	cursor: pointer;
-	color: $link-color;
+	color: $color-link;
 	text-decoration: none;
 	&:hover {
-		color: $link-hover-color;
+		color: $color-link-hover;
 	}
 }
 

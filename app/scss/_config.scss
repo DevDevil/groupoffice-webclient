@@ -1,46 +1,43 @@
 //variable names should start with the type like 'color', 'padding'
-//not body-color but color-body.
+//not body-bg-color but color-body-bg.
 
-$body-bg-color: #f1f1f1;
-
-
-$active-bg: #428bca;
-$active-text: white;
-$active-border: darken(adjust-hue($active-bg, -10), 7%);
+$color-body-bg: white;
 
 
-$success-text: #3c763d !default;
-$success-bg: #dff0d8 !default;
-$success-border: darken(adjust-hue($success-bg, -10), 5%) !default;
-
-$info-text: #31708f !default;
-$info-bg: #d9edf7 !default;
-$info-border: darken(adjust-hue($info-bg, -10), 7%) !default;
-
-$warning-text: #8a6d3b !default;
-$warning-bg: #fcf8e3 !default;
-$warning-border: darken(adjust-hue($warning-bg, -10), 5%) !default;
-
-$danger-text: #a94442 !default;
-$danger-bg: #f2dede !default;
-$danger-border: darken(adjust-hue($danger-bg, -10), 5%) !default;
+$color-active-bg: #428bca;
+$color-active-text: white;
+$color-active-border: darken(adjust-hue($color-active-bg, -10), 7%);
 
 
-$code-bg-color: $cGrey9;
-$code-example-bg-color: $cGrey5;
+$color-success-text: #3c763d !default;
+$color-success-bg: #dff0d8 !default;
+$color-success-border: darken(adjust-hue($color-success-bg, -10), 5%) !default;
 
-$link-color: $cGoBlue7;
-$link-hover-color: $cGoBlue5;
+$color-info-text: #31708f !default;
+$color-info-bg: #d9edf7 !default;
+$color-info-border: darken(adjust-hue($color-info-bg, -10), 7%) !default;
+
+$color-warning-text: #8a6d3b !default;
+$color-warning-bg: #fcf8e3 !default;
+$color-warning-border: darken(adjust-hue($color-warning-bg, -10), 5%) !default;
+
+$color-danger-text: #a94442 !default;
+$color-danger-bg: #f2dede !default;
+$color-danger-border: darken(adjust-hue($color-danger-bg, -10), 5%) !default;
 
 
-$header-bg-color: $cGoBlue7;
-$header-menu-bg-color: $cGoBlue5;
-$header-color: white;
+$color-link: $cGoBlue7;
+$color-link-hover: $cGoBlue5;
 
 
-$avatar-bg-color: $cGoBlue2;
+$color-header-bg: $cGoBlue7;
+$color-header-menu-bg: $cGoBlue5;
+$color-header: white;
 
-$menu-item-color: $cGrey9;
+
+$color-avatar-bg: $cGoBlue2;
+
+$color-menu-item: $cGrey9;
 
 $height-panel-content-header: 180px;
 
@@ -52,12 +49,12 @@ $height-panel-content-header: 180px;
 /**
  * 2. Bird's eye view of z-index
  */
-$zDropdown:100;
-$zPopover:110;
-$zTooltip:130;
-$zFixedNavbar:130;
-$zModalBackdrop:140;
-$zModal:150;
+$z-dropdown:100;
+$z-popover:110;
+$z-tooltip:130;
+$z-fixed-navbar:130;
+$z-modal-backdrop:140;
+$z-modal:150;
 
 /**
  * 3. Fonts
@@ -76,8 +73,41 @@ $height-button: 1.7em;
 /**
  * 4. Widget specific
  */
-$tabBarHeight: 40px;
-//$toolbarHeight: 70px;
+$height-tab-bar: 40px;
+
+
+
+// Buttons
+
+
+$btn-font-weight: normal !default;
+$btn-default-color: #333 !default;
+$btn-default-bg: #fff !default;
+$btn-default-border: #ccc !default;
+
+$btn-primary-color: #fff !default;
+$btn-primary-bg: darken(#428bca, 6.5%) !default;
+$btn-primary-border: darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color: #fff !default;
+$btn-success-bg: #5cb85c !default;
+$btn-success-border: darken($btn-success-bg, 5%) !default;
+
+$btn-info-color: #fff !default;
+$btn-info-bg: #5bc0de !default;
+$btn-info-border: darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color: #fff !default;
+$btn-warning-bg: #f0ad4e !default;
+$btn-warning-border: darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color: #fff !default;
+$btn-danger-bg: #d9534f !default;
+$btn-danger-border: darken($btn-danger-bg, 5%) !default;
+
+
+
+
 
 
 // When an element is selected
@@ -89,7 +119,7 @@ $tabBarHeight: 40px;
 // When mouse hovers over element
 %hover {
 	background-color: $cGoBlue1;
-	color: black;
+	color: $color-link;
 }
 
 // When clicked

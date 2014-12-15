@@ -19,15 +19,15 @@
 
 
 		&.warning{
-			background-color: $warning-bg;
-			border-color: $warning-border;
-			color: $warning-text;
+			background-color: $color-warning-bg;
+			border-color: $color-warning-border;
+			color: $color-warning-text;
 		}
 
 		&.danger{
-			background-color: $danger-bg;
-			border-color: $danger-border;
-			color: $danger-text;
+			background-color: $color-danger-bg;
+			border-color: $color-danger-border;
+			color: $color-danger-text;
 		}
 	}
 }

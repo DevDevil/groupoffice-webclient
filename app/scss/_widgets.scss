@@ -11,7 +11,7 @@ $padding-list-index: 80px;
 // Abstract menu item for dropdowns and lists etc
 %menuitem {
 	font-size: 1.2em;
-	color: $menu-item-color;
+	color: $color-menu-item;
 	display:table;
 	width: 100%;
 	
@@ -29,16 +29,12 @@ $padding-list-index: 80px;
 	> a {
 		display:table-cell;
 		vertical-align: middle;
-/*		white-space: nowrap;*/
 		overflow: hidden;
 		color: inherit;
 		padding: 8px 12px;		
+		transition: box-shadow .2s ease-out, background-color 0.2s ease-out;
 		
 		&.selected { @extend %selected;	}
-	}
-	
-	> a {
-		color: inherit;
 		&:hover { @extend %hover;	}
 		&:active { @extend %active;}
 	}
@@ -74,7 +70,7 @@ $padding-list-index: 80px;
 %dropdown {
 	position: absolute;
 	list-style-type: none;
-	z-index: $zDropdown;	
+	z-index: $z-dropdown;	
 		
 	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 	min-width: 160px;
@@ -135,7 +131,7 @@ section.tabs {
 		flex-direction:row;
 		width:100%;
 		border-bottom: 1px solid $border-color;
-		height: $tabBarHeight;
+		height: $height-tab-bar;
 		& > a {
 			//@extend %ellipsis;
 			text-overflow: ellipsis;
@@ -160,7 +156,7 @@ section.tabs {
 			}
 		}
 		& ~ div {
-			top: $tabBarHeight;
+			top: $height-tab-bar;
 		}
 	}
 	> div {		
@@ -182,7 +178,7 @@ menu[type="toolbar"] {
 	display:table;
 	width:100%;
 	height: 60px;
-	color: $link-color;
+	color: $color-link;
 	border-bottom: 1px solid $border-color;
 	border-right:  1px solid $border-color;
 	> li {		
@@ -234,7 +230,7 @@ menu.popup{
 
 
 .avatar {
-	background-color: $avatar-bg-color;
+	background-color: $color-avatar-bg;
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -270,7 +266,7 @@ aside{
 			}
 			
 			a{
-				color: $link-color;
+				color: $color-link;
 				padding: 12px 12px;
 				//font-weight: 800;
 			}
