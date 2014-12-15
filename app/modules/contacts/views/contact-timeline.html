@@ -1,0 +1,68 @@
+
+<div class="go-toolbar">
+	<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.contact.timeline.edit({timelineItemId:0})">
+		<i class="fa fa-plus"></i>
+	</a>	
+</div>
+
+<div class="go-scrollable-panel go-padding-panel" im-infinite-scroll="timelineStore.nextPage()" im-infinite-scroll-disabled="!timelineStore.shouldLoad()">
+
+	<div ng-repeat="timelineItem in timelineStore.items" class="go-card-quote">
+
+<!--		<div ng-if="timelineItem.imapMessageId">
+			<img class="thumbnail" ng-src="{{timelineItem.authorThumbUrl}}&amo;w=45">
+
+			<div class="go-card timeline-panel" ng-class="{'deleted-visible': timelineItem.deleted}">
+				<h1>
+					<i class="fa fa-envelope-o"></i> {{"by" | goT}} {{timelineItem.imapMessage.from.display}} {{'at' | goT}} {{timelineItem.imapMessage.date | date}} {{timelineItem.imapMessage.date | date : 'shortTime'}} 
+				</h1>
+
+				<h4>{{timelineItem.imapMessage.subject}}</h4> 
+
+				<p ng-bind-html="timelineItem.imapMessage.excerpt"></p>
+
+
+
+				<div style="text-align:right;padding:0px 20px 20px 0px">						
+					<a class="btn btn-xs btn-primary" ui-sref="contacts.contact.timeline.message({messageId: timelineItem.imapMessage.id})">{{"Open"| goT}}</a>
+
+					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div ng-if="!timelineItem.imapMessageId">-->
+			<img class="thumbnail" ng-src="{{timelineItem.authorThumbUrl}}&amp;w=45">
+
+
+			<div class="go-card" ng-class="{'deleted-visible': timelineItem.deleted}">
+				<h1>
+					<i class="fa fa-comment-o"></i> {{"by" | goT }} {{timelineItem.owner.username}} at {{timelineItem.createdAt | date}}
+				</h1>
+
+				<p ng-bind-html="timelineItem.text | nl2br"></p>
+
+				<div style="text-align:right;">						
+					<a ui-sref="contacts.contact.timeline.edit({timelineItemId: timelineItem.id})" class="btn btn-xs btn-default">
+						<i class="fa fa-edit"></i>
+					</a>
+					<im-soft-delete-button im-model="timelineItem"></im-soft-delete-button>
+				</div>
+			</div>
+		<!--</div>-->
+		
+		
+		
+	</div>
+	
+	<div ng-if="!timelineStore.busy" class="im-show-if-only-child">
+		{{'No items found'| goT}}
+	</div>
+	
+	<div ng-if="timelineStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+</div>
+
+
+
+<div ui-view></div>

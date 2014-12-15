@@ -12,7 +12,6 @@ $padding-list-index: 80px;
 %menuitem {
 	font-size: 1.2em;
 	color: $color-menu-item;
-	width: 100%;
 	display:block;	
 	&.active{
 		@extend %active;
@@ -98,6 +97,18 @@ $padding-list-index: 80px;
 
 %popup {
 	position: absolute;
+	display:block !important;
+	
+	transform: scale(0) translateY(-38px);
+	text-align: left;	
+	transition: transform 0.2s ease-out 0s;
+	
+	&.active{
+		//otherwise links are hard to click
+		transform: scale(1) translateY(-38px);
+	}
+	
+	
 	list-style-type: none;
 	z-index: $z-dropdown;	
 	
@@ -246,19 +257,18 @@ menu[type="toolbar"] {
 
 button {
 	
-	&:focus + menu { 
+	&:focus + menu{ 
 		transform: scale(1) translateY(-38px);		
 	}
 }
 
 menu.popup{
-	display: block !important;
-
 	@extend %popup;
 	
-	transform: scale(0) translateY(-38px);
-	text-align: left;	
-	transition: transform 0.2s ease-out 0s;
+	&:hover{
+		//otherwise links are hard to click
+		transform: scale(1) translateY(-38px);
+	}
 
 	> li {
 		@extend %menuitem;

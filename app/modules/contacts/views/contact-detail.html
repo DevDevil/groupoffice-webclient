@@ -1,0 +1,117 @@
+
+
+	<section class="list">
+		<div ng-if="contact.phoneNumbers.length" class="index"><i class="phone"></i></div>
+
+		<a ng-repeat="phoneNumber in contact.phoneNumbers" href="tel:{{phoneNumber.number}}">
+			<strong>{{phoneNumber.number}}</strong><br>
+			<small>{{phoneNumber.type}}</small>
+		</a>
+
+		<div ng-if="contact.emailAddresses.length" class="index"><i class="email"></i></div>
+
+		<a ng-repeat="emailAddress in contact.emailAddresses" href="mailto:{{emailAddress.email}}">
+			<strong>{{emailAddress.email}}</strong><br>
+			<small>{{emailAddress.type}}</small>
+		</a>
+
+
+	</section>
+
+
+<!--
+<div class="go-scrollable-panel">
+
+	<div class="go-col lg-2">
+
+		<div class="go-card" style="position: relative; min-height: 130px;padding-left:132px">
+			
+			
+			<img class="thumbnail" style="display:block;position:absolute;top:16px;left:16px;width:100px;" ng-src="{{contact.thumbUrl}}&amp;w=80" />
+			
+
+			<h1>
+				{{contact.name}}
+			</h1>
+			
+			<dl ng-if="contact.emailAddresses.length">						
+				<dt>{{"E-mail"| goT}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="emailAddress in contact.emailAddresses"><i style="margin-right:2px;" class="fa" ng-class="{'fa-envelope-o':emailAddress.type == 'other', 'fa-money':emailAddress.type == 'billing', 'fa-users':emailAddress.type == 'work','fa-home':emailAddress.type == 'home'}"></i><a href="mailto:{{emailAddress.email}}">{{emailAddress.email}}</a></li>
+					</ul>
+				</dd>
+			</dl>
+
+			<dl ng-if="contact.phoneNumbers.length">
+				<dt>{{"Phone numbers"| goT}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="phoneNumber in contact.phoneNumbers"><i style="margin-right:2px;" class="fa fa-phone"></i><a href="tel:{{phoneNumber.number}}">{{phoneNumber.number}}</a></li>
+					</ul>
+				</dd>
+			</dl>
+
+			<dl ng-if="contact.company">
+				<dt>{{"Company"| goT}}</dt>
+				<dd>
+					<a ui-sref="contacts.contact.detail({contactId: contact.company.id})">{{contact.company.name}}</a>
+				</dd>
+			</dl>
+
+			<dl ng-if="contact.tags.length">
+				<dt>{{"Tags"| goT}}</dt>
+				<dd>
+					<ul class="comma-list">
+						<li ng-repeat="tag in contact.tags">{{tag.name}}</li>
+					</ul>
+				</dd>
+			</dl>
+
+			<dl ng-repeat="date in contact.dates">
+				<dt>{{findDateLabel(date.type)}}</dt>
+				<dd>{{date.date|date:"longDate"}} ({{date.date|age}}{{'yr'| goT}})</dd>
+			</dl>
+		
+
+			<dl ng-if="contact.addresses.length">
+				<dt>{{"Address"| goT}}</dt>
+				<dd>
+					<div class="col-md-6 nopadding" ng-repeat="address in contact.addresses">
+						<h3>{{address.type}}</h3>
+						<a target="_blank" href="http://maps.google.com/?q={{address.street + ', ' + address.zipCode + ', ' + address.state + ', ' + address.country| encodeURIComponent}}" ng-bind-html="address.formatted | nl2br">
+
+						</a>
+					</div>
+
+				</dd>
+			</dl>
+
+		</div>
+
+
+
+		<div class="go-card" ng-if="contact.employees.length">
+			<h1>{{"Employees"| goT}}</h1>
+
+			<a ui-sref="contacts.contact.detail({contactId: contact.id})" style="float:left;width:100px;text-align:center;margin:20px;" ng-repeat="contact in contact.employees">
+				<img class="thumbnail" style="display:inline-block" ng-src="{{::contact.thumbUrl}}&amp;h=100&amp;w=75" />
+
+				{{contact.name}}
+
+			</a>					
+
+		</div>
+
+	</div>
+
+	<div class="go-col lg-2">
+		<div class="go-card" ng-if="contact.notes">
+			<h1>{{"Notes"| goT}}</h1>
+
+			<div ng-bind-html="contact.notes | nl2br"></div>		
+
+		</div>
+		<im-custom-fields-detail im-model="contact" im-server-model="Intermesh\Modules\Contacts\Model\ContactCustomFields"></im-custom-fields-detail>
+	</div>
+</div>-->

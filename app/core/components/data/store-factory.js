@@ -29,6 +29,8 @@ angular.module('GO.core')
 					this.loadParams = loadParams || {};
 					
 					this.lastLoadParams = {};
+					
+					this._indexChars = {};
 
 
 					this.defaultLimit = 20;
@@ -254,6 +256,29 @@ angular.module('GO.core')
 				Store.prototype.remove = function(index) {
 					this.total--;
 					return this.items.splice(index, 1);
+				};
+				
+				
+				Store.prototype.getIndexChar = function(attr, index){
+					
+					if(!this._indexChars[index]){
+					
+						if(!this.items[index]){
+							return '';
+						}
+
+						if(index === 0){
+							this._indexChars[index] = this.items[0][attr].substr(0,1);
+						}else
+						{
+							var lastIndex = this.items[index - 1][attr].substr(0,1);
+							var newIndex = this.items[index ][attr].substr(0,1);
+							this._indexChars[index] = lastIndex !== newIndex ? newIndex : "";
+						}
+					}
+					
+					return this._indexChars[index];
+					
 				};
 
 				/**

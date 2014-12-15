@@ -1,4 +1,4 @@
-<div class="go-date-picker-popup" ng-style="{display: (isOpen && 'block') || 'none', top: position.top + 'px', left: position.left + 'px'}" ng-keydown="keydown($event)">
+<div class="go-date-picker-popup" ng-class="{active: isOpen}" ng-style="{top: position.top + 'px', left: position.left + 'px'}" ng-keydown="keydown($event)">
 	<div ng-transclude></div>
 	<div ng-if="showButtonBar" class="toolbar">
 		<button type="button" ng-click="select('today')">{{ getText('current')}}</button>

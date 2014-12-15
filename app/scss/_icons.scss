@@ -17,7 +17,7 @@ i[class] {
 	text-transform: none;
 	line-height: 1;
 	
-	vertical-align:middle;
+	//vertical-align:middle;
 	
 	//font-size: 1.7em; 
 
@@ -487,6 +487,9 @@ i {
 	}
 	&.arrow-up:before {
 		content: "\e896";
+	}
+	&.arrow-left:before {
+		content: "\e896"; //TODO!
 	}
 	&.forward:before {
 		content: "\e897";

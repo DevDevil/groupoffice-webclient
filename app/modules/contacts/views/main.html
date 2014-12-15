@@ -59,166 +59,31 @@
 
 
 
-	<ul class="list panel">
-		<li class="index"><h2>A</h2></li>
-		<li>
-			<a>
+	<ul class="list panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<li ng-repeat-start="contact in store.items track by contact.id" class="index" ng-if="store.getIndexChar('name', $index) !== ''"><h2>{{::store.getIndexChar("name", $index)}}</h2></li>
+		<li ng-repeat-end>
+			<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.id})">
 				<div class="avatar">
-					<img src="modules/kitchensink/res/thumb1.jpg" />
+					<img ng-src="{{contact.thumbUrl}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
 				</div>
 				<span class="description">
-					Alejandro Lengue<br />
-					<small>Virtual Orbis</small>
+					{{contact.name}}
+					<!--<small>Virtual Orbis</small>-->
 				</span>
 			</a>
 		</li>
-		<li>
-			<a>
-				<div class="avatar">
-					<i class="avatar"></i>
+		
+		<li ng-if="store.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
 
-				</div>
-				<span class="description">
-					Alexandre Schwethelm
-				</span>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar">
-					<img src="modules/kitchensink/res/thumb2.jpg" />
-				</div>
-				<span class="description">Andreas Braga</span>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar">
-					<img src="modules/kitchensink/res/thumb3.jpg" />
-				</div>
-				<strong>Asher Ariel</strong>
-			</a>
-		</li>
-		<li class="index"><h2>B</h2></li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Bruce Polph</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar">
-					<img src="modules/kitchensink/res/thumb4.jpg" />
-				</div>
-				<strong>Bill Eldridge</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Brandon Eley</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Bob Gizynski</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Bruce Polph</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar">
-					<img src="modules/kitchensink/res/thumb4.jpg" />
-				</div>
-				<strong>Bill Eldridge</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Brandon Eley</strong>
-			</a>
-		</li>
-		<li>
-			<a>
-				<div class="avatar"></div>
-				<strong>Bob Gizynski</strong>
-			</a>
-		</li>
 	</ul>
 	
 	
-	<button class="action"><i class="plus"></i></button>
+	<a class="btn action" ui-sref='contacts.edit({contactId: 0})'><i class="plus"></i></a>
 </div>
-<div class="col fill">
+<div class="col fill" ui-view>
 
-	<div class="panel">
+	
 
-		<header>
-			<menu type="toolbar">
-				<li>
-					<button><i class="pencil"></i></button>
-					<button><i class="menu-dot"></i></button>
-				</li>
-			</menu>
-			
-			<div class="avatar big"></div>			
-			<div class="title">				
-				<h2>Alejandro Lengue</h2>
-				<h3>Virtual orbis</h3>
-			</div>			
-		</header>
-		<section class="tabs">
-			<menu>
-				<a class="active">Info</a>
-				<a>Projecten</a>
-				<a>Facturen</a>
-				<a>Contracten</a>
-				<a>Offertes</a>
-				<a>More</a>
-			</menu>
-			<div class="active pad">
-				
-				
 
-				
-				
-				<!-- first tab -->
-				<section class="list">
-					<div class="index"><i class="phone"></i></div>
-					<a href="tel:123432432">
-						<strong>+31 (0)6 123456789</strong><br />
-						<small>Mobile</small>
-					</a>
-
-					<a href="tel:123432432">
-						<strong>+31 (0)70 123456789</strong><br>
-						<small>Work</small>
-					</a>
-					
-					<div class="index"><i class="email"></i></div>
-					
-					<a href="mailto:test@intermesh.nl">
-						<strong>aleengue@virtualorbis.com</strong><br>
-						<small>Work</small>
-					</a>
-					
-					<div>
-						<strong>CEO</strong><br>
-						<small>Function</small>						
-					</div>
-					
-				</section>
-			</div>
-		</section>
-
-	</div>
 
 </div>

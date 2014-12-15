@@ -40,7 +40,7 @@
 		border-right: 0px;
 	}
 	
-	>header {
+	header {
 		height: $height-panel-content-header;	//section.tabs depends on this var. How can we make this more dynamic?
 		padding: 30px;
 		
@@ -103,3 +103,17 @@
 .w4-5	{ width:80%; }
 .w1-6	{ width:16.6666666%; }
 .w5-6	{ width:83.3333333%; }
+
+
+
+
+
+//For grouping buttons or form fields
+.group {
+
+	white-space: nowrap;
+		
+	> * { 
+		display: inline-block;
+	}
+}

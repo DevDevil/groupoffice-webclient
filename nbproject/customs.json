@@ -1,13 +1,26 @@
 {
 	"attributes": {
+		"ui-sref": {
+			"context": "a"
+		},
+		"ui-view": {
+			"context": "div"
+		},
+		"ui-sref-active": {
+			"context": "a"
+		},
+		"ng-if": {},
 		"go-submit": {
 			"context": "form"
-		}
+		},
+		"go-infinite-scroll": {}
 	},
 	"elements": {
 		"go-show-error": {
 			"attributes": {
-				"for": {}
+				"for": {},
+				"go-model": {},
+				"attribute-name": {}
 			}
 		}
 	}

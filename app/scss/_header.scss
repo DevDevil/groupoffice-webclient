@@ -8,7 +8,6 @@ body > header:first-child {
 	.left{		
 		
 		> * {
-			margin-right: 15px;
 			line-height: $line-height;
 		}
 
@@ -17,6 +16,7 @@ body > header:first-child {
 			height: 45px;
 			display: inline-block;
 			padding-left: 60px;
+			margin-left: 15px;
 			line-height: 45px;
 			background-image: url('../resources/groupoffice-logo.png');
 			background-position: left middle;
@@ -28,7 +28,6 @@ body > header:first-child {
 		text-align:right;		
 		> * {			
 			line-height: $line-height;
-			margin-left: 15px;
 		}
 	}
 }

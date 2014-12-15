@@ -6,6 +6,8 @@ angular.module('GO', [
 	
   'ui.router',
   
+  'monospaced.elastic',
+  
   'GO.core',  
   'GO.core.controllers',
   

@@ -1,14 +1,14 @@
-@mixin tab-focus() {
+/*@mixin tab-focus() {
 	// Default
 	outline: thin dotted;
 	// WebKit
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
-}
+}*/
 
 
 
-@mixin button-variant($color, $background, $border) {
+/*@mixin button-variant($color, $background, $border) {
 	color: $color;
 	background-color: $background;
 	border-color: $border;
@@ -17,7 +17,7 @@
 		border-color: darken($border, 12%);
 	}
 
-}
+}*/
 // Button sizes
 /*@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
 	padding: $padding-vertical $padding-horizontal;
@@ -29,7 +29,7 @@
 
 
 
-form{
+/*form{
 	.btn, button {
 		display: inline-block;
 		margin-bottom: 0; // For input.btn
@@ -109,25 +109,13 @@ form{
 			@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 		}
 	}
-}
-
-//For grouping button (should work on other elements as well later)
-.group {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	//overflow: hidden;
-	margin-right: 3px;
-}
-.group > * { margin-left: 0px !important; margin-right: 0px !important; float: left; }
-.group>:not(:first-child) { border-top-left-radius:0px; border-bottom-left-radius:0px; }
-.group>:not(:last-child) { border-top-right-radius:0px; border-bottom-right-radius:0px; }
+}*/
 
 
 
 
 
-nav, menu{
+/*nav, menu{*/
 	button, .btn{
 		display: inline-block;
 		cursor: pointer;
@@ -144,6 +132,12 @@ nav, menu{
 		
 		padding: 4px;
 		
+		margin: 10px 0px 0px 0px;
+		
+		.group & {
+			margin: 0px;
+		}
+		
 		&:hover{
 			@extend %hover;			
 		}
@@ -154,18 +148,56 @@ nav, menu{
 			outline: 0;
 			background-image: none;
 		}
+		
+		
+		&.small, .row &{
+			font-size: 1em;
+			padding: 0px;
+		}
+		
+		&.success {
+			background-color: $color-success-bg;
+			color: $color-info-text;
+			border: $color-info-border;
+		}
+		// Info appears as blue-green
+		&.info {
+			background-color: $color-info-bg;
+			color: $color-info-text;
+			border: $color-info-border;
+		}
+		// Warning appears as orange
+		&.warning {
+			background-color: $color-warning-bg;
+			color: $color-warning-text;
+			border: $color-warning-border;
+		}
+		// Danger and error appear as red
+		&.danger {
+			background-color: $color-danger-bg;
+			color: $color-danger-text;
+			border: $color-danger-border;
+		}
 	}
-}
+/*}*/
 
-button.action {
+button.action, .btn.action {
+	text-align: center;
 	position: absolute;
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	background: $cGreen5;
+	background: $background-color-btn-action;
 	display: block;
 	cursor: pointer;
-	font: inherit;
+	font-family: inherit;
+    font-size: 1.7em;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-synthesis: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
 	color: white;
 	font-size: $height-button;
 	border: none;
@@ -175,6 +207,10 @@ button.action {
 	right: 30px;
 	
 	transition: all 0.2 ease-out;
+	
+	i{
+		@extend %middle;
+	}
 	
 	&:hover{
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.26);
