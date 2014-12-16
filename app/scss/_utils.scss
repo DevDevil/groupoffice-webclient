@@ -112,8 +112,13 @@
 .group {
 
 	white-space: nowrap;
-		
+		//letter-spacing: 0;
+		//font-size:0;
 	> * { 
+		//font-size: $font-size;
 		display: inline-block;
+		//margin-left:0px;
+		//margin-right: 0px;
+		
 	}
 }

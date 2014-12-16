@@ -8,7 +8,7 @@
 
 
 
-/*@mixin button-variant($color, $background, $border) {
+@mixin button-variant($color, $background, $border) {
 	color: $color;
 	background-color: $background;
 	border-color: $border;
@@ -17,7 +17,7 @@
 		border-color: darken($border, 12%);
 	}
 
-}*/
+}
 // Button sizes
 /*@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
 	padding: $padding-vertical $padding-horizontal;
@@ -135,7 +135,7 @@
 		
 		margin: 10px 0px 0px 0px;
 		
-		.group & {
+		.group &, menu & {
 			margin: 0px;
 		}
 		
@@ -153,7 +153,13 @@
 		
 		&.small, .row &{
 			font-size: 1em;
-			padding: 0px;
+			padding: 1px;
+			color: $color-small;
+		}
+		
+		&.primary {
+			@include button-variant($color-primary-text, $color-primary-bg, $color-primary-border);
+			box-shadow: 2px 0px 2px 0px  $border-color;
 		}
 		
 		&.success {

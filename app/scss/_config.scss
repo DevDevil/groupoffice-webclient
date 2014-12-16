@@ -11,6 +11,9 @@ $color-active-bg: #428bca;
 $color-active-text: white;
 $color-active-border: darken(adjust-hue($color-active-bg, -10), 7%);
 
+$color-primary-text: white;
+$color-primary-bg: $cGoBlue7;
+$color-primary-border: darken(adjust-hue($color-primary-bg, -10), 5%) !default;
 
 $color-success-text: #3c763d !default;
 $color-success-bg: #dff0d8 !default;

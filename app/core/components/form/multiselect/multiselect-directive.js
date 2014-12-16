@@ -29,10 +29,14 @@ angular.module('GO.core')
 					
 					scope.addModel = function($item) {
 
-						
-						if(!isSelected($item)){
-							scope.multiselectValues.push($item);						
-						}
+						var selectedItem = isSelected($item);
+
+						if(!selectedItem){
+							scope.multiselectValues.push($item);
+						}else
+						{
+							selectedItem.markDeleted = false;
+						}				
 						
 						scope.input="";
 					};
@@ -58,7 +62,19 @@ angular.module('GO.core')
 								
 							case 8:
 								if(scope.input === ""){
-									scope.multiselectValues[scope.multiselectValues.length-1].markDeleted = true;
+									//remove last entry without markDeleted=true
+									var lastIndex = -1;
+									for(var i=scope.multiselectValues.length-1;i>=0;i--){					
+										if(!scope.multiselectValues[i].markDeleted){
+											
+											lastIndex = i;
+											
+											break;
+										}
+									}
+									if(lastIndex>-1){
+										scope.multiselectValues[lastIndex].markDeleted = true;
+									}
 								}
 								break;
 						}
@@ -74,9 +90,11 @@ angular.module('GO.core')
 								var newItem = {};
 								newItem[scope.displayAttribute] = value;								
 								var selectedItem = isSelected(newItem);
+								
+							
 								if(!selectedItem){
 									
-									console.log(newItem);
+									
 									scope.multiselectValues.push(newItem);
 								}else
 								{

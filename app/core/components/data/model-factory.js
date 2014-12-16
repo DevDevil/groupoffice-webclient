@@ -562,7 +562,7 @@ angular.module('GO.core')
 						this.setBusy(false);
 						
 						deferred.reject({model: this, result: result});
-					});
+					}.bind(this));
 					
 					
 					return deferred.promise;

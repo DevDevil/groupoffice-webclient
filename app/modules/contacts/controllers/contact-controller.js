@@ -13,7 +13,7 @@ angular.module('GO.contacts.controllers').
 				$scope.store = new Store(
 						'contacts',
 						{
-							returnAttributes: "id,name,thumbUrl,company.name"
+							returnAttributes: "id,name,photo,company.name"
 						});
 						
 				$scope.store.load();
@@ -26,7 +26,7 @@ angular.module('GO.contacts.controllers').
 				$scope.contact = new Model(
 						'contacts',
 						{
-							returnAttributes: "*,thumbUrl,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
+							returnAttributes: "*,photo,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
 						});
 
 

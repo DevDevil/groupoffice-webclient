@@ -51,19 +51,19 @@ angular.module('GO.contacts.controllers').
 
 				/* Multiple fields */
 				$scope.addEmailAddress = function() {
-					$scope.contact.emailAddresses.push({attributes: {type: "work"}});
+					$scope.contact.emailAddresses.push({type: "work"});
 				};
 
 				$scope.addPhoneNumber = function() {
-					$scope.contact.phoneNumbers.push({attributes: {type: "work,voice"}});
+					$scope.contact.phoneNumbers.push({type: "work,voice"});
 				};
 				
 				$scope.addAddress = function() {
-					$scope.contact.addresses.push({attributes: {type: "work"}});
+					$scope.contact.addresses.push({type: "work"});
 				};
 				
 				$scope.addDate = function() {
-					$scope.contact.dates.push({attributes: {type: "anniversary", date: new Date()}});
+					$scope.contact.dates.push({type: "anniversary", date: new Date()});
 				};
 
 
@@ -99,7 +99,7 @@ angular.module('GO.contacts.controllers').
 				
 				$scope.getTags = function(input){
 					return Tags.getTagStore().load({
-						query: input
+						searchQuery: input
 					}).then(function(data){
 						return data.results;
 					});
@@ -115,7 +115,7 @@ angular.module('GO.contacts.controllers').
 									
 																	
 									if(!data.data.results.length){
-										data.data.results.push({attributes: {'name': input, 'isCompany': true}});
+										data.data.results.push({'name': input, 'isCompany': true});
 									}
 									
 									return data.data.results;

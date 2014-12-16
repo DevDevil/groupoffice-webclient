@@ -7,6 +7,7 @@ angular.module('GO', [
   'ui.router',
   
   'monospaced.elastic',
+  'flow', // https://github.com/flowjs/ng-flow
   
   'GO.core',  
   'GO.core.controllers',
@@ -39,5 +40,7 @@ angular.module('GO', [
 				//$rootScope.title = appTitle;
 				
 				Utils.setBaseUrl("../../groupoffice-server/html/index.php");
+				
+				FastClick.attach(document.body);
 			});
 		

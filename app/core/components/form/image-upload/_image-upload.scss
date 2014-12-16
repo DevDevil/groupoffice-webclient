@@ -1,0 +1,23 @@
+
+.go-image-upload{
+	
+	
+	.dropdown{
+		
+		>a{
+			line-height:0;
+			display:block;
+		}
+	}
+	
+	.img-container{
+		background-color: $color-avatar-bg;
+		border-radius: 50%;
+		width: 100%;
+		height: 100%;
+		display: block;
+		overflow:hidden;
+		img {
+		}	
+	}
+}
