@@ -1,8 +1,8 @@
 <div class="go-multiselect" ng-click="focusInput()">
 	<ul>
-		<li ng-if="!model.markDeleted" ng-repeat="model in multiselectValues">{{model[displayAttribute]}}<a ng-click="model.markDeleted = true"><i class="i-action-delete"></i></a>,&nbsp;</li>
+		<li ng-if="!model.markDeleted" ng-repeat="model in multiselectValues">{{model[displayAttribute]}}<a ng-click="model.markDeleted = true"><i class="remove"></i></a>,&nbsp;</li>
 	</ul>
 
-	<input id="{{inputId}}" type="text" ng-model="input" placeholder="{{placeholder}}" go-autocomplete="model as model[displayAttribute] for model in goMultiselect({input: $viewValue})" go-autocomplete-loading="loading" go-autocomplete-on-select="addModel($item, $model, $label)" ng-keypress="keypress($event)" ng-disabled>
+	<input id="{{inputId}}" type="text" ng-model="input" placeholder="{{placeholder}}" go-autocomplete="model as model[displayAttribute] for model in goMultiselect({input: $viewValue})" go-autocomplete-loading="loading" go-autocomplete-on-select="addModel($item, $model, $label)" ng-keypress="keypress($event)">
 	<i ng-show="loading" class="i-action-restore"></i>
 </div>

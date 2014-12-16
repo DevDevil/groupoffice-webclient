@@ -20,4 +20,16 @@
 	.toolbar{
 		padding: 10px;
 	}
+	
+	em{
+		font-size: .8em;
+		color: $color-small;
+	}
+	
+	th{
+		small{
+			text-transform: uppercase;
+		
+		}
+	}
 }

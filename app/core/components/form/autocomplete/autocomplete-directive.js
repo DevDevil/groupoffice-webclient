@@ -83,7 +83,9 @@ angular.module('GO.core')
 						element.attr({
 							'aria-autocomplete': 'list',
 							'aria-expanded': false,
-							'aria-owns': popupId
+							'aria-owns': popupId,
+							
+							'autocomplete': 'off'
 						});
 
 						//pop-up element used to display matches

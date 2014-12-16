@@ -98,7 +98,7 @@ angular.module('GO.contacts.controllers').
 				$scope.save = function() {
 
 					$scope.contact.save()
-							.success(function(result) {
+							.then(function(result) {
 								//success
 
 								

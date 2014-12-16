@@ -257,7 +257,7 @@ menu[type="toolbar"] {
 
 button {
 	
-	&:focus + menu{ 
+	&:focus + menu, &:hover + menu{ 
 		transform: scale(1) translateY(-38px);		
 	}
 }

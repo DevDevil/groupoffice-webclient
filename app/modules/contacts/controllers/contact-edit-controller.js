@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('GO.contacts.controllers').
-		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', 'Translate', function($scope, $state, $stateParams, Utils, $http, $q, Alerts, Translate) {
+		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', 'Translate','Tags', function($scope, $state, $stateParams, Utils, $http, $q, Alerts, Translate, Tags) {
 
 //				var defaultPhotoUrl = "";
 
@@ -22,7 +22,7 @@ angular.module('GO.contacts.controllers').
 					$scope.save = function() {
 
 						$scope.contact.save()
-								.success(function(result) {
+								.then(function(result) {
 										$scope.contactForm.$setPristine();
 								
 										Alerts.addAlert(Translate.t("Your changes have been saved"), "info");
@@ -95,22 +95,18 @@ angular.module('GO.contacts.controllers').
 					$scope.showNameParts = !$scope.showNameParts;
 				};
 				$scope.showNameParts = false;
-
-
-
-				$scope.dateOpened = {};
-				$scope.openDate = function(date, $event) {
-					$event.preventDefault();
-					$event.stopPropagation();
-
-					date.isOpen = true;
+				
+				
+				$scope.getTags = function(input){
+					return Tags.getTagStore().load({
+						query: input
+					}).then(function(data){
+						return data.results;
+					});
 				};
 				
-				
-				
-				
 				$scope.getCompanies = function(input){
-					return $http.get(Utils.url('intermesh/contacts/contact/store', {
+					return $http.get(Utils.url('contacts', {
 						searchQuery: input, 
 						where: [{'isCompany': true}],
 						returnAttributes:'name,id'

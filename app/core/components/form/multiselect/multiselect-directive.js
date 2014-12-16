@@ -50,6 +50,7 @@ angular.module('GO.core')
 					
 					scope.keypress = function ($event){
 						
+						
 						switch($event.keyCode){
 							case 13:
 								addNewModel($event);
@@ -74,6 +75,8 @@ angular.module('GO.core')
 								newItem[scope.displayAttribute] = value;								
 								var selectedItem = isSelected(newItem);
 								if(!selectedItem){
+									
+									console.log(newItem);
 									scope.multiselectValues.push(newItem);
 								}else
 								{

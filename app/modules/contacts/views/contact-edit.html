@@ -58,7 +58,7 @@
 		</div>
 
 
-		<div ng-if="showNameParts">
+		<div class="pad" ng-if="showNameParts">
 			<div class="row">
 				<label for="firstName">{{"First name"| goT}}</label>
 
@@ -172,7 +172,7 @@
 		<div class="row">
 			<label for="tags">{{"Tags"| goT}}</label>	
 			
-			<input name="tags" id="tags" type="text" go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" placeholder="{{'Add tags...'| goT}}" ng-model="contact.tags">
+			<input name="tags" id="tags" type="text" auto-create="true" go-multiselect="getTags($viewValue)" display-attribute="name" placeholder="{{'Add tags...'| goT}}" ng-model="contact.tags">
 
 
 		</div>

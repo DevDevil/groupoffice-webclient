@@ -26,7 +26,7 @@ angular.module('GO.core').
 								limit: 0
 							});
 							
-						tagStore.load();
+						//tagStore.load();
 					}
 					
 					return tagStore;
