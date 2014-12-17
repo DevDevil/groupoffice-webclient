@@ -122,3 +122,23 @@
 		
 	}
 }
+
+///
+//   Animations
+///
+
+
+//a height value is required for this to work
+.animate-show-height{
+	
+	transition: .2s ease-out all;
+	overflow: hidden;
+	&.ng-hide {  
+		padding-top: 0px;
+		padding-bottom:0px;
+		
+		height:0 !important;	
+	}
+}
+
+

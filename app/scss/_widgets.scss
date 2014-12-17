@@ -18,28 +18,34 @@ $padding-list-index: 80px;
 	}
 	
 	&.index ~ li{
-		> a, > label{
+		
+		//padding-left: $padding-list-index;
+		> a, > label {
 			padding-left: $padding-list-index;
 		}
 	}
 	
-	
 	> a {
+		
 		display:block;
 		position:relative;
 		
 		overflow: hidden;
-		color: inherit;
-		padding: 8px 12px;		
-		transition: box-shadow .2s ease-out, background-color 0.2s ease-out;
+		
+		padding: 8px 12px;
+		
+		color: inherit;	
 		
 		&.selected { @extend %selected;	}
-		&:hover { @extend %hover;	}
+		
 		&:active { @extend %active;}
+		&:hover { @extend %hover;	}
+		
 		
 		.avatar {
 			float: left;
 		}
+		
 		.description {
 			position:absolute;
 			top: 50%;
@@ -49,6 +55,7 @@ $padding-list-index: 80px;
 		}
 		
 		
+		
 	}
 	&.divider {
 		/*height: 1px;*/
@@ -56,12 +63,16 @@ $padding-list-index: 80px;
 		margin: 5px 0px;
 		overflow: hidden;
 		/*background-color: $border-color;*/
-		border-bottom: 1px solid $border-color;;
+		border-bottom: 1px solid $border-color;
 	}
 
-	&.index,
-	.index {
-		&:first-child{ border:0; }
+	&.index {
+		&:first-child{ 
+			border:0; 
+			i{
+				top: 25px;
+			}
+		}
 		cursor: default;
 		display:block;
 		overflow:visible;
@@ -71,7 +82,7 @@ $padding-list-index: 80px;
 		line-height:0px;
 		padding:0;
 		margin:0;
-		margin-top:0px !important;
+		margin-top:0px;
 		margin-left: 80px;
 		
 		
@@ -81,19 +92,26 @@ $padding-list-index: 80px;
 			text-transform: uppercase;
 			color: $color-link;
 			position:absolute;
-			top: 20px;
+			top: 35px;
 			left: -50px;
 			font-size: 1.3em;
 			font-weight: 700;
 			z-index: $z-popover;
 		}
 		
+		i {
+			color: $font-color;
+		}
+		
 		h2{
-			top: 30px;
+			top: 35px;
 		}
 
 	}
 }
+
+
+
 
 %popup {
 	position: absolute;
@@ -157,65 +175,20 @@ section.list{
 		&.index{
 			color: $font-color;
 			margin-top:12px;
+			margin-bottom: 12px;
 		}
+		
+		&:hover { @extend %hover;	}
 	}
-}
-
-/**
- * TABS
- */
-section.tabs {
-	bottom: 0;
-	margin: 0;
-	padding: 0;
-	position: absolute;
 	
-	top: $height-panel-content-header; //todo how can we make this more dynamic?
-	width: 100%;
-	
-	> menu {
-		display:flex;
-		flex-direction:row;
-		width:100%;
-		border-bottom: 1px solid $border-color;
-		height: $height-tab-bar;
-		& > a {
-			//@extend %ellipsis;
-			text-overflow: ellipsis;
-			flex: 1 1 0;
-			text-transform: uppercase;
-			text-align: center;
-			font-size:1.1em;
-			font-weight: 700;
-			color: rgba($cGrey9,0.7);
-			padding: 0 4px;
-			line-height: 39px; //TODO fix
-			cursor: pointer;
-			&:hover {
-				color: $cGrey9;
-			}
-			&.active {
-				z-index: 2; // for hide bottom border
-				color: $cGrey9;
-				border-bottom: 3px solid $cGoBlue7;
-				cursor: default;
-				box-shadow: none;
-			}
-		}
-		& ~ div {
-			top: $height-tab-bar;
-		}
-	}
-	> div {		
-		position: absolute;
-		background-color: white;
-		overflow: hidden;
-		bottom: 0;
-		top: 0;
-		width: 100%;
+	> a{
+		&.selected { @extend %selected;	}		
+		&:active { @extend %active;}
 		
 	}
 }
+
+
 
 
 /**
@@ -316,7 +289,7 @@ aside{
 	width: 15%;
 	
 	.panel{		
-		box-shadow: 2px 0px 2px 0px  $border-color;
+		box-shadow: 1px 0px 2px 0px  $border-color;
 		
 		.list{
 			i{

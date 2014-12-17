@@ -5,18 +5,51 @@
 
 		<a ng-repeat="phoneNumber in contact.phoneNumbers" href="tel:{{phoneNumber.number}}">
 			<strong>{{phoneNumber.number}}</strong><br>
-			<small>{{phoneNumber.type}}</small>
+			<small>{{phoneNumberOptions[phoneNumber.type]}}</small>
 		</a>
 
 		<div ng-if="contact.emailAddresses.length" class="index"><i class="email"></i></div>
 
 		<a ng-repeat="emailAddress in contact.emailAddresses" href="mailto:{{emailAddress.email}}">
 			<strong>{{emailAddress.email}}</strong><br>
-			<small>{{emailAddress.type}}</small>
+			<small>{{emailAddressOptions[emailAddress.type]}}</small>
 		</a>
+		
+		<div ng-if="contact.dates.length" class="index"><i class="clock"></i></div>
+		
+		<div ng-repeat="date in contact.dates">
+			<strong>{{date.date|date:"longDate"}} ({{date.date|age}}{{'yr'| goT}})</strong><br>
+			<small>{{dateOptions[date.type]}}</small>			
+		</div>	
+		
+		
+		<div ng-if="contact.addresses.length" class="index"><i class="location"></i></div>
+		
+		<a ng-repeat="address in contact.addresses" target="_blank" href="http://maps.google.com/?q={{address.street + ', ' + address.zipCode + ', ' + address.state + ', ' + address.country| encodeURIComponent}}">
+			
+			<strong ng-bind-html="address.formatted | nl2br"></strong><br />
+			
+			<small>{{emailAddressOptions[address.type]}}</small>			
+		</a>	
+		
+		
+		<div ng-if="contact.tags.length" class="index"><i class="labels"></i></div>
+		
+		<div>
+			<ul class="comma-list">
+				<li  ng-repeat="tag in contact.tags">
+					{{tag.name}}
+				</li>
+				
+			</ul>
+			<br />
+				<small>{{"Tags" | goT}}</small>		
+		</div>	
 
 
 	</section>
+
+
 
 
 <!--

@@ -34,61 +34,29 @@ angular.module('GO.contacts.controllers').
 
 				/* Select options for detail and edit controller */
 
-				$scope.emailAddressOptions = [{
-						value: 'work',
-						label: Translate.t('Work')
-					}, {
-						value: 'home',
-						label: Translate.t('Home')
-					}, {
-						value: 'billing',
-						label: Translate.t('Billing')
-					}, {
-						value: 'other',
-						label: Translate.t('Other')
-					}];
+				$scope.emailAddressOptions = {
+						'work': Translate.t('Work'),
+						'home': Translate.t('Home'),
+						'billing': Translate.t('Billing'),
+						'other': Translate.t('Other')
+					};
 
 
-				$scope.phoneNumberOptions = [{
-						value: 'work,voice',
-						//label: Translate.t('Phone') + ' <i class="fa fa-users"></i>'
-						label: Translate.t('Phone') + ' ' + Translate.t('Work')
-					}, {
-						value: 'work,cell',
-						//label: Translate.t('Mobile') + ' <i class="fa fa-users"></i>'
-						label: Translate.t('Mobile') + ' ' + Translate.t('Work')
-					}, {
-						value: 'home,voice',
-//						label: Translate.t('Phone') + ' <i class="fa fa-home"></i>'
-						label: Translate.t('Phone') + ' ' + Translate.t('Home')
-					}, {
-						value: 'home,cell',
-//						label: Translate.t('Mobile') + ' <i class="fa fa-home"></i>'
-						label: Translate.t('Mobile') + ' ' + Translate.t('Home')
-					}];
+				$scope.phoneNumberOptions = {
+						'work,voice': Translate.t('Phone') + ' ' + Translate.t('Work'),
+						'work,cell': Translate.t('Mobile') + ' ' + Translate.t('Work'),			
+						'home,voice': Translate.t('Phone') + ' ' + Translate.t('Home'),			
+						'home,cell': Translate.t('Mobile') + ' ' + Translate.t('Home')
+					};
 
-				$scope.dateOptions = [{
-						value: 'birthday',
-						label: Translate.t('Birthday')
-					}, {
-						value: 'anniversary',
-						label: Translate.t('Anniversary')
-					}, {
-						value: 'other',
-						label: Translate.t('Other')
-					}];
+				$scope.dateOptions = {
+						'birthday': Translate.t('Birthday'),
+						'anniversary': Translate.t('Anniversary'),
+						'other': Translate.t('Other')
+					};
 
 
-				$scope.findDateLabel = function(type) {
-
-					for (var i = 0, l = $scope.dateOptions.length; i < l; i++) {
-						if ($scope.dateOptions[i].value === type) {
-							return $scope.dateOptions[i].label;
-						}
-					}
-
-					return type;
-				};
+		
 
 				/* End select options for detail and edit controller */
 
@@ -100,8 +68,7 @@ angular.module('GO.contacts.controllers').
 					$scope.contact.save()
 							.then(function(result) {
 								//success
-
-								
+	
 								$scope.syncWithStore(true);
 								$state.go('contacts.contact.detail', {contactId: $scope.contact.id});
 								
@@ -206,22 +173,6 @@ angular.module('GO.contacts.controllers').
 					$scope.store.load();
 
 				};
-
-
-				var Tabs = function(){
-					this.left = true;
-					this.tabIndex = 0;
-				};
-				
-				Tabs.prototype.switch = function(tabIndex){
-					this.left = this.tabIndex < tabIndex;					
-					this.tabIndex = tabIndex;
-				};
-
-				$scope.tabs = new Tabs();
-				
-			
-//				$scope.hasProjects = Modules.getModule('projects') !== false;
 				
 				
 				Modules.getModule('contacts').then(function(module){
