@@ -20,21 +20,15 @@
 			<h3 ng-if="contact.company">{{contact.company.name}}</h3>
 		</div>			
 	</header>
-	<section class="tabs">
-		<menu>
-			<a ui-sref="contacts.contact.detail({contactId: contact.id})" go-tab-switch  ui-sref-active="active">{{"Info"| goT}}</a>
-			<a ui-sref="contacts.contact.files({contactId: contact.id})" go-tab-switch ui-sref-active="active">{{'Files'| goT}}</a>
-			<a ui-sref="contacts.contact.timeline({contactId: contact.id})" go-tab-switch ui-sref-active="active">{{'Comments'| goT}}</a>
-			<a>Contracten</a>
-			<a>Offertes</a>
-			<a>More</a>
-		</menu>
-		<div class="active pad" ui-view>
-
-
-
-		</div>
-	</section>
+	
+	<go-tab-panel>
+		
+		<tab ui-sref="contacts.contact.detail({contactId: contact.id})" title="Info"></tab>
+		<tab ui-sref="contacts.contact.files({contactId: contact.id})" title="Files"></tab>
+		<tab ui-sref="contacts.contact.timeline({contactId: contact.id})" title="Timeline"></tab>
+		
+	</go-tab-panel>
+	
 
 </div>
 <!--<go-tabs>

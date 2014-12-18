@@ -228,11 +228,13 @@ angular.module('GO.core')
 					return this[this.$idAttribute] < 1;
 				};
 				
-				Model.prototype._isAttribute = function(name){				
+				Model.prototype._isAttribute = function(name){		
+					
+					var exclude = ["validationErrors"];
 					
 					var firstChar = name.substring(0,1);
 					
-					return firstChar !== '$' && firstChar !== '_';
+					return firstChar !== '$' && firstChar !== '_' && exclude.indexOf(name)===-1;
 				};
 				
 				Model.prototype.getAttributes = function(){
@@ -254,6 +256,9 @@ angular.module('GO.core')
 				};
 
 				Model.prototype.getModifiedAttributes = function(attributes, oldAttributes) {
+					
+					
+					
 					if (typeof (attributes) === 'undefined') {
 
 						var attributes = this.getAttributes();

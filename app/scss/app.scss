@@ -2,7 +2,7 @@
 
 @import "colors";
 @import "config";
-@import 'angular';
+//@import 'angular';
 @import 'form';
 @import 'buttons';
 
@@ -23,3 +23,4 @@
 @import "../core/components/form/multiselect/multiselect";
 @import "../core/components/progress/progress";
 @import "../core/components/form/image-upload/image-upload";
+@import "../core/components/tab-panel/tab-panel";

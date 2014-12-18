@@ -1,0 +1,122 @@
+/**
+ * TABS
+ */
+section.tabs {
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	
+	top: $height-panel-content-header; //todo how can we make this more dynamic?
+	width: 100%;
+	
+	> menu {
+		display:flex;
+		flex-direction:row;
+		width:100%;
+		border-bottom: 1px solid $border-color;
+		height: $height-tab-bar;
+		& > a {
+			//@extend %ellipsis;
+			text-overflow: ellipsis;
+			flex: 1 1 0;
+			text-transform: uppercase;
+			text-align: center;
+			font-size:1.1em;
+			font-weight: 700;
+			color: rgba($cGrey9,0.7);
+			padding: 0 4px;
+			line-height: 39px; //TODO fix
+			cursor: pointer;
+			&:hover {
+				color: $cGrey9;
+			}
+			&.active {
+				z-index: 2; // for hide bottom border
+				color: $cGrey9;
+				border-bottom: 2px solid $cGoBlue7;
+				cursor: default;
+				box-shadow: none;
+			}
+		}
+		& ~ div {
+			top: $height-tab-bar;
+		}
+	}
+	> div {		
+		position: absolute;
+		background-color: white;		
+		bottom: 0;
+		top: 0;
+		width: 100%;
+		overflow-y: auto;
+		
+		padding-top: 30px;
+		
+		
+	}
+}
+
+
+.go-tab-view{
+	
+	z-index: 100;
+	
+	&.ng-enter {
+		transition: all .2s linear;		
+		//border: 1px solid blue;
+	}
+	
+	&.ng-leave {
+		transition: all .4s linear;		
+		z-index: 99 !important;
+		//border: 1px solid red;
+	}
+	
+
+	&.ng-enter.right{
+		transform: translateX(-100%);		
+		/*opacity: 0;*/
+	}
+	
+
+	&.ng-enter-active.right {
+		transform: translateX(0%);
+		/*opacity: 1;*/		
+	}
+
+	&.ng-leave.right {
+		/*opacity: 1;*/
+		transform: translateX(0%);		
+	}
+
+	&.ng-leave-active.right {
+		/*opacity: 0;*/
+		transform: translateX(100%);		
+	}
+	
+	
+	
+	&.ng-enter.left{
+		transform: translateX(100%);		
+		/*opacity: 0;*/
+	}
+	
+
+	&.ng-enter-active.left {
+		transform: translateX(0%);
+		/*opacity: 1;*/		
+	}
+
+	&.ng-leave.left {
+		/*opacity: 1;*/
+		transform: translateX(0%);		
+	}
+
+	&.ng-leave-active.left {
+		/*opacity: 0;*/
+		transform: translateX(-100%);		
+	}
+	
+
+}
