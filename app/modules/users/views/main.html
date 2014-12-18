@@ -1,0 +1,86 @@
+
+<aside>
+	<div class="panel">
+		<ul class="list">
+			<li>
+				<a><i class="group"></i> Everyone</a>
+			</li>
+			<li>
+				<a><i class="group"></i> Managers</a>
+			</li>
+			<li>
+				<a><i class="group"></i> Admins</a>
+			</li>
+			<li>
+				<a><i class="group"></i> Internal</a>
+			</li>
+		</ul>
+	</div>
+</aside>
+
+<div class="col w1-3">
+
+
+	<menu type="toolbar" class="pad-list-index">
+<!--
+		<li>
+			<div class="dropdown">
+				<button class="menu">All <i class="arrow-down"></i></button>
+				<menu class="popup">
+					<li><a class="selected">All</a></li>
+					<li><a>Family</a></li>
+					<li><a>Friends</a></li>
+					<li><a>Collegas</a></li>
+				</menu>
+			</div>
+		</li>
+-->
+		<li>
+			<!--<input type="search" /><i class="search"></i>-->
+			<button ><i class="search"></i></button>
+
+			<div class="dropdown">
+				<button class="menu"><i class="menu-dot"></i></button>
+				<menu class="popup top-right">
+
+					<li><a>Refresh</a></li>
+					<li><a>Add Group</a></li>
+					<li><a>Export</a></li>
+					<li class="divider"></li>
+					<li><a>Settings</a></li>
+
+				</menu>
+			</div>
+		</li>
+	</menu>
+
+
+
+	<ul class="list panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<li ng-repeat-start="user in store.items track by user.id" class="index" ng-if="store.getIndexChar('name', $index) !== ''"><h2>{{::store.getIndexChar("name", $index)}}</h2></li>
+		<li ng-repeat-end>
+			<a ui-sref-active="active" ui-sref="users.user.detail({userId: user.id})">
+				<div class="avatar">
+					<img ng-src="{{user.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
+				</div>
+				<span class="description">
+					{{user.name}}
+					<!--<small>Virtual Orbis</small>-->
+				</span>
+			</a>
+		</li>
+
+		<li ng-if="store.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
+
+	</ul>
+
+
+	<a class="btn action" ui-sref='users.edit({userId: 0})'><i class="plus"></i></a>
+</div>
+<div class="col fill" ui-view>
+
+
+
+
+
+</div>
