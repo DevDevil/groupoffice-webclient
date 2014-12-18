@@ -13,7 +13,8 @@ angular.module('GO', [
   'GO.core.controllers',
   
   'GO.kitchensink',
-  'GO.contacts'
+  'GO.contacts',
+	'GO.users'
 ]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
