@@ -4,3 +4,4 @@ nbproject/private
 app/css/*.css
 app/css/*.map
 app/.sass-cache
+build/*
