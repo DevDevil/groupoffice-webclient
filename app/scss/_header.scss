@@ -1,8 +1,10 @@
+$height-header: 92px;
+
 body > header:first-child {
 	color: $color-header;
-	height: 100px;		
+	height: $height-header;		
 	background-color: $color-header-bg;	
-	line-height: 100px;	
+	line-height: $height-header;	
 	padding: 0 15px;
 
 	.left{		
@@ -35,7 +37,7 @@ body > header:first-child {
 
 body > main {
 	position: absolute;
-	top:100px;
+	top: $height-header;
 	bottom: 0;
 	width: 100%;
 	overflow:hidden;

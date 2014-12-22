@@ -46,9 +46,11 @@
 		
 		position: relative;
 		
-		.avatar{
+		.avatar, .go-image-upload{
 			float:left;
 			@extend %middle;
+			z-index: 100;
+			line-height: 0;
 			margin-right: 30px;
 		}
 		
@@ -123,21 +125,12 @@
 	}
 }
 
-///
-//   Animations
-///
 
+.show-if-only-child{
+	display:none !important;
 
-//a height value is required for this to work
-.animate-show-height{
-	
-	transition: .2s ease-out all;
-	overflow: hidden;
-	&.ng-hide {  
-		padding-top: 0px;
-		padding-bottom:0px;
-		
-		height:0 !important;	
+	&:only-child{
+		display: inherit !important;
 	}
 }
 

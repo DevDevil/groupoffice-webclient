@@ -1,9 +1,5 @@
 'use strict';
 /**
- * @ngdoc service
- * @name GO.core.Utils
- *
- * @description
  * Common utilities
  */
 angular.module('GO.core').
@@ -31,10 +27,6 @@ angular.module('GO.core').
 						};
 
 						/**
-							* @ngdoc method
-							* @name GO.core.Utils#url
-							* @methodOf GO.core.Utils
-							* @description
 							* Create a URL to the API server
 							*
 							* @param {string} route The controller route. Eg. intermesh/auth/auth/login

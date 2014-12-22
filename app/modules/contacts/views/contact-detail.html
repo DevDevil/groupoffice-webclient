@@ -1,6 +1,6 @@
 
 
-	<section class="list">
+	<section class="panel list">
 		<div ng-if="contact.phoneNumbers.length" class="index"><i class="phone"></i></div>
 
 		<a ng-repeat="phoneNumber in contact.phoneNumbers" href="tel:{{phoneNumber.number}}">
@@ -35,7 +35,7 @@
 		
 		<div ng-if="contact.tags.length" class="index"><i class="labels"></i></div>
 		
-		<div>
+		<div ng-if="contact.tags.length" >
 			<ul class="comma-list">
 				<li  ng-repeat="tag in contact.tags">
 					{{tag.name}}

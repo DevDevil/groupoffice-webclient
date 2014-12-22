@@ -1,0 +1,28 @@
+/* rotate an element */
+.animate-spin{
+	&:hover{
+	 -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+	animation:spin 2s linear infinite;
+	}
+	
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+/* end rotate an element */
+
+
+//a height value is required for this to work
+.animate-show-height{
+	
+	transition: .2s ease-out all;
+	overflow: hidden;
+	&.ng-hide {  
+		padding-top: 0px;
+		padding-bottom:0px;
+		
+		height:0 !important;	
+	}
+}
