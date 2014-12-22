@@ -1,10 +1,6 @@
 'use strict';
 /**
- * @ngdoc service
- * @name GO.core.Alerts
- *
- * @description
- * Common utilities
+ * Alerts service to show an alert message
  */
 angular.module('GO.core').
 		service('Alerts', ["$rootScope", "$timeout", function ($rootScope, $timeout) {

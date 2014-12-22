@@ -233,4 +233,9 @@ button.action, .btn.action {
 			background-image: none;
 		//transform: translateY(1px);
 	}
+	
+	//hidden file upload button
+	input[type=file]{
+		width: 0px;
+	}
 }

@@ -1,32 +1,42 @@
 <go-loadmask ng-if="onSettingsPage" active="contact.$showMask"></go-loadmask>
 
+	
 
 <form name="contactForm" go-submit="save()" novalidate>
 
-	<menu type="toolbar">
-		<li>
-			<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();">
-				<i class="back"></i>
-			</a>
-
-			<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings">				
-				<i class="back"></i>
-			</a>
-		</li>
-		<li>
-			<button type="submit"><i class="check"></i></button>
-		</li>
-	</menu>
+	
 
 
 	<div class="panel">
+		
+		<header>
+			<menu type="toolbar">
+				<li>
+					<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();">
+						<i class="back"></i>
+					</a>
+
+					<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings">				
+						<i class="back"></i>
+					</a>
+				</li>
+				<li>
+					<button type="submit"><i class="check"></i></button>
+				</li>
+			</menu>
+
+			<div class="go-image-upload" go-image-upload ng-model="contact.photo" thumb-width="80" thumb-height="80"></div>		
+			<div class="title">				
+				<h2>{{contact.name}}</h2>
+				<h3 ng-if="contact.company">{{contact.company.name}}</h3>
+			</div>			
+		</header>
+		
 
 		<fieldset>
 			
 			
-		<div go-image-upload ng-model="contact.photo" thumb-width="80" thumb-height="80" style="margin:20px 200px;">
-				
-		</div>
+		
 
 
 		<div class="row">

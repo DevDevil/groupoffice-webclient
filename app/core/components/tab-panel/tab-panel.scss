@@ -7,16 +7,23 @@ section.tabs {
 	padding: 0;
 	position: absolute;
 	
+	overflow: hidden;	
+	
 	top: $height-panel-content-header; //todo how can we make this more dynamic?
 	width: 100%;
 	
 	> menu {
 		display:flex;
 		flex-direction:row;
+		
+		
+		
 		width:100%;
 		border-bottom: 1px solid $border-color;
 		height: $height-tab-bar;
 		& > a {
+			transition: all .5s ease-out;
+			outline: 0;
 			//@extend %ellipsis;
 			text-overflow: ellipsis;
 			flex: 1 1 0;
@@ -28,6 +35,9 @@ section.tabs {
 			padding: 0 4px;
 			line-height: 39px; //TODO fix
 			cursor: pointer;
+			
+			border-bottom: 2px solid transparent;
+			
 			&:hover {
 				color: $cGrey9;
 			}
@@ -39,21 +49,16 @@ section.tabs {
 				box-shadow: none;
 			}
 		}
-		& ~ div {
-			top: $height-tab-bar;
-		}
+		
 	}
 	> div {		
 		position: absolute;
 		background-color: white;		
 		bottom: 0;
-		top: 0;
-		width: 100%;
-		overflow-y: auto;
-		
-		padding-top: 30px;
-		
-		
+		top: $height-tab-bar + 20px;
+		right: 0;
+		left: 0;
+			
 	}
 }
 
