@@ -8,14 +8,14 @@ angular.module('GO.users.controllers').
 
 		/* For mobiles, switch list and details on state */
 
-		$scope.store = new Store('users',{returnAttributes: "*"});
+		$scope.store = new Store('auth/users',{returnAttributes: "*"});
 		$scope.store.load();
 
 		//Will be used in child scope. We define it here so we can access
 		//the properties if needed in the future.
 		//Child scopes automatically inherit properties of the parents but
 		//not the other way around.
-		$scope.user = new Model('users',{returnAttributes: "*"});
+		$scope.user = new Model('auth/users',{returnAttributes: "*"});
 
 		/* End select options for detail and edit controller */
 		$scope.save = function() {

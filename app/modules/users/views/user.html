@@ -1,0 +1,29 @@
+
+<div class="panel">
+
+	<div class="go-mask" ng-class="{active: user.deleted}"></div>
+
+	<header>
+		<menu type="toolbar">
+			<li>
+				<a class="btn" ng-disabled="!user.permissions.editAccess" ui-sref="user.edit({userId: user.id})"><i class="pencil"></i></a>
+				<button><i class="menu-dot"></i></button>
+			</li>
+		</menu>
+
+		<div class="avatar big">
+			<img ng-src="{{user.photo}}&amp;w=80&amp;h=80&amp;zoomCrop=1" />
+
+		</div>
+		<div class="title">
+			<h2>{{user.username}}</h2>
+			<h3>{{user.loginCount}} {{"logins"| goT}}</h3>
+		</div>
+	</header>
+
+	<go-tab-panel>
+		<tab ui-sref="users.user.detail({userId: user.id})" title="Info"></tab>
+		<tab ui-sref="users.user.rights({userId: user.id})" title="Rechten"></tab>
+	</go-tab-panel>
+
+</div>

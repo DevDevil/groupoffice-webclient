@@ -1,0 +1,20 @@
+	<section class="panel list">
+
+		<div class="index"><i class="clock"></i></div>
+
+		<div>
+			<strong>{{user.lastLogin|date:"longDate"}}</strong><br>
+			<small>{{"Last login"| goT}}</small>
+		</div>
+
+		<div>
+			<strong>{{user.createdAt|date:"longDate"}}</strong><br>
+			<small>{{"Created"| goT}}</small>
+		</div>
+
+		<div>
+			<strong>{{user.modifiedAt|date:"longDate"}}</strong><br>
+			<small>{{"Last modified"| goT}}</small>
+		</div>
+
+	</section>

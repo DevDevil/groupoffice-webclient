@@ -57,15 +57,15 @@
 
 
 	<ul class="list panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
-		<li ng-repeat-start="user in store.items track by user.id" class="index" ng-if="store.getIndexChar('name', $index) !== ''"><h2>{{::store.getIndexChar("name", $index)}}</h2></li>
+		<li ng-repeat-start="user in store.items track by user.id" class="index" ng-if="store.getIndexChar('username', $index) !== ''"><h2>{{::store.getIndexChar('username', $index)}}</h2></li>
 		<li ng-repeat-end>
 			<a ui-sref-active="active" ui-sref="users.user.detail({userId: user.id})">
 				<div class="avatar">
 					<img ng-src="{{user.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
 				</div>
 				<span class="description">
-					{{user.name}}
-					<!--<small>Virtual Orbis</small>-->
+					{{user.username}} <br/>
+					<small>{{user.loginCount}} {{"logins"| goT}}</small>
 				</span>
 			</a>
 		</li>
