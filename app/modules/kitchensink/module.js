@@ -5,8 +5,8 @@ angular.module('GO.kitchensink.controllers', []);
 // Declare app level module which depends on views, and components
 angular.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
 		//Register the module
-		config(['modulesProvider', function(modulesProvider) {
-				modulesProvider.addModule('kitchensink', 'Kitchen sink');
+		config(['launcherProvider', function(launcherProvider) {
+				launcherProvider.add('kitchensink', 'Kitchen sink');
 			}]).
 
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

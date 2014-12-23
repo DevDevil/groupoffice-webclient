@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('GO.core.controllers')
-		.controller('HeaderController', ['$scope', 'Modules', '$http', 'Utils', function ($scope, Modules, $http, Utils) {
-				Modules.getModules().then(function (modules) {
-					$scope.modules = modules;
+		.controller('HeaderController', ['$scope', 'Launcher', '$http', 'Utils', function ($scope, Launcher, $http, Utils) {
+				
+				
+				Launcher.getLaunchers().then(function (launchers) {
+					console.log(launchers);
+					$scope.launchers = launchers;
 				});
 
-				$scope.modulesService = Modules;
+				//$scope.modulesService = Modules;
 
 				$scope.logout = function () {
 					//for "remember my login"
