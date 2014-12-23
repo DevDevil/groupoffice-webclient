@@ -5,8 +5,9 @@ angular.module('GO.contacts.controllers', []);
 // Declare app level module which depends on views, and components
 angular.module('GO.contacts', ['GO.core', 'GO.contacts.controllers']).
 		//Register the module
-		config(['modulesProvider', function (modulesProvider) {
-				modulesProvider.addModule('contacts', 'Contacts');
+		config(['launcherProvider', function (launcherProvider) {
+								
+				launcherProvider.add('contacts', 'Contacts', ['Intermesh\Modules\Contacts\ContactsModule']);
 			}]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 

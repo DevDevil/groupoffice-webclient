@@ -5,8 +5,8 @@ angular.module('GO.users.controllers', []);
 // Declare app level module which depends on views, and components
 angular.module('GO.users', ['GO.core', 'GO.users.controllers']).
 		//Register the module
-		config(['modulesProvider', function (modulesProvider) {
-				modulesProvider.addModule('users', 'Users');
+		config(['launcherProvider', function (launcherProvider) {
+				launcherProvider.add('users', 'Users');
 			}]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 

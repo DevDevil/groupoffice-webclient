@@ -57,12 +57,15 @@ $height-panel-content-header: 190px;
 /**
  * 2. Bird's eye view of z-index
  */
+
+$z-aside: 90;
 $z-dropdown:100;
 $z-popover:110;
 $z-tooltip:130;
 $z-fixed-navbar:130;
 $z-modal-backdrop:140;
 $z-modal:150;
+
 
 /**
  * 3. Fonts

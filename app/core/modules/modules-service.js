@@ -5,40 +5,10 @@
  * @name GO.modules
  *
  * @description
- * Module manager to register modules
+ * Get's module from the server
  */
 angular.module('GO.core')
-		.provider('modules', [function ModulesProvider() {
-
-				var modules = {};
-
-				/**
-				 * @ngdoc method
-				 * @name GO.modules#addModule
-				 * @methodOf GO.modules
-				 * @description
-				 *
-				 * Add an app to the program
-				 *
-				 * @param {string} id The id of the module. Note that there must be a ui.router state for this id as well.
-				 * @param {string} title The title of the module in English.
-				 */
-				this.addModule = function(id, title) {
-					var module = {id: id, title: title};
-
-					modules[id.toLowerCase()] = module;
-				};
-
-				this.$get = [function ModulesFactory() {
-
-
-						// let's assume that the UnicornLauncher constructor was also changed to
-						// accept and use the useTinfoilShielding argument
-						return modules;
-					}];
-			}])
-				
-		.service('Modules', ["Store", "modules", "$q", function(Store, modules, $q) {
+		.service('Modules', ["Store", "$q", function(Store, $q) {
 
 				var Modules = function() {
 					this.store = new Store(
@@ -71,21 +41,6 @@ angular.module('GO.core')
 					
 					return  deferred.promise;
 					
-					
-									
-//					if(!this.modules){
-//						this.getModules();
-//						return false;
-//					}
-//								
-//					for(var i = 0, l = this.modules.length;i < l; i++){
-//
-//						if(this.modules[i].name === moduleName){
-//							return this.modules[i];
-//						}
-//					}
-//					
-//					return false;
 				};
 
 				Modules.prototype.getModules = function(){					
@@ -101,25 +56,8 @@ angular.module('GO.core')
 						
 						var promise = this.store.load();
 						
-						promise.then(function(data){
-							
-							for(var i = 0, l = this.store.items.length;i < l; i++){
-								
-								if(!modules[this.store.items[i].name]){
-									this.store.items.splice(i, 1);
-									i--;
-									l--;
-								}else
-								{
-								
-									this.store.items[i].clientAttributes = modules[this.store.items[i].name];
-								}
-							}
-							
+						promise.then(function(data){	
 							this.modules = this.store.items;
-							
-						
-//							console.log(this.store.items);
 							
 							deferred.resolve(this.modules);
 							

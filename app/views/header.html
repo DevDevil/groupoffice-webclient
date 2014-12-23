@@ -5,7 +5,7 @@
 		</button>
 
 		<menu class="popup">	
-			<li ng-repeat="module in ::modules"><a ui-sref="{{module.name}}">{{::module.clientAttributes.title| goT}}</a></li>			
+			<li ng-repeat="launcher in ::launchers"><a ui-sref="{{launcher.state}}">{{::launcher.title| goT}}</a></li>			
 		</menu>
 	</div>
 	<h1 class="logo">Group Office</h1>
