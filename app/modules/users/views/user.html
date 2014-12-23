@@ -17,14 +17,13 @@
 		</div>
 		<div class="title">
 			<h2>{{user.username}}</h2>
-			<h3 ng-if="user.company">{{user.company.name}}</h3>
+			<h3>{{user.loginCount}} {{"logins"| goT}}</h3>
 		</div>
 	</header>
 
 	<go-tab-panel>
-
 		<tab ui-sref="users.user.detail({userId: user.id})" title="Info"></tab>
-
+		<tab ui-sref="users.user.rights({userId: user.id})" title="Rechten"></tab>
 	</go-tab-panel>
 
 </div>
