@@ -15,7 +15,18 @@ angular.module('GO.users', ['GO.core', 'GO.users.controllers']).
 				// Now set up the states
 				$stateProvider
 						.state('users', {
-							url: "/users",
+//							url: "/users?role",
+//							'aside': {
+//								templateUrl: 'modules/users/views/aside.html',
+////								controller: 'AsideController'
+////								controller: 'UserController'
+//							},
+//							'main': {
+//								templateUrl: 'modules/users/views/main.html',
+//								controller: 'UserController'
+//							},
+
+							url: "/users?role",
 							templateUrl: 'modules/users/views/main.html',
 							controller: 'UserController'
 						})
@@ -29,10 +40,15 @@ angular.module('GO.users', ['GO.core', 'GO.users.controllers']).
 							templateUrl: 'modules/users/views/user-detail.html',
 							controller: 'UserDetailController'
 						})
+						.state('users.user.permission', {
+							url: "/permissions",
+							templateUrl: 'modules/users/views/user-permission.html',
+							controller: 'UserPermissionController'
+						})
 
 						.state('users.edit', {
 							url: "/edit/{userId:[0-9]*}",
-							templateUrl: 'modules/contacts/views/user-edit.html',
+							templateUrl: 'modules/users/views/user-edit.html',
 							controller: 'UserEditController'
 						})
 
