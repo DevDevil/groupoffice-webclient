@@ -1,6 +1,6 @@
 	<section class="panel list">
 
-		<div class="index"><i class="clock"></i></div>
+		<div class="index"><i class="calendar"></i></div>
 
 		<div>
 			<strong>{{user.lastLogin|date:"longDate"}}</strong><br>
@@ -15,6 +15,13 @@
 		<div>
 			<strong>{{user.modifiedAt|date:"longDate"}}</strong><br>
 			<small>{{"Last modified"| goT}}</small>
+		</div>
+
+		<div ng-if="user.roles.length" class="index"><i class="group"></i></div>
+
+		<div ng-repeat="role in user.roles">
+			<strong>{{role.name}}</strong><br>
+			<small>...</small>
 		</div>
 
 	</section>

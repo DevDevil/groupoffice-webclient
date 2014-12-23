@@ -1,19 +1,9 @@
 
 <aside>
 	<div class="panel">
-		<ul class="list">
-			<li>
-				<a><i class="group"></i> Everyone</a>
-			</li>
-			<li>
-				<a><i class="group"></i> Managers</a>
-			</li>
-			<li>
-				<a><i class="group"></i> Admins</a>
-			</li>
-			<li>
-				<a><i class="group"></i> Internal</a>
-			</li>
+		<ul class="list" go-infinite-scroll="roleStore.nextPage()" go-infinite-scroll-disabled="!roleStore.shouldLoad()">
+			<li ng-repeat="role in roleStore.items track by role.id" ng-if="roleStore.getIndexChar('name', $index) !== ''"><a ui-sref="users({role:role.id})"><i class="group"></i> {{role.name}}</a></li>
+			<li ng-if="roleStore.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
 		</ul>
 	</div>
 </aside>
@@ -56,8 +46,8 @@
 
 
 
-	<ul class="list panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
-		<li ng-repeat-start="user in store.items track by user.id" class="index" ng-if="store.getIndexChar('username', $index) !== ''"><h2>{{::store.getIndexChar('username', $index)}}</h2></li>
+	<ul class="list panel" go-infinite-scroll="userStore.nextPage()" go-infinite-scroll-disabled="!userStore.shouldLoad()">
+		<li ng-repeat-start="user in userStore.items track by user.id" class="index" ng-if="userStore.getIndexChar('username', $index) !== ''"><h2>{{::userStore.getIndexChar('username', $index)}}</h2></li>
 		<li ng-repeat-end>
 			<a ui-sref-active="active" ui-sref="users.user.detail({userId: user.id})">
 				<div class="avatar">
@@ -70,7 +60,7 @@
 			</a>
 		</li>
 
-		<li ng-if="store.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
+		<li ng-if="userStore.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
 
 	</ul>
 
@@ -78,9 +68,6 @@
 	<a class="btn action" ui-sref='users.edit({userId: 0})'><i class="plus"></i></a>
 </div>
 <div class="col fill" ui-view>
-
-
-
 
 
 </div>
