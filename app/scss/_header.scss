@@ -1,6 +1,6 @@
 $height-header: 92px;
 
-body > header:first-child {
+body > header{
 	color: $color-header;
 	height: $height-header;		
 	background-color: $color-header-bg;	
@@ -41,4 +41,19 @@ body > main {
 	bottom: 0;
 	width: 100%;
 	overflow:hidden;
+}
+
+
+.login{
+	@extend .card;
+	padding: 20px;	
+	width: 400px;
+	margin:40px auto;
+	
+	label{
+		width: 100px;
+	}
+	input{
+		width: 140px;
+	}
 }

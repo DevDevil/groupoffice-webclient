@@ -3,56 +3,56 @@
 
 angular.module('GO.core.controllers')
 
-				.controller('LoginController', function($scope, $http, $state, Utils, Translate, Modules) {
-			
-						$scope.master = $scope.user = {
-							username: '',
-							password: '',
-							remember: false
-						};
+		.controller('LoginController', function ($scope, $rootScope, $http, $state, Utils, Translate, Modules) {
 
-						$scope.config = {url: Utils.baseUrl || "http://localhost/groupoffice-server/html/"};
+			$scope.master = $scope.user = {
+				username: '',
+				password: '',
+				remember: false
+			};
 
-						$scope.login = function(user) {
+			$scope.config = {url: Utils.baseUrl || "http://localhost/groupoffice-server/html/"};
 
-							//We set the base Group-Office URL given from the form.
-							Utils.setBaseUrl($scope.config.url);
+			$scope.login = function (user) {
 
-							var url = Utils.url('auth');
+				//We set the base Group-Office URL given from the form.
+				Utils.setBaseUrl($scope.config.url);
 
-							$http.post(url, user)
-											.success(function(data, status, header) {
+				var url = Utils.url('auth');
 
-												if (!data.success) {
-													alert(Translate.t('You entered an incorrect username or password'));
+				$http.post(url, user)
+						.success(function (data, status, header) {
+
+							if (!data.success) {
+								alert(Translate.t('You entered an incorrect username or password'));
 //													
 //													$scope.loginForm.username.$setValidity('badLogin', false);
-											
-												} else {
-													
-													//Returned when remember is enabled. We create an interceptor that adds the token.
+
+							} else {
+
+								//Returned when remember is enabled. We create an interceptor that adds the token.
 //													if(data.authorizationToken){
 //														localStorage.authorizationToken = data.authorizationToken;
 //														//$http.defaults.headers.common.Authorization = 'Bearer '+data.token;
 //													}
-													
-													//Set the security token returned by Group-Office that must be used in all requests to prevent
-													//Cross site scripting attacks
+
+								//Set the security token returned by Group-Office that must be used in all requests to prevent
+								//Cross site scripting attacks
 //													Utils.setDefaultParams({
 //														securityToken: data.securityToken
 //													});
 
-													Modules.getModules().then(function(){
-														$state.go("kitchensink");
-													});
+								$rootScope.loggedIn = true;
+								
+								$state.go("dashboard");
+								
+								//TODO: Get modules from service
 
-													//TODO: Get modules from service
-													
-												}
-											});
-						};
+							}
+						});
+			};
 
-						$scope.reset = function() {
-							$scope.user = angular.copy($scope.master);
-						};
-					});
+			$scope.reset = function () {
+				$scope.user = angular.copy($scope.master);
+			};
+		});
