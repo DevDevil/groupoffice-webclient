@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.contacts.controllers').
+GO.module('GO.contacts.controllers').
 		controller('ContactEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', 'Translate','Tags', function($scope, $state, $stateParams, Utils, $http, $q, Alerts, Translate, Tags) {
 
 //				var defaultPhotoUrl = "";

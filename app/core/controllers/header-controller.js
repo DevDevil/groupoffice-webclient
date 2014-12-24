@@ -5,7 +5,7 @@ angular.module('GO.core.controllers')
 				
 				
 				Launcher.getLaunchers().then(function (launchers) {
-					console.log(launchers);
+					
 					$scope.launchers = launchers;
 				});
 

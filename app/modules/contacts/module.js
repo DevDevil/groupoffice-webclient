@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('GO.contacts.controllers', []);
+GO.module('GO.contacts.controllers', []);
+
 
 // Declare app level module which depends on views, and components
-angular.module('GO.contacts', ['GO.core', 'GO.contacts.controllers']).
+GO.module('GO.contacts', ['GO.core', 'GO.contacts.controllers']).
 		//Register the module
 		config(['launcherProvider', function (launcherProvider) {
 								

@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('GO.contacts.controllers').
+GO.module('GO.contacts.controllers').
 		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules) {
 
 				$scope.pageTitle = Translate.t('Contacts');

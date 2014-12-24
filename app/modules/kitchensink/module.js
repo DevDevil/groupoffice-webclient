@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('GO.kitchensink.controllers', []);
+GO.module('GO.kitchensink.controllers', []);
 
 // Declare app level module which depends on views, and components
-angular.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
+GO.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
 		//Register the module
 		config(['launcherProvider', function(launcherProvider) {
 				launcherProvider.add('kitchensink', 'Kitchen sink');

@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('GO.users.controllers').
+GO.module('GO.users.controllers').
 	controller('UserController', ['$scope', '$state', '$stateParams', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, $stateParams, Translate, Store, Model, Tags, CustomFields, Modules) {
 
 		$scope.pageTitle = Translate.t('Users');

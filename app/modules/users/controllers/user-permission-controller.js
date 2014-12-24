@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.users.controllers').
+GO.module('GO.users.controllers').
 		controller('UserPermissionController', ['$scope', '$stateParams', 'Utils',function($scope, $stateParams, Utils) {
 
 				//Sharing dialog

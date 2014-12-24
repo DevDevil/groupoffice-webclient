@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('GO.contacts.controllers')
+GO.module('GO.contacts.controllers')
 		.controller('ContactTimelineController', ['$scope', '$modal', '$state', '$stateParams', function ($scope, $modal, $state, $stateParams) {
 				$scope.openModal = function () {
 					$modal.open({

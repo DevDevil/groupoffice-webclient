@@ -1,21 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('GO', [
-  'ngAnimate',
-	
-  'ui.router',
-  
-  'monospaced.elastic',
-  'flow', // https://github.com/flowjs/ng-flow
-  
-  'GO.core',  
-  'GO.core.controllers',
-  
-  'GO.kitchensink',
-  'GO.contacts',
-	'GO.users'
-]).
+
+console.log(GO.appModules);
+angular.module('GO', GO.appModules). //See app/core/global-functions.js for the dependencies
+
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
 				$urlRouterProvider.otherwise("/404");

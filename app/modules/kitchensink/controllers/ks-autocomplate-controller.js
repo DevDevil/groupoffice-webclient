@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('GO.kitchensink.controllers').
+GO.module('GO.kitchensink.controllers').
 		controller('KsAutocompleteController', ['$scope', 'Store', function ($scope, Store) {
 
 				$scope.store = new Store('test');

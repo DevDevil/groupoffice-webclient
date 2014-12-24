@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.contacts.controllers').
+GO.module('GO.contacts.controllers').
 		controller('ContactTimelinesController', ['Model', '$scope', '$stateParams', 'Utils','Store', '$state', function(Model, $scope, $stateParams, Utils, Store, $state) {
 		
 				//Contact model is defined in the parent scope of ContactsController			

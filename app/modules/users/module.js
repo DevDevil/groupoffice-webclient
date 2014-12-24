@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('GO.users.controllers', []);
+GO.module('GO.users.controllers', []);
 
 // Declare app level module which depends on views, and components
-angular.module('GO.users', ['GO.core', 'GO.users.controllers']).
+GO.module('GO.users', ['GO.core', 'GO.users.controllers']).
 		//Register the module
 		config(['launcherProvider', function (launcherProvider) {
 				launcherProvider.add('users', 'Users');

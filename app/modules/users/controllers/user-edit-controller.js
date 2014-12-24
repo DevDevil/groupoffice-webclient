@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.users.controllers').
+GO.module('GO.users.controllers').
 		controller('UserEditController', ['$scope', '$state', '$stateParams', 'Utils', '$http', '$q','Alerts', 'Translate','Tags', function($scope, $state, $stateParams, Utils, $http, $q, Alerts, Translate, Tags) {
 
 //				var defaultPhotoUrl = "";

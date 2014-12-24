@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.contacts.controllers').
+GO.module('GO.contacts.controllers').
 		controller('ContactDetailController', ['$scope', '$stateParams', 'Utils',function($scope, $stateParams, Utils) {
 
 				//Sharing dialog
