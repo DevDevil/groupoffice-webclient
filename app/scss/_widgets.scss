@@ -29,12 +29,17 @@ $padding-list-index: 80px;
 		
 		display:block;
 		position:relative;
+		outline: none;
 		
 		overflow: hidden;
 		
 		padding: 8px 12px;
 		
 		color: inherit;	
+		
+		&.active{
+			@extend %selected;
+		}
 		
 		&.selected { @extend %selected;	}
 		

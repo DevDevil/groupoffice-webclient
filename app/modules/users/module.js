@@ -6,7 +6,7 @@ GO.module('GO.users.controllers', []);
 GO.module('GO.users', ['GO.core', 'GO.users.controllers']).
 		//Register the module
 		config(['launcherProvider', function (launcherProvider) {
-				launcherProvider.add('users', 'Users', ['Intermesh\\Modules\\Auth\\AuthModule']);
+				launcherProvider.add('users.list', 'Users', ['Intermesh\\Modules\\Auth\\AuthModule']);
 			}]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
