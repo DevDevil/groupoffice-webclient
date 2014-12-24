@@ -20,7 +20,7 @@ angular.module('GO.core')
 					promise.then(function (data) {
 
 						
-
+						//TODO check server modules
 						deferred.resolve(launcher);
 
 

@@ -64,7 +64,7 @@ angular.module('GO.core')
 					
 					this.lastLoadParams = angular.copy(defaultParams);
 					
-					
+
 					var deferred = $q.defer();
 
 //					Utils.promiseSuccessDecorator(deferred.promise);

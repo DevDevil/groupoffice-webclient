@@ -1,8 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-
-console.log(GO.appModules);
 angular.module('GO', GO.appModules). //See app/core/global-functions.js for the dependencies
 
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

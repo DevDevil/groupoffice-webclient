@@ -6,7 +6,7 @@ GO.module('GO.users.controllers', []);
 GO.module('GO.users', ['GO.core', 'GO.users.controllers']).
 		//Register the module
 		config(['launcherProvider', function (launcherProvider) {
-				launcherProvider.add('users', 'Users');
+				launcherProvider.add('users', 'Users', ['Intermesh\\Modules\\Auth\\AuthModule']);
 			}]).
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -26,27 +26,32 @@ GO.module('GO.users', ['GO.core', 'GO.users.controllers']).
 //								controller: 'UserController'
 //							},
 
-							url: "/users?role",
+							//url: "/users?role",
 							templateUrl: 'modules/users/views/main.html',
 							controller: 'UserController'
 						})
+						.state('users.list',{
+							controller: 'UserListController',
+							url: "/users?role",
+							templateUrl: 'modules/users/views/list.html'
+						})
 
-						.state('users.user', {
+						.state('users.list.user', {
 							url: "/user/{userId:[0-9]*}",
 							templateUrl: 'modules/users/views/user.html'
 						})
-						.state('users.user.detail', {
+						.state('users.list.user.detail', {
 							url: "/detail",
 							templateUrl: 'modules/users/views/user-detail.html',
 							controller: 'UserDetailController'
 						})
-						.state('users.user.permission', {
+						.state('users.list.user.permission', {
 							url: "/permissions",
 							templateUrl: 'modules/users/views/user-permission.html',
 							controller: 'UserPermissionController'
 						})
 
-						.state('users.edit', {
+						.state('users.list.edit', {
 							url: "/edit/{userId:[0-9]*}",
 							templateUrl: 'modules/users/views/user-edit.html',
 							controller: 'UserEditController'

@@ -11,18 +11,7 @@ GO.module('GO.users.controllers').
 //		console.log($state.params);
 //		console.log($stateParams);
 
-		$scope.userStore = new Store('auth/users',{returnAttributes: "*"});
-
-		if($stateParams.role){
-			//$scope.userStore.searchQuery = $stateParams.search;
-
-			var where = [{
-				"userRole.roleId": $stateParams.role
-			}];
-			$scope.userStore.load({where: where});
-		} else {
-			$scope.userStore.load();
-		}
+		
 
 
 
