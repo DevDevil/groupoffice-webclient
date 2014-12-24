@@ -34,10 +34,10 @@ form{
 
 	.row{
 		margin-bottom: 15px;
-		> label{
+/*		> label{
 			width: 140px;
 			color: $color-small;
-		}
+		}*/
 	}
 
 	.group {
@@ -52,8 +52,15 @@ form{
 		vertical-align:top;
 		padding-left: 4px 0px;
 		height:30px;
-
+		width: 140px;
+		color: $color-small;
+		
+		&:only-child{
+			//for checkbox
+			width: auto;
+		}
 	}
+
 
 
 

@@ -1,5 +1,5 @@
 <nav class="left">	
-	<div class="dropdown">
+	<div class="dropdown" ng-if="loggedIn">
 		<button>
 			<i class="menu-ham"></i>
 		</button>
@@ -10,7 +10,7 @@
 	</div>
 	<h1 class="logo">Group Office</h1>
 </nav>
-<nav class="right">
+<nav class="right" ng-if="loggedIn">
 
 	<button>
 		<i class="info"></i>

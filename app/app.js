@@ -4,6 +4,8 @@ angular.module('GO', GO.appModules). //See app/core/global-functions.js for the 
 
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
+				
+				$urlRouterProvider.when('', '/dashboard');
 				$urlRouterProvider.otherwise("/404");
 
 				// Now set up the states
