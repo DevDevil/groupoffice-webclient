@@ -10,16 +10,16 @@
 /**
  * 4. Widget specific
  */
-/* line 127, /var/www/groupoffice-webclient/app/scss/config */
+/* line 124, /var/www/groupoffice-webclient/app/scss/config */
 ul.list > * > a.selected, .dropdown menu > li > a.selected, ul.go-autocomplete-list li > a.selected, section.list > a.selected {
   color: #0e9cc5; }
 
-/* line 133, /var/www/groupoffice-webclient/app/scss/config */
+/* line 130, /var/www/groupoffice-webclient/app/scss/config */
 button:hover, .btn:hover, ul.list > * > a:hover, section.list > * > a:hover, .dropdown menu > li > a:hover, ul.go-autocomplete-list li > a:hover, section.list > *:hover {
   background-color: #E7F6FA;
   color: #0e9cc5; }
 
-/* line 139, /var/www/groupoffice-webclient/app/scss/config */
+/* line 136, /var/www/groupoffice-webclient/app/scss/config */
 button:active, .btn:active, ul.list > .active, section.list > .active, .dropdown menu > li.active, ul.go-autocomplete-list li.active, ul.list > * > a:active, .dropdown menu > li > a:active, ul.go-autocomplete-list li > a:active, section.list > a:active {
   background-color: #C3E6F0; }
 
@@ -1011,10 +1011,9 @@ ul.list > *, section.list > *, .dropdown menu > li, ul.go-autocomplete-list li {
 .dropdown menu, ul.go-autocomplete-list, .go-date-picker-popup {
   position: absolute;
   display: block !important;
-  opacity: 1;
   transform: scale(1);
   text-align: left;
-  transition: all 0.2s ease-out 0s;
+  transition: transform 0.2s ease-out 0s;
   list-style-type: none;
   z-index: 100;
   top: 0px;
@@ -1028,27 +1027,26 @@ ul.list > *, section.list > *, .dropdown menu > li, ul.go-autocomplete-list li {
   transform-origin: left top 0; }
   /* line 124, /var/www/groupoffice-webclient/app/scss/widgets */
   .dropdown menu.ng-hide, ul.ng-hide.go-autocomplete-list, .ng-hide.go-date-picker-popup {
-    transform: scale(0);
-    opacity: 0; }
-  /* line 145, /var/www/groupoffice-webclient/app/scss/widgets */
+    transform: scale(0); }
+  /* line 144, /var/www/groupoffice-webclient/app/scss/widgets */
   .dropdown menu.top-right, ul.top-right.go-autocomplete-list, .top-right.go-date-picker-popup {
     transform-origin: right top 0;
     left: auto;
     right: 0px; }
 
-/* line 156, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 155, /var/www/groupoffice-webclient/app/scss/widgets */
 ul.list {
   list-style-type: none; }
 
-/* line 167, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 166, /var/www/groupoffice-webclient/app/scss/widgets */
 section.list > * {
   padding: 8px 12px; }
-  /* line 170, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 169, /var/www/groupoffice-webclient/app/scss/widgets */
   section.list > *.index ~ * {
     /*> a, > label{*/
     padding-left: 80px;
     /*}*/ }
-  /* line 176, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 175, /var/www/groupoffice-webclient/app/scss/widgets */
   section.list > *.index {
     color: #333;
     margin-top: 12px;
@@ -1057,7 +1055,7 @@ section.list > * {
 /**
  * TOOLBAR
  */
-/* line 198, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 197, /var/www/groupoffice-webclient/app/scss/widgets */
 menu[type="toolbar"] {
   display: table;
   width: 100%;
@@ -1066,44 +1064,41 @@ menu[type="toolbar"] {
   border-bottom: 1px solid #c2d3d7;
   border-right: 1px solid #c2d3d7;
   padding: 0 16px; }
-  /* line 206, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 205, /var/www/groupoffice-webclient/app/scss/widgets */
   menu[type="toolbar"] > li {
     list-style-type: none;
     display: table-cell;
     vertical-align: middle; }
-    /* line 212, /var/www/groupoffice-webclient/app/scss/widgets */
+    /* line 211, /var/www/groupoffice-webclient/app/scss/widgets */
     menu[type="toolbar"] > li:last-child {
       text-align: right; }
-    /* line 216, /var/www/groupoffice-webclient/app/scss/widgets */
+    /* line 215, /var/www/groupoffice-webclient/app/scss/widgets */
     menu[type="toolbar"] > li > * {
       display: inline-block;
       min-width: 30px; }
-  /* line 221, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 220, /var/www/groupoffice-webclient/app/scss/widgets */
   menu[type="toolbar"] + * {
     top: 60px; }
 
 /**
  * DROPDOWN
  */
-/* line 232, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 231, /var/www/groupoffice-webclient/app/scss/widgets */
 .dropdown {
   position: relative;
   display: inline-block; }
-  /* line 238, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 237, /var/www/groupoffice-webclient/app/scss/widgets */
   .dropdown > button:focus + menu, .dropdown > button:hover + menu, .dropdown > a:focus + menu, .dropdown > a:hover + menu {
-    transform: scale(1);
-    opacity: 1; }
-  /* line 244, /var/www/groupoffice-webclient/app/scss/widgets */
+    transform: scale(1); }
+  /* line 242, /var/www/groupoffice-webclient/app/scss/widgets */
   .dropdown menu {
     top: 0;
-    transform: scale(0);
-    opacity: 0; }
-    /* line 252, /var/www/groupoffice-webclient/app/scss/widgets */
+    transform: scale(0); }
+    /* line 249, /var/www/groupoffice-webclient/app/scss/widgets */
     .dropdown menu:hover {
-      transform: scale(1);
-      opacity: 1; }
+      transform: scale(1); }
 
-/* line 269, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 265, /var/www/groupoffice-webclient/app/scss/widgets */
 .avatar {
   background-color: #C3E6F0;
   border-radius: 50%;
@@ -1113,28 +1108,28 @@ menu[type="toolbar"] {
   display: inline-block;
   vertical-align: middle;
   margin-right: 20px; }
-  /* line 278, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 274, /var/www/groupoffice-webclient/app/scss/widgets */
   .avatar img {
     min-width: 100%;
     height: 100%; }
-  /* line 283, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 279, /var/www/groupoffice-webclient/app/scss/widgets */
   .avatar.big {
     height: 80px;
     width: 80px; }
 
-/* line 291, /var/www/groupoffice-webclient/app/scss/widgets */
+/* line 287, /var/www/groupoffice-webclient/app/scss/widgets */
 aside {
   width: 15%; }
-  /* line 295, /var/www/groupoffice-webclient/app/scss/widgets */
+  /* line 291, /var/www/groupoffice-webclient/app/scss/widgets */
   aside .panel {
     box-shadow: 1px 0px 2px 0px #c2d3d7;
-    z-index: 90; }
-    /* line 301, /var/www/groupoffice-webclient/app/scss/widgets */
+    z-index: 110; }
+    /* line 297, /var/www/groupoffice-webclient/app/scss/widgets */
     aside .panel .list i {
       margin: 0px 20px;
       font-size: 1.2em;
       color: #333; }
-    /* line 307, /var/www/groupoffice-webclient/app/scss/widgets */
+    /* line 303, /var/www/groupoffice-webclient/app/scss/widgets */
     aside .panel .list a {
       color: #0e9cc5;
       padding: 12px 12px; }
