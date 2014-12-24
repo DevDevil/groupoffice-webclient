@@ -15,18 +15,6 @@ GO.module('GO.users', ['GO.core', 'GO.users.controllers']).
 				// Now set up the states
 				$stateProvider
 						.state('users', {
-//							url: "/users?role",
-//							'aside': {
-//								templateUrl: 'modules/users/views/aside.html',
-////								controller: 'AsideController'
-////								controller: 'UserController'
-//							},
-//							'main': {
-//								templateUrl: 'modules/users/views/main.html',
-//								controller: 'UserController'
-//							},
-
-							//url: "/users?role",
 							templateUrl: 'modules/users/views/main.html',
 							controller: 'UserController'
 						})
