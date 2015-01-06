@@ -1,0 +1,32 @@
+.dropdown{
+	position:relative;
+	display: inline-block;
+	
+	> button, > a {	
+			
+		&:focus + menu {//}, &:hover + menu{ 
+			transform: scale(1);	
+			opacity: 1;
+		}
+	}
+	
+	menu{
+		@extend %popup;
+		
+		top:0;
+
+		transform: scale(0);
+		opacity: 0;
+
+		&:hover{
+			//otherwise links are hard to click
+			transform: scale(1);
+			opacity: 1;
+		}
+
+		> li {
+			@extend %menuitem;
+		}	
+
+	}
+}

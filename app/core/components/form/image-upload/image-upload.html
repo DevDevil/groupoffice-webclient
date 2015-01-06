@@ -5,7 +5,7 @@
 			data-flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" 
 			data-flow-files-submitted="$flow.upload()" 
 			data-flow-file-success="uploadSuccess($file, $message)">
-	<a>
+	<a tabindex="1">
 		<div class="img-container" data-flow-drop style="width:{{thumbWidth}}px;height:{{thumbHeight}}px">			
 			<img ng-if="tempUrl || goModel" ng-src="{{tempUrl || goModel}}&amp;w={{thumbWidth}}&amp;h={{thumbHeight}}&amp;zoomCrop=1" style="width:{{thumbWidth}}px;height:{{thumbHeight}}px" />
 		</div>
