@@ -18,6 +18,10 @@ form{
 		label,input, .form-input, textarea, select, .group{
 			width: 100%;
 		}
+		
+		label{
+			display:block;
+		}
 	}
 
 	fieldset{
@@ -54,8 +58,8 @@ form{
 	label{
 		/*font-weight: bold;*/
 		margin-right: 10px;
-		display: block;
-		float:left;		
+		display: inline-block;
+		//float:left;		
 		vertical-align:top;
 		padding-left: 4px 0px;
 		height:30px;
