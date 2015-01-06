@@ -13,6 +13,12 @@ textarea {
 
 
 form{
+	
+	&.stretch{
+		label,input, .form-input, textarea, select, .group{
+			width: 100%;
+		}
+	}
 
 	fieldset{
 		border: 0;
@@ -48,7 +54,8 @@ form{
 	label{
 		/*font-weight: bold;*/
 		margin-right: 10px;
-		display: inline-block;			
+		display: block;
+		float:left;		
 		vertical-align:top;
 		padding-left: 4px 0px;
 		height:30px;
@@ -66,6 +73,7 @@ form{
 
 	label + * {
 		display:inline-block;
+		
 	}
 
 

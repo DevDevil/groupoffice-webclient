@@ -39,7 +39,8 @@
 	.col:last-child & {
 		border-right: 0px;
 	}
-	
+}
+main{
 	header {
 		height: $height-panel-content-header;	//section.tabs depends on this var. How can we make this more dynamic?
 		padding: 30px;
@@ -66,6 +67,10 @@
 			float:left;
 			@extend %middle;
 			
+		}
+		
+		& + .panel{
+			top: $height-panel-content-header;
 		}
 	}
 }
@@ -110,7 +115,7 @@
 
 
 
-//For grouping buttons or form fields
+/*//For grouping buttons or form fields
 .group {
 
 	white-space: nowrap;
@@ -122,6 +127,36 @@
 		//margin-left:0px;
 		//margin-right: 0px;
 		
+	}
+}*/
+
+.group{
+	width: 300px;
+	display: table;	
+	
+	line-height: 0;
+	> * {		
+		display: table-cell;
+		
+	}
+	
+	
+	label {
+		width: auto; //for checkboxes and radios
+	}
+	
+	
+	>input, >.form-input, >textarea, >select, .fill{
+		width:100%;
+	}
+	
+	.addon{
+		width:1%;
+		padding-left: 6px;
+	}
+	
+	& + button, & + btn {
+		margin-top: 10px;
 	}
 }
 

@@ -1,239 +1,245 @@
 <go-loadmask ng-if="onSettingsPage" active="contact.$showMask"></go-loadmask>
 
-	
+
 
 <form name="contactForm" go-submit="save()" novalidate>
 
-	
+	<header>
+		<menu type="toolbar">
+			<li>
+				<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();">
+					<i class="back"></i>
+				</a>
+
+				<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings">				
+					<i class="back"></i>
+				</a>
+			</li>
+			<li>
+				<button type="submit"><i class="check"></i></button>
+			</li>
+		</menu>
+
+		<div class="go-image-upload" go-image-upload ng-model="contact.photo" thumb-width="80" thumb-height="80"></div>		
+		<div class="title">				
+			<h2>{{contact.name}}</h2>
+			<h3 ng-if="contact.company">{{contact.company.name}}</h3>
+		</div>			
+	</header>
+
 
 
 	<div class="panel">
-		
-		<header>
-			<menu type="toolbar">
-				<li>
-					<a ng-if="!onSettingsPage" class="btn" ng-click="cancel();">
-						<i class="back"></i>
-					</a>
-
-					<a ng-if="onSettingsPage" class="btn visible-xs" ui-sref="settings">				
-						<i class="back"></i>
-					</a>
-				</li>
-				<li>
-					<button type="submit"><i class="check"></i></button>
-				</li>
-			</menu>
-
-			<div class="go-image-upload" go-image-upload ng-model="contact.photo" thumb-width="80" thumb-height="80"></div>		
-			<div class="title">				
-				<h2>{{contact.name}}</h2>
-				<h3 ng-if="contact.company">{{contact.company.name}}</h3>
-			</div>			
-		</header>
-		
-
 		<fieldset>
-			
-			
-		
-
-
-		<div class="row">
-
-			<label ng-if="!contact.isCompany" for="contactName">{{"Name"| goT}}</label>
-			<label ng-if="contact.isCompany" for="companyName">{{"Name"| goT}}</label>
-
-			<span class="group" ng-if='!contact.isCompany'>
-
-				<input type="text" id="contactName" name="contactName" ng-model="contact.name" ng-change="changeFullName()" required go-autofocus />				
-				<button class="small" type="button" ng-click="toggleName()"><i class="arrow-down" ng-class="{'arrow-down': !showNameParts, 'arrow-up': showNameParts}"></i></button>					
-
-			</span>
-
-			<input ng-if="contact.isCompany" type="text" id="companyName" name="companyName" ng-model="contact.name" required go-autofocus />
-				
-			<go-show-error ng-if="!contact.isCompany" for="contactName" go-model="contact"></go-show-error>
-			<go-show-error ng-if="contact.isCompany" for="companyName" go-model="contact"></go-show-error>
-		</div>
-
-
-		<div class="animate-show-height" style="height:150px;" ng-show="showNameParts">
 			<div class="row">
-				<label for="firstName">{{"First name"| goT}}</label>
 
-				<input type="text" id="firstName" ng-model="contact.firstName" required />
+				<label ng-if="!contact.isCompany" for="contactName">{{"Name"| goT}}</label>
+				<label ng-if="contact.isCompany" for="companyName">{{"Name"| goT}}</label>
 
+				<span>
+					<span class="group" ng-if='!contact.isCompany'>
+
+						<input type="text" id="contactName" name="contactName" ng-model="contact.name" ng-change="changeFullName()" required go-autofocus />	
+						<span class="addon">
+							<button class="small" type="button" ng-click="toggleName()"><i class="arrow-down" ng-class="{'arrow-down': !showNameParts, 'arrow-up': showNameParts}"></i></button>					
+						</span>
+
+					</span>
+				</span>
+				<input ng-if="contact.isCompany" type="text" id="companyName" name="companyName" ng-model="contact.name" required go-autofocus />
+
+				<go-show-error ng-if="!contact.isCompany" for="contactName" go-model="contact"></go-show-error>
+				<go-show-error ng-if="contact.isCompany" for="companyName" go-model="contact"></go-show-error>
 			</div>
 
-			<div class="row">							
-				<label for="middleName">{{"Middle name"| goT}}</label>								
-				<input type="text" id="middleName" ng-model="contact.middleName" />								
-			</div>
 
-			<div class="row">							
-				<label for="lastName">{{"Last name"| goT}}</label>
-				<input type="text" id="lastName" ng-model="contact.lastName" />
-			</div>
-		</div>
+			<div class="animate-show-height" style="height:150px;clear:both;" ng-show="showNameParts">
+				<div class="row">
+					<label for="firstName">{{"First name"| goT}}</label>
 
-
-		
-
-
-
-		<div class="row">
-			<label>{{"E-mail"| goT}}</label>
-
-			<span>
-				<div class="group" ng-if="!emailAddress.markDeleted" ng-repeat="emailAddress in contact.emailAddresses">				
-					<input style="width:70%" type="email" name="email_{{$index}}" ng-model="emailAddress.email" go-autofocus="$index > 0 && !emailAddress.id">
-
-					<select 
-						style="width:30%"
-						ng-model="emailAddress.type" 
-						ng-options="value as label for (value, label) in emailAddressOptions">											
-					</select>
-
-					<button type="button" class="btn btn-danger" ng-click="emailAddress.markDeleted = true;"><i class="remove"></i></button>
-					<go-show-error for="email_{{$index}}" attribute-name="email" go-model="emailAddress"></go-show-error>
-				</div>
-				
-
-				<button type="button" ng-click="addEmailAddress()">{{"Add e-mail address"| goT}}</button>
-			</span>
-		</div>
-
-
-
-		<div class="row">
-			<label>{{"Phone"| goT}}</label>
-
-			<span>
-				<div ng-if="!phoneNumber.markDeleted" class="group" ng-repeat="phoneNumber in contact.phoneNumbers">
-
-					<input style="width:65%" type="text" name="number_{{$index}}" ng-model="phoneNumber.number" go-autofocus="$index > 0 && !phoneNumber.id">
-					<select style="width:35%" ng-model="phoneNumber.type" ng-options="value as label for (value, label) in phoneNumberOptions"></select>
-
-					<go-show-error for="number_{{$index}}" attribute-name="number" go-model="phoneNumber"></go-show-error>
-
-					<button type="button" ng-click="phoneNumber.markDeleted = true;"><i class="remove"></i></button>
-
-				</div>
-				<button type="button" ng-click="addPhoneNumber()">{{"Add phone number"| goT}}</button>
-			</span>
-		</div>
-			
-		<div class="row" ng-if="!contact.isCompany">
-			<label>{{"Gender"| goT}}</label>
-
-			<span class="group">		
-				<label>
-					<input type="radio" ng-model="contact.gender" ng-value="null"> {{"Unknown"| goT}}
-				</label>
-				<label>
-					<input type="radio" ng-model="contact.gender" value="M"> {{"Male"| goT}}
-				</label>
-				<label>
-					<input type="radio" ng-model="contact.gender" value="F"> {{"Female"| goT}}
-				</label>
-			</span>
-		</div>
-
-
-		<div class="row">
-			<label>{{"Special dates"| goT}}</label>			
-
-			<span>
-				<div ng-if="!specialDate.markDeleted" class="group" ng-repeat="specialDate in contact.dates">					 
-
-					<input style="width:70%" type="text" name="date_{{$index}}" ng-model="specialDate.date" datepicker-popup />
-
-					<select 
-					    style="width:30%"
-						ng-model="specialDate.type" 
-						ng-options="value as label for (value, label) in dateOptions">											
-					</select>
-
-					<go-show-error for="date_{{$index}}" attribute-name="date" go-model="specialDate"></go-show-error>
-
-					<button type="button" ng-click="specialDate.markDeleted = true;">
-						<i class="remove"></i>
-					</button>
+					<input type="text" id="firstName" ng-model="contact.firstName" required />
 
 				</div>
 
-				<button type="button" ng-click="addDate()">{{"Add special date"| goT}}</button>
-			</span>
+				<div class="row">							
+					<label for="middleName">{{"Middle name"| goT}}</label>								
+					<input type="text" id="middleName" ng-model="contact.middleName" />								
+				</div>
 
-		</div>
-
-		<div class="row">
-			<label for="tags">{{"Tags"| goT}}</label>	
-			
-			<input name="tags" id="tags" type="text" auto-create="true" go-multiselect="getTags(input)" display-attribute="name" placeholder="{{'Add tags...'| goT}}" ng-model="contact.tags">
-
-
-		</div>
-
-
-		<script type="text/ng-template" id="customTemplate.html">
-			<a>
-			<span ng-if="!match.model.id">{{"Create new company" | goT}}: </span>
-			<span>{{match.model.name}}</span>
-			</a>
-		</script>
-
-		<div class="row" ng-if="!contact.isCompany">
-			<label>{{"Company"| goT}}</label>	
-			<input type="text" go-autocomplete-template-url="customTemplate.html" ng-model="contact.company" go-autocomplete="company as company.name for company in getCompanies($viewValue)">
-		</div>
-
-		<div class="row">
-			<label>{{"Addresses"| goT}}</label>
-
-
-			<div>
-				<div ng-if="!address.markDeleted"ng-repeat="address in contact.addresses">
-
-					<div class="group">
-						<select class="control" ng-model="address.type" ng-options="value as label for (value, label) in emailAddressOptions"></select>
-						<button type="button" ng-click="address.markDeleted = true;"><i class="remove"></i></button>						
-					</div>
-
-					<div class="row">
-						<textarea ng-model="address.street" go-autofocus="!address.id" style="height:70px" placeholder="{{'Street address'| goT}}"></textarea>		
-					</div>
-					<div class="row">
-						<input type="text" ng-model="address.zipCode" placeholder="{{'Zip code'| goT}}">
-					</div>
-					<div class="row">
-						<input type="text" ng-model="address.city" placeholder="{{'City'| goT}}">
-					</div>
-					<div class="row">
-						<input type="text" ng-model="address.state" placeholder="{{'State / Province / Region'| goT}}">
-					</div>
-					<div class="row">
-						<input type="text" ng-model="address.country" placeholder="{{'Country'| goT}}" />
-					</div>
-				</div>	
-
-				<div  style="clear:both">
-					<button type="button" ng-click="addAddress()">{{"Add address"| goT}}</button>
+				<div class="row">							
+					<label for="lastName">{{"Last name"| goT}}</label>
+					<input type="text" id="lastName" ng-model="contact.lastName" />
 				</div>
 			</div>
 
 
 
 
-		</div>
 
 
-		<div class="row">
-			<label for="notes">{{"Notes"| goT}}</label>
-			<textarea id="notes" msd-elastic="\n" ng-model="contact.notes" style="height:60px">
-			</textarea>		
-		</div>
+			<div class="row">
+				<label>{{"E-mail"| goT}}</label>
+
+				<span>
+					<div class="group" ng-if="!emailAddress.markDeleted" ng-repeat="emailAddress in contact.emailAddresses">				
+						<input type="email" name="email_{{$index}}" ng-model="emailAddress.email" go-autofocus="$index > 0 && !emailAddress.id">
+
+						<div class="addon">
+							<select 
+								style="width:100px"
+								ng-model="emailAddress.type" 
+								ng-options="value as label for (value, label) in emailAddressOptions">											
+							</select>
+						</div>
+						
+
+						<div class="addon">
+							<button type="button" class="btn" ng-click="emailAddress.markDeleted = true;"><i class="remove"></i></button>
+						</div>
+						<go-show-error for="email_{{$index}}" attribute-name="email" go-model="emailAddress"></go-show-error>
+					</div>
+
+
+					<button type="button" ng-click="addEmailAddress()">{{"Add e-mail address"| goT}}</button>
+				</span>
+			</div>
+
+
+
+			<div class="row">
+				<label>{{"Phone"| goT}}</label>
+
+				<span>
+					<div ng-if="!phoneNumber.markDeleted" class="group" ng-repeat="phoneNumber in contact.phoneNumbers">
+
+						<input class="fill" type="text" name="number_{{$index}}" ng-model="phoneNumber.number" go-autofocus="$index > 0 && !phoneNumber.id">
+						<go-show-error for="number_{{$index}}" attribute-name="number" go-model="phoneNumber"></go-show-error>
+
+						<div class="addon">
+							<select style="width: 100px" ng-model="phoneNumber.type" ng-options="value as label for (value, label) in phoneNumberOptions"></select>
+						</div>
+						
+						<div class="addon">
+							<button type="button" ng-click="phoneNumber.markDeleted = true;"><i class="remove"></i></button>
+						</div>
+
+					</div>
+					<button type="button" ng-click="addPhoneNumber()">{{"Add phone number"| goT}}</button>
+				</span>
+			</div>
+
+			<div class="row" ng-if="!contact.isCompany">
+				<label>{{"Gender"| goT}}</label>
+
+				<span class="group">		
+					<label>
+						<input type="radio" ng-model="contact.gender" ng-value="null"> {{"Unknown"| goT}}
+					</label>
+					<label>
+						<input type="radio" ng-model="contact.gender" value="M"> {{"Male"| goT}}
+					</label>
+					<label>
+						<input type="radio" ng-model="contact.gender" value="F"> {{"Female"| goT}}
+					</label>
+				</span>
+			</div>
+
+
+			<div class="row">
+				<label>{{"Special dates"| goT}}</label>			
+
+				<span>
+					<div ng-if="!specialDate.markDeleted" class="group" ng-repeat="specialDate in contact.dates">					 
+
+						<input class="fill" type="text" name="date_{{$index}}" ng-model="specialDate.date" datepicker-popup />
+						<go-show-error for="date_{{$index}}" attribute-name="date" go-model="specialDate"></go-show-error>
+
+						<div class="addon">
+							<select 
+								ng-model="specialDate.type" 
+								ng-options="value as label for (value, label) in dateOptions">											
+							</select>
+						</div>
+
+						<div class="addon">
+						
+							<button type="button" ng-click="specialDate.markDeleted = true;">
+								<i class="remove"></i>
+							</button>
+						</div>
+					</div>
+
+					<button type="button" ng-click="addDate()">{{"Add special date"| goT}}</button>
+				</span>
+
+			</div>
+
+			<div class="row">
+				<label for="tags">{{"Tags"| goT}}</label>	
+
+				<input name="tags" id="tags" type="text" auto-create="true" go-multiselect="getTags(input)" display-attribute="name" placeholder="{{'Add tags...'| goT}}" ng-model="contact.tags">
+
+
+			</div>
+
+
+			<script type="text/ng-template" id="customTemplate.html">
+				<a>
+				<span ng-if="!match.model.id">{{"Create new company" | goT}}: </span>
+				<span>{{match.model.name}}</span>
+				</a>
+			</script>
+
+			<div class="row" ng-if="!contact.isCompany">
+				<label>{{"Company"| goT}}</label>	
+				<input type="text" go-autocomplete-template-url="customTemplate.html" ng-model="contact.company" go-autocomplete="company as company.name for company in getCompanies($viewValue)">
+			</div>
+
+			<div class="row">
+				<label>{{"Addresses"| goT}}</label>
+
+
+				<div>
+					<div ng-if="!address.markDeleted"ng-repeat="address in contact.addresses">
+
+						<div class="group">
+							<select class="control" ng-model="address.type" ng-options="value as label for (value, label) in emailAddressOptions"></select>
+							<button type="button" ng-click="address.markDeleted = true;"><i class="remove"></i></button>						
+						</div>
+
+						<div class="row">
+							<textarea ng-model="address.street" go-autofocus="!address.id" style="height:70px" placeholder="{{'Street address'| goT}}"></textarea>		
+						</div>
+						<div class="row">
+							<input type="text" ng-model="address.zipCode" placeholder="{{'Zip code'| goT}}">
+						</div>
+						<div class="row">
+							<input type="text" ng-model="address.city" placeholder="{{'City'| goT}}">
+						</div>
+						<div class="row">
+							<input type="text" ng-model="address.state" placeholder="{{'State / Province / Region'| goT}}">
+						</div>
+						<div class="row">
+							<input type="text" ng-model="address.country" placeholder="{{'Country'| goT}}" />
+						</div>
+					</div>	
+
+					<div  style="clear:both">
+						<button type="button" ng-click="addAddress()">{{"Add address"| goT}}</button>
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+
+			<div class="row">
+				<label for="notes">{{"Notes"| goT}}</label>
+				<textarea id="notes" msd-elastic="\n" ng-model="contact.notes" style="height:60px">
+				</textarea>		
+			</div>
 
 		</fieldset>
 

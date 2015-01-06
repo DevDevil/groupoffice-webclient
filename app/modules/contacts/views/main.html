@@ -1,31 +1,42 @@
 
 <aside>
-	<div class="panel">
-		<ul class="list">
-			<li>
-				<a><i class="clock"></i> Inbox</a>
-			</li>
-			<li>
-				<a><i class="clock"></i> Snoozed</a>
-			</li>
-			<li>
-				<a><i class="clock"></i> Pinned</a>
-			</li>
-			<li class="divider"></li>
-			<li>
-				<a><i class="clock"></i> Snoozed</a>
-			</li>
-			<li>
-				<a><i class="clock"></i> Pinned</a>
-			</li>
-			<li class="divider"></li>
-		</ul>
+	<div class="panel pad">
+
+
+		<form class="stretch">
+			<div class="row">
+				<label for="filter-gender">{{'Gender'| goT}}</label>
+
+				<select id="filter-gender" class="form-control" ng-model="filters.gender" ng-options="option.value as option.label for option in genderFilterOptions"></select>
+			</div>
+
+
+			<div class="row">
+				<label for="filter-age">{{'Age'| goT}}</label>
+				
+				<div class="group2">					
+					<div>&gt;=</div>
+					<input go-numeric id="filter-age" type="text" ng-model="filters.age.gt" />										
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="group2">
+					<div>&lt;=</div>
+					<input go-numeric type="text" ng-model="filters.age.lt"  />
+				</div>
+			</div>
+
+		</form>
+
+
 	</div>
 </aside>
 
 <div class="col w1-3">
-	
-	
+
+
 	<menu type="toolbar" class="pad-list-index">
 		<li>
 			<div class="dropdown">
@@ -41,7 +52,7 @@
 		<li>
 			<!--<input type="search" /><i class="search"></i>-->
 			<button ><i class="search"></i></button>
-			
+
 			<div class="dropdown">
 				<button class="menu"><i class="menu-dot"></i></button>
 				<menu class="popup top-right">
@@ -68,21 +79,21 @@
 				</div>
 				<span class="description">
 					{{contact.name}}
-					<!--<small>Virtual Orbis</small>-->
+					<br /><small>{{contact.company.name}}</small>
 				</span>
 			</a>
 		</li>
-		
+
 		<li ng-if="store.busy" class="loading-more"><i class="reload"></i> {{"Loading more items..."| goT}}</li>
 
 	</ul>
-	
-	
+
+
 	<a class="btn action" ui-sref='contacts.edit({contactId: 0})'><i class="plus"></i></a>
 </div>
 <div class="col fill" ui-view>
 
-	
+
 
 
 

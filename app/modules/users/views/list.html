@@ -40,9 +40,9 @@
 		<li ng-repeat-start="user in userStore.items track by user.id" class="index" ng-if="userStore.getIndexChar('username', $index) !== ''"><h2>{{::userStore.getIndexChar('username', $index)}}</h2></li>
 		<li ng-repeat-end>
 			<a ui-sref-active="active" ui-sref="users.list.user.detail({userId: user.id})">
-				<div class="avatar">
+<!--				<div class="avatar">
 					<img ng-src="{{user.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
-				</div>
+				</div>-->
 				<span class="description">
 					{{user.username}} <br/>
 					<small>{{user.loginCount}} {{"logins"| goT}}</small>
