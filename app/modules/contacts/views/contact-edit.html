@@ -1,6 +1,4 @@
-<go-loadmask ng-if="onSettingsPage" active="contact.$showMask"></go-loadmask>
-
-
+<go-mask ng-if="onSettingsPage" active="contact.$showMask"></go-mask>
 
 <form name="contactForm" go-submit="save()" novalidate>
 
@@ -131,16 +129,18 @@
 			<div class="row" ng-if="!contact.isCompany">
 				<label>{{"Gender"| goT}}</label>
 
-				<span class="group">		
-					<label>
-						<input type="radio" ng-model="contact.gender" ng-value="null"> {{"Unknown"| goT}}
-					</label>
-					<label>
-						<input type="radio" ng-model="contact.gender" value="M"> {{"Male"| goT}}
-					</label>
-					<label>
-						<input type="radio" ng-model="contact.gender" value="F"> {{"Female"| goT}}
-					</label>
+				<span>
+					<span class="group">		
+						<label>
+							<input type="radio" ng-model="contact.gender" ng-value="null"> {{"Unknown"| goT}}
+						</label>
+						<label>
+							<input type="radio" ng-model="contact.gender" value="M"> {{"Male"| goT}}
+						</label>
+						<label>
+							<input type="radio" ng-model="contact.gender" value="F"> {{"Female"| goT}}
+						</label>
+					</span>
 				</span>
 			</div>
 
@@ -156,6 +156,7 @@
 
 						<div class="addon">
 							<select 
+								style="width:100px"
 								ng-model="specialDate.type" 
 								ng-options="value as label for (value, label) in dateOptions">											
 							</select>

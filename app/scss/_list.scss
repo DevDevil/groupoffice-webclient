@@ -22,3 +22,101 @@ ul.comma-list {
 		content: "";
 	};
 }
+
+
+.loading-more{
+	padding: 10px 20px;
+
+	opacity: 1;	
+
+	transition: all 0.3s ease-out;
+	/*	.ng-hide-remove.ng-hide-remove-active {
+			transition-delay: 0;
+		}*/
+
+	&.ng-hide{
+		opacity: 0;
+	}
+
+
+}
+
+
+
+ul.items, ul.properties{
+
+	> li{
+
+		&:hover{
+			background-color: $color-bg-hover;
+		}
+		
+		width: 100%;
+		display: table;
+
+		> * {
+			display: table-cell;
+			vertical-align: middle;
+			width: 1%;
+			padding: 8px;
+
+			&:first-child{
+				padding-left: 76px;
+			}
+			
+			&.icon {
+				padding-right: 20px;
+			}
+		}
+
+		a{
+			font-size: 1.2em;
+			color: $font-color;
+			width: 100%;
+			
+			outline: none;
+
+			&:active{
+				background-color: $color-bg-active;
+			}
+		}
+
+
+
+		&.index {
+			&:first-child{ 
+				border:0;
+			}
+			cursor: default;
+			display:block;
+			overflow:visible;
+
+			height: 0px;
+
+			line-height:0px;
+			padding:0;
+			margin: 10px 0px 10px 76px;
+			padding-left: 0;
+			
+
+
+			border-top: 1px solid $border-color;
+			position: relative;
+			h2, i{
+				position:absolute;
+				top: 25px;
+				left: -126px;
+				font-size: 1.3em;
+				font-weight: 700;
+				//z-index: 1; //otherwise hover effect will hide index
+			}
+			
+			h2 {
+				text-transform: uppercase;
+				color: $color-link;
+			}
+
+		}
+	}
+
+}

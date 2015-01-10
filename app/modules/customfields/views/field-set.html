@@ -1,0 +1,30 @@
+<div class="col w1-3">
+	<form name="fieldSetForm" go-submit="save()" novalidate>
+
+
+		<menu type="toolbar">
+			<li>
+				<a class="btn" ng-click="back();">
+					<i class="back"></i>
+				</a>
+			</li>
+			<li>
+				<button type="submit"><i class="check"></i></button>
+			</li>
+		</menu>		
+
+
+		<div class="panel pad">
+
+			<div class="row">
+				<label for="name">{{"Name"| goT}}</label>
+
+				<input type="text" id="name" name="name" class="form-control" ng-model="fieldset.name" required />
+				<go-show-error for="name" ng-model="fieldset"></go-show-error>
+
+			</div>
+
+		</div>			
+
+	</form>
+</div>

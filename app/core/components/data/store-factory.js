@@ -12,7 +12,7 @@
  * @param {object=} loadParams Extra GET parameters for the store action
  */
 angular.module('GO.core')
-		.factory('Store', ['$http', 'Utils', 'Model', '$q', function($http, Utils, Model, $q) {
+		.factory('Store', ['$http', 'Utils', 'Model', '$q', '$timeout', function($http, Utils, Model, $q, $timeout) {
 
 				var Store = function(restRoute, loadParams) {
 					this.items = [];
@@ -49,7 +49,11 @@ angular.module('GO.core')
 				 */
 				Store.prototype.load = function(params) {
 
-					this.busy = true;
+					//I use timeout here otherwise a wierd thing happens with an ng-show directive in the view
+					//it won't animate on the first render.
+					//$timeout(function(){
+						this.busy = true;
+					//}.bind(this),1000);
 
 					params = params || {};
 
@@ -268,11 +272,11 @@ angular.module('GO.core')
 						}
 
 						if(index === 0){
-							this._indexChars[index] = this.items[0][attr].substr(0,1);
+							this._indexChars[index] = this.items[0][attr].substr(0,1).toUpperCase();
 						}else
 						{
-							var lastIndex = this.items[index - 1][attr].substr(0,1);
-							var newIndex = this.items[index ][attr].substr(0,1);
+							var lastIndex = this.items[index - 1][attr].substr(0,1).toUpperCase();
+							var newIndex = this.items[index ][attr].substr(0,1).toUpperCase();
 							this._indexChars[index] = lastIndex !== newIndex ? newIndex : "";
 						}
 					}

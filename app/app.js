@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('GO', GO.appModules). //See app/core/global-functions.js for the dependencies
+angular.module('GO', GO.appModules).//See app/core/global-functions.js for the dependencies
 
 		config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 				// For any unmatched url, redirect to /state1
-				
+
 				$urlRouterProvider.when('', '/dashboard');
 				$urlRouterProvider.otherwise("/404");
 
@@ -19,17 +19,22 @@ angular.module('GO', GO.appModules). //See app/core/global-functions.js for the 
 							templateUrl: "views/login.html",
 							controller: 'LoginController'
 						});
-						
 
-			}])
-			.run(function (Utils) {
-				//FastClick.attach(document.body);
 
-				//Special config
-				//$rootScope.title = appTitle;
-				
-				Utils.setBaseUrl("../../groupoffice-server/html/index.php");
-				
-				FastClick.attach(document.body);
-			});
-		
+			}]).
+		config(function ($animateProvider) {
+
+			//only enable ngAnimate on elements with the "animate" class
+			$animateProvider.classNameFilter(/animate/);
+		}).
+		run(function (Utils) {
+			//FastClick.attach(document.body);
+
+			//Special config
+			//$rootScope.title = appTitle;
+
+			Utils.setBaseUrl("../../groupoffice-server/html/index.php");
+
+			FastClick.attach(document.body);
+		});
+

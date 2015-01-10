@@ -88,8 +88,10 @@ form{
 		outline: 0;
 		box-shadow:none;
 
-		width: $width-form-field;
-
+		.row > & {
+			width: $width-form-field;
+		}
+		
 		display: inline-block;
 
 		line-height: $line-height;

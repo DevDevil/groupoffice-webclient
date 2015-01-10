@@ -120,18 +120,20 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 
 
 
-
+$color-bg-hover: $cGoBlue2;
+$color-bg-selected: $cGoBlue1;
+$color-bg-active: $cGoBlue1;
 
 
 // When an element is selected
 %selected {
-	background-color: $cGoBlue1;
+	background-color: $color-bg-selected;
 	color: $font-color !important;
 	//text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 // When mouse hovers over element
 %hover {
-	background-color: $cGoBlue2;
+	background-color: $color-bg-hover;
 	//color: $color-link;
 }
 
@@ -139,7 +141,7 @@ $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 %active {
 	//background-image: none;
 	//text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-	background-color: $cGoBlue1;
+	background-color: $color-bg-active;
 	color: $font-color !important;
 }
 

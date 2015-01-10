@@ -152,7 +152,10 @@ main{
 	
 	.addon{
 		width:1%;
-		padding-left: 6px;
+		padding: 0 3px;
+		&:first-child{
+			padding-left: 0;
+		}
 	}
 	
 	& + button, & + btn {

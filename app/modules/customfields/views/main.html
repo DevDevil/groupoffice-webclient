@@ -1,0 +1,25 @@
+<div class="col w1-3">
+	<!--	<div class="panel pad">
+			<div class="card pad">-->
+	<menu type="toolbar">
+		<li><h1>{{"Model"| goT}}</h1></li>
+		<li></li>
+	</menu>
+	
+
+	<ul class="panel list">
+		<li>
+
+			<a ng-repeat="model in models" ng-class="{active: $state.includes('customfields.model', {modelName: model.customFieldsModelName})}" class="list-group-item" ui-sref="customfields.model({modelName: model.customFieldsModelName})">
+				<i class="folder"></i> {{model.modelName| goT}}
+			</a>
+		</li>
+	</ul>
+
+	<!--		</div>
+		</div>-->
+
+
+</div>
+
+<ui-view></ui-view>

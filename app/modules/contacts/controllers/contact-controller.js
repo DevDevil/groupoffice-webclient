@@ -2,7 +2,7 @@
 
 /* Controllers */
 GO.module('GO.contacts.controllers').
-		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules) {
+		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', '$timeout', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, $timeout) {
 
 				$scope.pageTitle = Translate.t('Contacts');
 
@@ -16,7 +16,7 @@ GO.module('GO.contacts.controllers').
 							returnAttributes: "id,name,photo,company.name"
 						});
 						
-				$scope.store.load();
+				
 
 
 				//Will be used in child scope. We define it here so we can access
@@ -81,7 +81,7 @@ GO.module('GO.contacts.controllers').
 					var index = $scope.store.findIndexByAttribute('id', $scope.contact.id);
 
 					if (index > -1) {
-						$scope.store.items[index].attributes = angular.copy($scope.contact.attributes);
+						angular.extend($scope.store.items[index], $scope.contact.getAttributes());
 					} else if (reloadStore) {
 						$scope.store.reload();
 					}
@@ -178,7 +178,23 @@ GO.module('GO.contacts.controllers').
 				Modules.getModule('contacts').then(function(module){
 					$scope.contactsModule = module;
 				});
+				
+				
+				
+				
+				$scope.delete = function(){
+							
+			
+							
+							$scope.contact.delete().then(function(result){
+								$scope.syncWithStore(false);
+							});
+						};
 
+
+				
+				$scope.store.load();
+			
 				
 			}]);
 

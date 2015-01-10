@@ -1,16 +1,16 @@
 
-.go-loadmask{
+.go-mask{
 	position:absolute;
 	top:0;
 	bottom:0;
 	right:0;
 	left:0;
 	z-index:100000;	
-	vertical-align:middle;
-	text-align:center;
+	//vertical-align:middle;
+	//text-align:center;
 
-	.go-loadmask-msg{
-		position:fixed;
+	.go-mask-msg{
+		position:absolute;
 		top:50%;
 		left:50%;
 		width:250px;
@@ -19,19 +19,19 @@
 		margin-left:-125px;
 		margin-top:-25px;
 
-		line-height:50px;
+/*		line-height:50px;
 
 		border: 1px solid $border-color;
 		border-radius: 2px;
-		
-		background:white;	
+
+		background:white;	*/
 		z-index:100001;
 		//color:$primary-color;
-		
-		
+
+
 	}
 
-	.go-loadmask-screen{
+	.go-mask-screen{
 		position:absolute;
 		top:0;
 		bottom:0;

@@ -1,13 +1,23 @@
 
 <div class="panel">
 
-	<div class="go-mask" ng-class="{active: contact.deleted}"></div>
+	
+	<go-mask active="contact.deleted">
+		
+		
+	</go-mask>
 
 	<header>
 		<menu type="toolbar">
+			<li></li>
 			<li>
 				<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.id})"><i class="pencil"></i></a>
-				<button><i class="menu-dot"></i></button>
+				<div class="dropdown">
+					<button><i class="menu-dot"></i></button>
+					<menu class="popup top-right">
+						<li><a ng-click="delete()">Delete</a></li>						
+					</menu>
+				</div>
 			</li>
 		</menu>
 
