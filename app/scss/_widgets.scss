@@ -19,22 +19,6 @@ $padding-list-index: 80px;
 	
 	transition: opacity 1s ease-out;
 	
-	&.deleted {
-		opacity: 0.5;
-		background-color: $color-danger-bg !important;
-		a {
-			background-color: $color-danger-bg !important;
-		}
-	}
-	
-	&.index ~ li{
-		
-		//padding-left: $padding-list-index;
-		> a, > label {
-			padding-left: $padding-list-index;
-		}
-	}
-	
 	> a {
 		
 		display:block;
@@ -54,21 +38,7 @@ $padding-list-index: 80px;
 		&.selected { @extend %selected;	}
 		
 		&:active { @extend %active;}
-		&:hover { @extend %hover;	}
-		
-		
-		.avatar {
-			float: left;
-		}
-		
-		.description {
-/*			position:absolute;
-			top: 50%;
-			left: 150px;*/
-			/*transform: translateY(-50%);*/
-			/*display:block;*/
-		}
-		
+		&:hover { @extend %hover;	}	
 		
 		
 	}
@@ -79,49 +49,6 @@ $padding-list-index: 80px;
 		overflow: hidden;
 		/*background-color: $border-color;*/
 		border-bottom: 1px solid $border-color;
-	}
-
-	&.index {
-		&:first-child{ 
-			border:0; 
-			i{
-				top: 25px;
-			}
-		}
-		cursor: default;
-		display:block;
-		overflow:visible;
-		
-		height: 0px;
-		
-		line-height:0px;
-		padding:0;
-		margin:0;
-		margin-top:0px;
-		margin-left: 80px;
-		
-		
-		border-top: 1px solid $border-color;
-		position: relative;
-		h2, i{
-			text-transform: uppercase;
-			color: $color-link;
-			position:absolute;
-			top: 35px;
-			left: -50px;
-			font-size: 1.3em;
-			font-weight: 700;
-			z-index: 1; //otherwise hover effect will hide index
-		}
-		
-		i {
-			color: $font-color;
-		}
-		
-		h2{
-			top: 35px;
-		}
-
 	}
 }
 
@@ -168,43 +95,6 @@ $padding-list-index: 80px;
 
 
 
-ul.list{
-	list-style-type: none;
-	>* {
-		@extend %menuitem;
-	}
-}
-
-section.list{
-	
-	//@extends ul.list;
-	
-	>*{
-		padding: 8px 12px;	
-		@extend %menuitem;
-		&.index ~ *{			
-			/*> a, > label{*/
-				padding-left: $padding-list-index;
-			/*}*/
-		}
-		
-		&.index{
-			color: $font-color;
-			margin-top:12px;
-			margin-bottom: 12px;
-		}
-		
-		&:hover { @extend %hover;	}
-	}
-	
-	> a{
-		&.selected { @extend %selected;	}		
-		&:active { @extend %active;}
-		
-	}
-}
-
-
 
 
 /**
@@ -219,6 +109,13 @@ menu[type="toolbar"] {
 	border-right:  1px solid $border-color;
 	padding: 0 16px;
 	> li {		
+		
+		h2 {
+			color: $color-link;
+			
+			font-size: $height-button;
+			
+		}
 		
 		list-style-type:none;
 		display:table-cell;

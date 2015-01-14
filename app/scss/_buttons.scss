@@ -135,15 +135,14 @@
 		transition: all .2s ease-out;
 		border-radius: $border-radius;
 		
+		outline: none;
+		
 		padding: 4px;
 		
 		margin: 0;
-		
-		//margin: 10px 0px 0px 0px;
-		
-		//.group &, menu & {
-		//	margin: 0px;
-		//}
+	
+
+
 		
 		&:hover{
 			@extend %hover;			
@@ -217,7 +216,7 @@ button.action, .btn.action {
 	font-size: $height-button;
 	border: none;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.26);
-	
+	outline: none;
 	bottom: 20px;
 	right: 30px;
 	

@@ -5,7 +5,7 @@ angular.module('GO.customfields.controllers')
 		.controller('FieldController', ['$scope', 'Model', '$state', '$stateParams', function ($scope, Model, $state, $stateParams) {
 	
 				$scope.field = new Model(
-						'CustomFields/fieldsets/' + encodeURI($stateParams.modelName) + '/fields'
+						'customfields/fieldsets/' + encodeURI($stateParams.modelName) + '/'+$stateParams.fieldSetId+'/fields'
 						);
 
 
@@ -49,10 +49,8 @@ angular.module('GO.customfields.controllers')
 				];
 
 				$scope.save = function () {
-					$scope.field.save({
-						fieldSetId: $stateParams.fieldSetId
-					})
-							.success(function (result) {
+					$scope.field.save()
+							.then(function (result) {
 
 								$state.go("^");
 

@@ -2,15 +2,20 @@
 
 /* Controllers */
 angular.module('GO.customfields.controllers').
-		controller('FieldsController', ['$scope', '$stateParams', 'Store', 'Model', function($scope, $stateParams, Store, Model) {
+		controller('FieldsController', ['$scope', '$stateParams', 'Store', 'Model', function ($scope, $stateParams, Store, Model) {
 
 
-//				$scope.fieldStore.reset();
-//				$scope.fieldStore.load({
-//					where: [{
-//						fieldSetId: $stateParams.fieldSetId
-//					}]
-//				});
+				$scope.fieldSetId = $stateParams.fieldSetId;
+
+				$scope.fieldStore = new Store(
+						'customfields/fieldsets/' + encodeURI($stateParams.modelName) + '/'+$stateParams.fieldSetId+'/fields',
+						{
+							limit: 0
+						}
+				);
+
+				$scope.fieldStore.reset();
+				$scope.fieldStore.load();
 //
 //
 //				$scope.dragControlListeners = {

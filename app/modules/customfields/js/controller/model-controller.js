@@ -11,7 +11,7 @@ angular.module('GO.customfields.controllers').
 				$scope.modelName = $stateParams.modelName;
 
 				$scope.fieldSetStore = new Store(
-						'CustomFields/fieldsets/'+encodeURI($stateParams.modelName),
+						'customfields/fieldsets/'+encodeURI($stateParams.modelName),
 						{
 							limit: 0
 						}
@@ -32,12 +32,7 @@ angular.module('GO.customfields.controllers').
 				};
 				
 				
-				$scope.fieldStore = new Store(
-						'CustomFields/fieldsets/'+encodeURI($stateParams.modelName)+'/fields',						
-						{
-							limit: 0
-						}
-				);
+				
 		
 		
 				

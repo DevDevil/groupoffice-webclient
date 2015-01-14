@@ -32,9 +32,9 @@ GO.module('GO.customfields', ['GO.customfields.controllers']).
 							templateUrl: 'modules/customfields/views/fields.html',
 							controller: 'FieldsController'
 						})
-						.state('customfields.model.fields.field', {
-							url: "/field/{fieldId:[0-9]*}",
-							//controller: "FieldController",
-							//templateUrl: 'modules/customfields/views/field.html'
+						.state('customfields.model.field', {
+							url: "/fieldset/{fieldSetId:[0-9]*}/field/{fieldId:[0-9]*}",
+							controller: "FieldController",
+							templateUrl: 'modules/customfields/views/field.html'
 						});
 			}]);		

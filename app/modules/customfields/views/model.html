@@ -3,40 +3,15 @@
 	<!--	<div class="panel pad">
 			<div class="card pad">-->
 	<menu type="toolbar">
-		<li><h1>{{"Field sets"| goT}}</h1></li>
+		<li><h2>{{"Field sets"| goT}}</h2></li>
 		<li></li>
 	</menu>
 	
 	
-	<ul class="panel list" as-sortable="dragControlListeners" ng-model="fieldSetStore.items">
-		<li as-sortable-item ng-repeat="fieldSet in fieldSetStore.items" ng-class="{'deleted': fieldSet.deleted}">
+	<ul class="panel items" as-sortable="dragControlListeners" ng-model="fieldSetStore.items">
+		<li as-sortable-item ng-repeat="fieldSet in fieldSetStore.items" ui-sref-active="selected">
 			
-			
-			<a ui-sref="customfields.model.fields({fieldSetId: fieldSet.id})" class="group">
-				
-				<span class="icon">
-					
-				</span>
-				
-				<span class="text">
-					{{field.name}}
-				</span>
-				
-				<span class="action">
-					<span class="dropdown">
-						<button class="menu"><i class="menu-dot"></i></button>
-						<menu class="popup top-right">
-
-							<li><a ui-sref='customfields.model.fields.field({fieldId: field.id})'>Edit</a></li>
-							<li><a ng-click="field.delete()">Delete</a></li>
-
-						</menu>
-					</span>
-				</span>
-				
-			</a>
-			
-<!--			<a ui-sref="customfields.model.fields({fieldSetId: fieldSet.id})">
+			<a ui-sref="customfields.model.fields({fieldSetId: fieldSet.id})">
 				{{fieldSet.name}}
 			</a>
 			
@@ -44,11 +19,11 @@
 				<button class="menu"><i class="menu-dot"></i></button>
 				<menu class="popup top-right">
 
-					<li><a ui-sref='customfields.model.fields.field({fieldId: field.id})'>Edit</a></li>
-					<li><a ng-click="field.delete()">Delete</a></li>
+					<li><a ui-sref='customfields.fieldset({modelName: modelName, fieldSetId: fieldSet.id})'>{{"Edit" | goT}}</a></li>
+					<li><a ng-click="field.delete()">{{"Delete" | goT}}</a></li>
 
 				</menu>
-			</div>-->
+			</div>
 		</li>
 	</ul>
 	

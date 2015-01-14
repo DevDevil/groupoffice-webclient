@@ -64,7 +64,7 @@ angular.module('GO.core').
 					if (!loadedFieldSets[modelName]) {
 
 						loadedFieldSets[modelName] = new Store(
-								'CustomFields/fieldsets/'+modelName,
+								'customfields/fieldsets/'+modelName,
 								{
 									returnAttributes: '*,fields',
 									limit: 0

@@ -4,7 +4,7 @@
 angular.module('GO.customfields.controllers')
 		.controller('FieldSetController', ['$scope', '$state', '$stateParams', 'Model', function($scope, $state, $stateParams,Model){
 				$scope.fieldset = new Model(
-							'CustomFields/fieldsets'
+							'customfields/fieldsets/'+$stateParams.modelName
 							);
 
 				$scope.fieldset.read($stateParams.fieldSetId);

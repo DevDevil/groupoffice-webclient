@@ -9,7 +9,7 @@ angular.module('GO.customfields.controllers').
 						
 						$scope.$state = $state;
 						
-						$http.get(Utils.url("CustomFields/models")).then(function(response){
+						$http.get(Utils.url("customfields/models")).then(function(response){
 							
 		
 							$scope.models = response.data.results;

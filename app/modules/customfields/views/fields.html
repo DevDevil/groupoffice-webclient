@@ -3,45 +3,39 @@
 	<!--	<div class="panel pad">
 			<div class="card pad">-->
 	<menu type="toolbar">
-		<li><h1>{{"Fields"| goT}}</h1></li>
+		<li><h2>{{"Fields"| goT}}</h2></li>
 		<li></li>
 	</menu>
 	
 	
-	<ul class="panel list" as-sortable="dragControlListeners" ng-model="fieldStore.items">
-		<li as-sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted': field.deleted}" ui-sref="customfields.model.fields.field({fieldId: field.id})">
+	<ul class="panel items" as-sortable="dragControlListeners" ng-model="fieldStore.items">
+		<li as-sortable-item ng-repeat="field in fieldStore.items" ng-class="{'deleted': field.deleted}">
 			
 			
-			<a ui-sref="customfields.model.fields.field({fieldId: field.id})" class="group">
+			<a ui-sref='customfields.model.field({fieldId: field.id, fieldSetId: fieldSetId})'>
 				
-				<span class="icon">
-					
-				</span>
+	
+				{{field.name}}
 				
-				<span class="text">
-					{{field.name}}
-				</span>
-				
-				<span class="action">
-					<div class="dropdown">
-						<button class="menu"><i class="menu-dot"></i></button>
-						<menu class="popup top-right">
-
-							<li><a ui-sref='customfields.model.fields.field({fieldId: field.id})'>Edit</a></li>
-							<li><a ng-click="field.delete()">Delete</a></li>
-
-						</menu>
-					</div>
-				</span>
 				
 			</a>
 			
 			
+			<div class="dropdown">
+				<button class="menu"><i class="menu-dot"></i></button>
+				<menu class="popup top-right">
+
+					<!--<li><a ui-sref='customfields.model.field({fieldId: field.id, fieldSetId: fieldSetId})'>Edit</a></li>-->
+					<li><a ng-click="field.delete()">Delete</a></li>
+
+				</menu>
+			</div>
+
 			
 		</li>
 	</ul>
 
-	<a class="btn action" ui-sref='customfields.model.fields.field({fieldId:0})'><i class="plus"></i></a>
+	<a class="btn action" ui-sref='customfields.model.field({fieldId:0, fieldSetId: fieldSetId})'><i class="plus"></i></a>
 		
 </div>
 
