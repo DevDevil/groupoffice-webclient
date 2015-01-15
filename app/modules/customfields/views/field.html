@@ -102,18 +102,21 @@
 		<div class="row" ng-if="field.type === 'select'">
 			<label>{{"Select options"| goT}}</label>		
 
-			<div class="input-group go-input-group-multiple" ng-repeat="option in field.data.options">
+			<span>
+				<div class="group" ng-repeat="option in field.data.options">
 
-				<input type="text" name="option_{{$index}}"  ng-model="option.value" required go-autofocus="option.value === ''" />
-				<go-show-error for="option_{{$index}}"></go-show-error>
+					<input type="text" name="option_{{$index}}"  ng-model="option.value" required go-autofocus="option.value === ''" />
+					<go-show-error for="option_{{$index}}"></go-show-error>
+	
+					<button type="button" ng-click="field.data.options.splice($index, 1)"><i class="remove"></i></button>
+		
+				</div>
+				
+				<button type="button" ng-click="field.data.options.push({value: ''});">Add select option</button>
 
-				<span class="input-group-btn">			
-					<button type="button" class="btn btn-danger" ng-click="field.data.options.splice($index, 1)"><i class="fa fa-trash-o"></i></button>
-				</span>				
-			</div>
+			</span>
 
-			<button type="button" ng-click="field.data.options.push({value: ''});"><i class="fa fa-plus"></i></button>
-
+			
 
 		</div>
 
