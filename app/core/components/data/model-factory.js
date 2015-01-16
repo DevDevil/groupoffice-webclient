@@ -120,7 +120,7 @@ angular.module('GO.core.data')
 					$http.delete(url)
 							.success(function(result) {
 								
-								this.setBusy(false);
+								this._setBusy(false);
 
 								if (result.success) {
 									var data = result.data;
@@ -423,7 +423,7 @@ angular.module('GO.core.data')
 						$http[method](url, saveParams)
 								.success(function(result) {
 									
-									this.setBusy(false);
+									this._setBusy(false);
 								
 									var data = result.data;
 
@@ -588,7 +588,7 @@ angular.module('GO.core.data')
 					this._setBusy(true);
 					
 					$http.get(url).success(function(result) {						
-						this.setBusy(false);
+						this._setBusy(false);
 						
 						if (result.data) {
 							
@@ -609,7 +609,7 @@ angular.module('GO.core.data')
 
 					}.bind(this)).error(function(result){
 						
-						this.setBusy(false);
+						this._setBusy(false);
 						
 						deferred.reject({model: this, result: result});
 					}.bind(this));

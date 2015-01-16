@@ -52,17 +52,17 @@ angular.module('GO.customfields.controllers')
 					$scope.field.save()
 							.then(function (result) {
 
-								$state.go("^");
+								$scope.back();
 
 							});
 				};
 
-				$scope.cancel = function () {
+				$scope.back = function () {
 
 					if ($scope.field.id) {
 						$scope.field.resetAttributes();
 					}
 
-					$state.go("^");
+					$state.go("customfields.model.fields", {fieldSetId: $stateParams.fieldSetId});
 				};
 			}]);

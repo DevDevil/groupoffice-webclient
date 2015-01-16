@@ -19,8 +19,15 @@
 		"go-show-error": {
 			"attributes": {
 				"for": {},
+				"attribute-name": {},
+				"go-model": {}
+			}
+		},
+		"go-custom-fields-edit": {
+			"attributes": {
+				"ng-model": {},
 				"go-model": {},
-				"attribute-name": {}
+				"server-model": {}
 			}
 		}
 	}
