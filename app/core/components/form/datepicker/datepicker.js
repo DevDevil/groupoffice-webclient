@@ -1,4 +1,4 @@
-angular.module('GO.core')
+angular.module('GO.core.form')
 
 		.constant('datepickerConfig', {
 			formatDay: 'dd',
@@ -432,6 +432,22 @@ angular.module('GO.core')
 			appendToBody: false,
 			showButtonBar: true
 		})
+				
+		/**
+		 * @ngdoc directive
+		 * @name GO.core.form.datepicker
+		 * 
+		 * @description Create a datepicket
+		 * @example
+		 * 
+		 * <div class="row">
+		 *		<label for="date">
+		 *			Date
+		 *		</label>
+		 *
+		 *		<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
+		 *	</div>
+		 */
 
 		.directive('datepickerPopup', ['$compile', '$parse', '$document', 'GoPosition', 'dateFilter', 'GoDateParser', 'datepickerPopupConfig', '$locale', '$timeout',
 			function ($compile, $parse, $document, GoPosition, dateFilter, GoDateParser, datepickerPopupConfig, $locale, $timeout) {

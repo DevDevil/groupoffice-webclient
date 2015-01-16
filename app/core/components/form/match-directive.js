@@ -2,26 +2,22 @@
 
 /**
  * @ngdoc directive
- * @name GO.match
+ * @name GO.core.form.goMatch
  * @element input
- * @function
  *
  * @description
  * Match two password fields
  *
  * @example
 
-	 <example module="GO">
-     <file name="index.html">
 			<form name="userForm"  novalidate>
 				<input type="password" ng-model="password" autocomplete="off" />
 				<input type="password" name="passwordConfirm" ng-model="passwordConfirm"  go-match="password" autocomplete="off" />
 				<p style="color:red" ng-show="userForm.passwordConfirm.$error.imMatch">The passwords don't match.</p>
 			</form>
-		</file>
-	 </example>
+
  */
-angular.module('GO.core')
+angular.module('GO.core.form')
     .directive('goMatch', function () {
         return {
             require: 'ngModel',

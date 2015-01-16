@@ -2,64 +2,76 @@
 
 /**
  * @ngdoc service
- * @name GO.data.Model
+ * @name GO.core.data.Model
  *
  * @description
  * A model is an item that can be saved and loaded from the server. A user for example.
+ * 
+ * All properties that do no start with a _ or $ char are sent as model attributes to the server.
  *
- * @param {string} modelName The name of the modal. eg. "user". This will be used in requests.
- * @param {string} createRoute The controller route to create a new model
- * @param {string} updateRoute The controller route to update a  model
- * @param {string} deleteRoute The controller route to delete a model
- * @param {string} baseParams GET parameters for each request
+ * @param {string} controllerRoute The server route to the RESTfull API. eg. '/contacts'
+ * @param {object=} baseParams GET parameters for each request
  */
-angular.module('GO.core')
+angular.module('GO.core.data')
 		.factory('Model', ['$http', '$q', '$timeout', 'Utils', function($http, $q, $timeout, Utils) {
 
 				var Model = function(controllerRoute,  baseParams) {
-
 					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Model#$controllerRoute
+					 * @propertyOf GO.core.data.Model
+					 * @type string
+					 * @description The API route to the server. eg. /contacts
+					 */
 					this.$controllerRoute = controllerRoute;
-
-//					/**
-//					 * @ngdoc property
-//					 * @name GO.data.Model#saveParams
-//					 * @propertyOf GO.data.Model
-//					 * @returns {object} Key value pair of POST parameters to pass on save.
-//					 */
-//					this.saveParams = {};
-
-
 					this._oldAttributes = {};
-
-//					this.saveParams = {};
-//					this.saveParams["data"] = {"attributes": this.attributes};
-
+					
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Model#$idProperty
+					 * @propertyOf GO.core.data.Model
+					 * @type string
+					 * @description The ID attribute
+					 */
 					this.$idAttribute = 'id';
 
 					/**
 					 * @ngdoc property
-					 * @name GO.data.Model#baseParams
-					 * @propertyOf GO.data.Model
-					 * @returns {object} Key value pair of GET parameters to pass on load.
+					 * @name GO.core.data.Model#$baseParams
+					 * @propertyOf GO.core.data.Model
+					 * @type object
+					 * @description Key value pair of GET parameters to pass on load.
 					 */
 					this.$baseParams = baseParams || {};
 					
-					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Model#$busy
+					 * @propertyOf GO.core.data.Model
+					 * @type boolean
+					 * @description Set to true when the model is loading or saving.
+					 */
 					this.$busy = false;
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Model#$showMask
+					 * @propertyOf GO.core.data.Model
+					 * @type boolean
+					 * @description Set to true when a mask can be shown in the view. It has a 300ms delay on $busy.
+					 */
 					this.$showMask = false;
 					
-					
-					this.$isModel = true;
 
 					this.init();
-				};			
-				
-
-				Model.prototype.init = function() {
 				};
 
-				Model.prototype.getBaseParams = function() {
+				Model.prototype.init = function() {
+				};				
+
+				Model.prototype._getBaseParams = function() {
 					var params = angular.copy(this.$baseParams);
 
 					if (this[this.$idAttribute]) {
@@ -69,7 +81,7 @@ angular.module('GO.core')
 					return params;
 				};
 				
-				Model.prototype.setBusy =  function(busy){
+				Model.prototype._setBusy =  function(busy){
 					
 					//delay 200ms for the loadmask.
 					this.$busy = busy;
@@ -88,8 +100,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#delete
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#delete
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Delete the model on the server
 				 
@@ -102,9 +114,9 @@ angular.module('GO.core')
 //					Utils.promiseSuccessDecorator(deferred.promise);
 					
 					
-					this.setBusy(true);
+					this._setBusy(true);
 
-					var url = Utils.url(this.$controllerRoute+'/'+this[this.$idAttribute], this.getBaseParams());
+					var url = Utils.url(this.$controllerRoute+'/'+this[this.$idAttribute], this._getBaseParams());
 					$http.delete(url)
 							.success(function(result) {
 								
@@ -140,6 +152,15 @@ angular.module('GO.core')
 				};
 				
 				
+				/**
+				 * @ngdoc method
+				 * @name GO.core.data.Model#undelete
+				 * @methodOf GO.core.data.Model
+				 * @description
+				 * Undeletes the model on the server if it implements soft deletion
+				 
+				 * @returns {HttpPromise} Returns a HttpPromise. See: {@link https://docs.angularjs.org/api/ng/service/$http#get}
+				 */
 				Model.prototype.unDelete = function(){
 					this.resetAttributes();
 					this.deleted = false;
@@ -147,9 +168,7 @@ angular.module('GO.core')
 				};
 
 				/**
-				 * @ngdoc method
-				 * 
-				 * @description 
+		
 				 * When posting dates to the server API it requires them in ISO8060 standard.
 				 * eg. 2014-07-28T13:00+2000. The problem with dates with times is that javascript converts them to UTC when converting to JSON.
 				 * This will change the date and the server doesn't know which timezone it's in. We just want to post 2014-07-28 when it's about a date.
@@ -157,7 +176,7 @@ angular.module('GO.core')
 				 *
 				 * @returns {string}
 				 */
-				Model.prototype.convertDateToString = function(attributes) {
+				Model.prototype._convertDateToString = function(attributes) {
 
 					var attr = {};
 
@@ -165,7 +184,7 @@ angular.module('GO.core')
 						if (attributes[attrName] instanceof Date) {
 							attr[attrName] = attributes[attrName].toIntermeshApiFormat();							
 						} else if(angular.isObject(attributes[attrName]) && attributes[attrName].className){ //All models return className from API						
-							attr[attrName] = this.convertDateToString(attributes[attrName]);	
+							attr[attrName] = this._convertDateToString(attributes[attrName]);	
 						}else if(angular.isArray(attributes[attrName])){
 							var l = attributes[attrName].length;
 							
@@ -173,7 +192,7 @@ angular.module('GO.core')
 								attr[attrName] = [];
 								for(var i = 0, l; i < l; i++){							
 //									var fixed = this.convertDateToString(attributes[attrName][i]);							
-									attr[attrName].push(this.convertDateToString(attributes[attrName][i]));
+									attr[attrName].push(this._convertDateToString(attributes[attrName][i]));
 								}
 							}
 							
@@ -188,7 +207,7 @@ angular.module('GO.core')
 				
 			
 				
-				Model.prototype.convertDateStringsToDates = function (input) {
+				Model.prototype._convertDateStringsToDates = function (input) {
 
 					for (var key in input) {
 //						if (!input.hasOwnProperty(key))
@@ -204,7 +223,7 @@ angular.module('GO.core')
 							
 						} else if (typeof input[key] === "object") {
 							// Recurse into object
-							this.convertDateStringsToDates(input[key]);
+							this._convertDateStringsToDates(input[key]);
 						}
 					}
 				};
@@ -213,8 +232,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#isModified
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#isModified
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Check if the model has modified attributes
 				 *
@@ -224,6 +243,16 @@ angular.module('GO.core')
 					return angular.toJson(this.getAttributes()) !== angular.toJson(this._oldAttributes);
 				};
 				
+				
+				/**
+				 * @ngdoc method
+				 * @name GO.core.data.Model#isNew
+				 * @methodOf GO.core.data.Model
+				 * @description
+				 * Check if the model is not saved on the server
+				 *
+				 * @returns {boolean} Returns true if the model is new
+				 */
 				Model.prototype.isNew = function(){
 					return this[this.$idAttribute] < 1;
 				};
@@ -237,6 +266,15 @@ angular.module('GO.core')
 					return firstChar !== '$' && firstChar !== '_' && exclude.indexOf(name)===-1;
 				};
 				
+				/**
+				 * @ngdoc method
+				 * @name GO.core.data.Model#getAttributes
+				 * @methodOf GO.core.data.Model
+				 * @description
+				 * Get all model attributes
+				 *
+				 * @returns {Object} Key value pair of attributes
+				 */
 				Model.prototype.getAttributes = function(){
 					
 					var attr = {};
@@ -255,9 +293,17 @@ angular.module('GO.core')
 					return attr;
 				};
 
-				Model.prototype.getModifiedAttributes = function(attributes, oldAttributes) {
-					
-					
+				
+				/**
+				 * @ngdoc method
+				 * @name GO.core.data.Model#getModifiedAttributes
+				 * @methodOf GO.core.data.Model
+				 * @description
+				 * Get all modified model attributes that have been changed after load
+				 *
+				 * @returns {Object} Key value pair of attributes
+				 */
+				Model.prototype.getModifiedAttributes = function(attributes, oldAttributes) {					
 					
 					if (typeof (attributes) === 'undefined') {
 
@@ -339,8 +385,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#save
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#save
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Save the model on the server
 				 *
@@ -348,7 +394,7 @@ angular.module('GO.core')
 				 */
 				Model.prototype.save = function(getParams) {
 					
-					var params = this.getBaseParams();
+					var params = this._getBaseParams();
 					
 					if(getParams){
 						angular.extend(params, getParams);
@@ -370,9 +416,9 @@ angular.module('GO.core')
 					if(modifiedAttributes){
 						var saveParams = {};
 					
-						saveParams["data"] = this.convertDateToString(modifiedAttributes);						
+						saveParams["data"] = this._convertDateToString(modifiedAttributes);						
 						
-						this.setBusy(true);
+						this._setBusy(true);
 
 						$http[method](url, saveParams)
 								.success(function(result) {
@@ -404,8 +450,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#delete
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#readIf
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Load the model data from the server but only if not already loaded
 				 * with the same ID. Useful with detail and edit pages that share the same model.
@@ -425,8 +471,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#resetAttributes
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#resetAttributes
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Reset the attributes to their original state.
 				 *
@@ -447,12 +493,11 @@ angular.module('GO.core')
 				
 				
 				/**
-				 * 
-				 * @description
+				 * 				 
 				 * Adds validation errors to existing data without overwriting it.
 				 */
 				
-				Model.prototype.loadValidationErrors = function(data, obj){
+				Model.prototype._loadValidationErrors = function(data, obj){
 					if(!obj){
 						obj = this;
 					}
@@ -471,14 +516,14 @@ angular.module('GO.core')
 
 									if(data[attr][i].id === obj[attr][n].id ||
 											!data[attr][i].id && !obj[attr][n].id){
-										this.loadValidationErrors(data[attr][i], obj[attr][n]);
+										this._loadValidationErrors(data[attr][i], obj[attr][n]);
 										break;
 									}
 								}
 							}
 						}else if(angular.isObject(data[attr]) && angular.isObject(obj[attr])){
 
-							this.loadValidationErrors(data[attr], obj[attr]);
+							this._loadValidationErrors(data[attr], obj[attr]);
 						}
 					}
 
@@ -487,8 +532,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#loadData
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#loadData
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Load the initial model attributes from the server.
 				 * Don't set attributes directly because this function makes a copy so the model can be reset to the old attributes.
@@ -497,7 +542,7 @@ angular.module('GO.core')
 				 */
 				Model.prototype.loadData = function(data) {					
 					
-					this.convertDateStringsToDates(data);
+					this._convertDateStringsToDates(data);
 					
 					for (var key in data){
 						if(angular.isObject(this[key])){
@@ -514,8 +559,8 @@ angular.module('GO.core')
 				
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Model#load
-				 * @methodOf GO.data.Model
+				 * @name GO.core.data.Model#read
+				 * @methodOf GO.core.data.Model
 				 * @description
 				 * Load the model data from the server
 				 *
@@ -525,7 +570,7 @@ angular.module('GO.core')
 				 */
 				Model.prototype.read = function(id, params, extendAttributes) {
 
-					var p = this.getBaseParams();
+					var p = this._getBaseParams();
 
 					angular.extend(p, params);
 
@@ -540,7 +585,7 @@ angular.module('GO.core')
 //					Utils.promiseSuccessDecorator(deferred.promise);
 					
 				
-					this.setBusy(true);
+					this._setBusy(true);
 					
 					$http.get(url).success(function(result) {						
 						this.setBusy(false);

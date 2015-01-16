@@ -1,19 +1,16 @@
 
 /**
  * @ngdoc filter
- * @name GO.core:age
- * @kind function
+ * @name GO.core.filters.age
  *
  * @description
  * Translates a string into the configured language
  *
  * @param {string} text Text to translate
  * @returns {string} Translated text.
- *
- *
  */
 
-angular.module('GO.core')
+angular.module('GO.core.filters')
 		.filter('age', [function() {
 				var R_ISO8601_STR = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
 // 1 2 3 4 5 6 7 8 9 10 11

@@ -1,4 +1,4 @@
-angular.module('GO.core')
+angular.module('GO.core.form')
 
 		/**
 		 * A helper service that can parse goAutocomplete's syntax (string provided by users)
@@ -28,6 +28,56 @@ angular.module('GO.core')
 					}
 				};
 			}])
+		
+	   /**
+		* @ngdoc directive
+		* @name GO.core.goAutocomplete
+		* @element input
+		*
+		* @description
+		* Create an autocomplete input
+		*
+		* @example
+		* 
+		* //Controller:
+		* 
+		* $scope.store = new Store('test');
+		*		
+		*		$scope.store.loadData([{
+		*			name: "Cat",
+		*			value: "cat"
+		*		},{
+		*			name: "Dog",
+		*			value: "dog"
+		*		},{
+		*			name: "Horse",
+		*			value: "horse"
+		*		},{
+		*			name: "A very long result indeed. This is crazy long.",
+		*			value: "cow"
+		*		}]);
+		*	
+		*	$scope.getAutoCompleteData = function(input){
+		*		return $scope.store.items;
+		*	};
+		*	
+		*	$scope.formModel = {
+		*		autocomplete: null			
+		*	};
+		* 
+		* @example 
+		*   <div class="row">
+		*		<label for="autocomplete">
+		*			Autocomplete
+		*		</label>
+		*
+		*		<input name="autocomplete" 
+		*			id="autocomplete" 
+		*			type="text" 
+		*			go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" 
+		*			ng-model="formModel.autocomplete">
+		*	</div>	
+		*/
 
 		.directive('goAutocomplete', ['$compile', '$parse', '$q', '$timeout', '$document', 'GoPosition', 'goAutocompleteParser',
 			function ($compile, $parse, $q, $timeout, $document, GoPosition, goAutocompleteParser) {

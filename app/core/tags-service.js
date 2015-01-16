@@ -1,10 +1,10 @@
 'use strict';
 /**
  * @ngdoc service
- * @name GO.tags
+ * @name GO.core.Tags
  *
  * @description
- * Common utilities
+ * Service to fetch tags from the server
  */
 angular.module('GO.core').
 		service('Tags', ['Store', 'Model', function(Store, Model) {

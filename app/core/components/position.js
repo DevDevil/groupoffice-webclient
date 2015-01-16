@@ -1,11 +1,5 @@
 angular.module('GO.core')
 
-		/**
-		 * A set of utility methods that can be use to retrieve position of DOM elements.
-		 * It is meant to be used where we need to absolute-position DOM elements in
-		 * relation to other, existing elements (this is the case for tooltips, popovers,
-		 * typeahead suggestions etc.).
-		 */
 		.factory('GoPosition', ['$document', '$window', function ($document, $window) {
 
 				function getStyle(el, cssprop) {
@@ -18,18 +12,9 @@ angular.module('GO.core')
 					return el.style[cssprop];
 				}
 
-				/**
-				 * Checks if a given element is statically positioned
-				 * @param element - raw DOM element
-				 */
 				function isStaticPositioned(element) {
 					return (getStyle(element, 'position') || 'static') === 'static';
 				}
-
-				/**
-				 * returns the closest, non-statically positioned parentOffset of a given element
-				 * @param element
-				 */
 				var parentOffsetEl = function (element) {
 					var docDomEl = $document[0];
 					var offsetParent = element.offsetParent || docDomEl;
@@ -40,10 +25,6 @@ angular.module('GO.core')
 				};
 
 				return {
-					/**
-					 * Provides read-only equivalent of jQuery's position function:
-					 * http://api.jquery.com/position/
-					 */
 					position: function (element) {
 						var elBCR = this.offset(element);
 						var offsetParentBCR = {top: 0, left: 0};
@@ -62,10 +43,6 @@ angular.module('GO.core')
 							left: elBCR.left - offsetParentBCR.left
 						};
 					},
-					/**
-					 * Provides read-only equivalent of jQuery's offset function:
-					 * http://api.jquery.com/offset/
-					 */
 					offset: function (element) {
 						var boundingClientRect = element[0].getBoundingClientRect();
 						return {
@@ -75,9 +52,6 @@ angular.module('GO.core')
 							left: boundingClientRect.left + ($window.pageXOffset || $document[0].documentElement.scrollLeft)
 						};
 					},
-					/**
-					 * Provides coordinates for the targetEl in relation to hostEl
-					 */
 					positionElements: function (hostEl, targetEl, positionStr, appendToBody) {
 
 						var positionStrParts = positionStr.split('-');

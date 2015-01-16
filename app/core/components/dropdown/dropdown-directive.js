@@ -2,20 +2,23 @@
 
 /**
  * @ngdoc directive
- * @name GO.autofocus
- * @element input
- * @function
+ * @name GO.core.dropdown
+ * @element div, span
  *
  * @description
- * Put autofocus on an input. The standard autofocus attribute doesn't work on
- * firefox
+ * Create a dropdown menu
  *
  * @example
-    <example module="GO">
-     <file name="index.html">
-      <input ng-Model="text" autofocus>
-		 </file>
-		</example>
+    <div class="dropdown">
+		<button class="menu"><i class="menu-dot"></i></button>
+		<menu class="popup top-right">
+			<li><a ng-click="store.reload()">Refresh</a></li>
+			<li><a>Add Contact</a></li>
+			<li><a>Export</a></li>
+			<li class="divider"></li>
+			<li><a>Settings</a></li>
+		</menu>
+	</div>
  */
 
 angular.module('GO.core')

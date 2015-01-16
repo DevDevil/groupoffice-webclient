@@ -1,5 +1,22 @@
-/*ng-class=\"{ in: isOpen(), fade: animation() }*/
-angular.module('GO.core')
+
+/**
+ * @ngdoc directive
+ * @name GO.core.form.goShowError
+ * 
+ * @description
+ * Shows an error baloon on form input validation errors
+ * 
+ * @example
+ * 
+ * <div class="row">
+ *	<label for="number">
+ *  	Number
+ *	</label>
+ *	<input id="number" name="number" ng-model="formModel.number" go-number required />
+ *	<go-show-error for="number"></go-show-error>
+ * </div>
+ */
+angular.module('GO.core.form')
 		.directive('goShowError', ['Translate', '$parse', '$sce', '$timeout',
 			function (Translate, $parse, $sce, $timeout) {
 

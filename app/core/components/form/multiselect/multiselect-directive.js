@@ -1,11 +1,31 @@
 'use strict';
 
-angular.module('GO.core')
+/**
+ * @ngdoc directive
+ * @name GO.core.form.goMultiselect
+ * @element input
+ * 
+ * @description
+ * An input field with where you can enter multiple model values. For example a tag or e-mail composer to field.
+ * 
+ * @param {string} onMultiselect Function that's called with the user input that must respind with models.
+ * @param {string} ngModel Assignable angular expression to data-bind to.
+ * @param {string} displayAttribute The attribute of the model to display.
+ * @param {expression} ngRequired
+ * @param {string} placeholder
+ * 
+ * @example
+ * 
+ * <div class="row">
+ *  <label for="multiselect">
+ *	 Multiselect
+ *	</label>
+ *	<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
+ * </div>
+ */
+angular.module('GO.core.form')
 
-		.directive('goMultiselect', ['$compile', '$http', 'Utils',function($compile, $http, Utils) {
-
-	
-
+		.directive('goMultiselect', [function() {
 			return {
 				restrict: 'A',
 				require: 'ngModel',

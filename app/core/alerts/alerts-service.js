@@ -1,22 +1,25 @@
 'use strict';
 /**
+ * @ngdoc service 
+ * @name GO.core.Alerts
+ * 
+ * @description
  * Alerts service to show an alert message
  */
 angular.module('GO.core').
 		service('Alerts', ["$rootScope", "$timeout", function ($rootScope, $timeout) {
 				var Alerts = function () {
-
-
 				};
 
 				$rootScope.alerts = [];
 
 				/**
+				 * @ngdoc method
+				 * @name GO.core.Alerts#addAlert
 				 * 
-				 * @param {type} msg
-				 * @param {type} type danger, success, warning, info
-				 * @param {type} timeout
-				 * @returns {undefined}
+				 * @param {string} msg
+				 * @param {string} type danger, success, warning, info
+				 * @param {int} timeout
 				 */
 				Alerts.prototype.addAlert = function (msg, type, timeout) {
 					
@@ -42,10 +45,10 @@ angular.module('GO.core').
 				};
 
 				
-
-				Alerts.prototype.closeAlert = function (index) {
-					
-				};
+//
+//				Alerts.prototype.closeAlert = function (index) {
+//					
+//				};
 
 
 				return new Alerts;

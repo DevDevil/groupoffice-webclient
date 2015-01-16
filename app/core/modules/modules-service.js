@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name GO.modules
+ * @name GO.core.Modules
  *
  * @description
  * Get's module from the server

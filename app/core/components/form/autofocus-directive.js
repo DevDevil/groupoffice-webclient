@@ -2,23 +2,19 @@
 
 /**
  * @ngdoc directive
- * @name GO.autofocus
+ * @name GO.core.form.goAutofocus
  * @element input
- * @function
  *
  * @description
  * Put autofocus on an input. The standard autofocus attribute doesn't work on
  * firefox
  *
  * @example
-    <example module="GO">
-     <file name="index.html">
-      <input ng-Model="text" autofocus>
-		 </file>
-		</example>
+     <input ng-model="text" go-autofocus="{expersion}">
+	
  */
 
-angular.module('GO.core')
+angular.module('GO.core.form')
 				.directive('goAutofocus', ['$timeout',function($timeout) {
 					return {
 						scope: {

@@ -1,19 +1,23 @@
-/**
- * Image placeholder directive.
- * 
- * Use like this: <go-goage-upload-placeholder go-goage="goage" go-delete-permission="note.permissions.editAccess" go-thumb-url="'IPE/keepNotes/noteImage/thumb'"></go-goage-upload-placeholder>
- * 
- *
- */
-
-
 'use strict';
 
-angular.module('GO.core')
+/**
+ * @ngdoc directive
+ * @name GO.core.form.goImageUpload
+ * 
+ * @param {string} onChange Function to call on change. It's called with the server file. {file: 'example.jpg'}.
+ * @param {string} ngModel Assignable angular expression to data-bind to.
+ * @param {expression} goReadOnly
+ * @param {expression} goDeletePermission
+ * @param {int} thumbWidth
+ * @param {int} thumbHeight
+ * 
+ * @example
+ * 
+ * <div class="go-image-upload" go-image-upload ng-model="contact.photo" thumb-width="80" thumb-height="80"></div>
+ */
 
-		.directive('goImageUpload', ['$templateCache', '$http', 'Utils', 'Model', '$timeout', function ($templateCache, $http, Utils, Model, $timeout) {
-
-
+angular.module('GO.core.form')
+		.directive('goImageUpload', ['Utils', 'Model', '$timeout', function (Utils, Model, $timeout) {
 				return {
 					restrict: 'A',
 					scope: {
@@ -35,8 +39,6 @@ angular.module('GO.core')
 					link: function (scope, element, attrs) {
 						
 						element.addClass('go-image-upload');
-
-
 			
 						scope.uploadSuccess = function ($file, $message) {
 

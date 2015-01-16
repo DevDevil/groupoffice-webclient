@@ -2,45 +2,139 @@
 
 /**
  * @ngdoc service
- * @name GO.data.Store
+ * @name GO.core.data.Store
  *
  * @description
  * A store holds multiple records for display in an ng-repeat item for example
+ * 
+ * @example
+ * Controller:
+ * 
+ * $scope.store = new Store(
+		'contacts',
+		{
+			returnAttributes: "id,name,photo,company.name"
+		});
+   $scope.store.load();
+
+   View:
+	
+	<ul class="items panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+		<li ng-repeat-start="contact in store.items track by contact.id" class="index" ng-if="store.getIndexChar('name', $index) !== ''"><h2>{{::store.getIndexChar("name", $index)}}</h2></li>
+		<li ng-repeat-end ng-class="{'deleted': contact.deleted}">
+			<div class="icon">
+				<div class="avatar">
+					<img ng-src="{{contact.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
+				</div>
+				
+			</div>
+			
+			<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.id})">
+				
+				{{contact.name}}
+				<br /><small>{{contact.company.name}}</small>
+
+			</a>
+		</li>
+
+		<li ng-cloak ng-show="store.busy" class="loading-more animate"><i class="reload animate-spin"></i> {{"Loading more items..."| goT}}</li>
+
+	</ul>
  *
- * @param {string} storeRoute The route to the controller. eg. "intermesh/auth/user/store"
- * @param {Model} The models this store is for.
+ * @param {string} restRoute The route to the controller. eg. "contacts"
  * @param {object=} loadParams Extra GET parameters for the store action
  */
-angular.module('GO.core')
+angular.module('GO.core.data')
 		.factory('Store', ['$http', 'Utils', 'Model', '$q', '$timeout', function($http, Utils, Model, $q, $timeout) {
 
 				var Store = function(restRoute, loadParams) {
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#$items
+					 * @propertyOf GO.core.data.Store
+					 * @type array
+					 * @description The models in this store.
+					 */
 					this.items = [];
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#busy
+					 * @propertyOf GO.core.data.Store
+					 * @type boolean
+					 * @description Set to true when the model is loading or saving.
+					 */
 					this.busy = false;
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#init
+					 * @propertyOf GO.core.data.Store
+					 * @type boolean
+					 * @description Set to true when the store is loaded.
+					 */
 					this.init = false;
-
+					
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#searchQuery
+					 * @propertyOf GO.core.data.Store
+					 * @type string
+					 * @description Search query to send to the server
+					 */
 					this.searchQuery = '';
-
+					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#restRoute
+					 * @propertyOf GO.core.data.Store
+					 * @type string
+					 * @description The REST API route. eg. "/contacts"
+					 * @link http://intermesh.io/php/docs/class-GO.Core.Http.Router.html
+					 */
 					this.restRoute = restRoute;
-			
 
-					this.allRecordsLoaded = false;
+					this._allRecordsLoaded = false;
 
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#loadParams
+					 * @propertyOf GO.core.data.Store
+					 * @type object
+					 * @description Key value pair of GET parameters to pass on load.
+					 */
 					this.loadParams = loadParams || {};
 					
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#lastLoadParams
+					 * @propertyOf GO.core.data.Store
+					 * @type object
+					 * @description Key value pair of the last GET parameters that were passed on load.
+					 */
 					this.lastLoadParams = {};
+					
 					
 					this._indexChars = {};
 
 
+					/**
+					 * @ngdoc property
+					 * @name GO.core.data.Store#defaultLimit
+					 * @propertyOf GO.core.data.Store
+					 * @type int
+					 * @description Limit's the store fetch request to this number of models.
+					 */
 					this.defaultLimit = 20;
 				};
 
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#load
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#load
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Loads new items for the store.
 				 *
@@ -107,8 +201,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#loadData
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#loadData
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Add an array of data to the store.
 				 * 
@@ -136,14 +230,14 @@ angular.module('GO.core')
 							
 					for (var i = 0, l = dataArray.length; i < l; i++) {					
 
-						var model = this.createModel();
+						var model = this._createModel();
 						model.loadData(dataArray[i]);
 					
 						this.items.push(model);
 					}
 				};				
 				
-				Store.prototype.createModel = function(){
+				Store.prototype._createModel = function(){
 					
 					var baseParams = {};
 					if(this.loadParams.returnAttributes){
@@ -159,8 +253,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#nextPage
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#nextPage
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Loads the next page for the store
 				 *
@@ -178,8 +272,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#reload
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#reload
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Reload the entire store
 				 *
@@ -197,8 +291,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#reset
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#reset
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Reset the store to an empty state
 				 */
@@ -207,30 +301,30 @@ angular.module('GO.core')
 						this.searchQuery = '';
 					}
 					this.items = [];
-					this.allRecordsLoaded = false;
+					this._allRecordsLoaded = false;
 					this.init = false;					
 				};
 
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#shouldLoad
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#shouldLoad
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Reset the store to an empty state
 				 *
 				 * @returns {boolean} Returns false if the store should not be loaded. eg. when it's busy or loaded completely.
 				 */
 				Store.prototype.shouldLoad = function() {
-					var ret = !this.busy && !this.allRecordsLoaded;
+					var ret = !this.busy && !this._allRecordsLoaded;
 
 					return ret;
 				};
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#search
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#search
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Loads the store but passes this.searchQuery
 				 *
@@ -241,16 +335,16 @@ angular.module('GO.core')
 					return this.load();
 				};
 
-				Store.prototype.searchListener = function($event) {
-					if ($event.keyCode === 13) {
-						this.search();
-					}
-				};
+//				Store.prototype.searchListener = function($event) {
+//					if ($event.keyCode === 13) {
+//						this.search();
+//					}
+//				};
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#remove
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#remove
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Removes a record
 				 *
@@ -263,6 +357,18 @@ angular.module('GO.core')
 				};
 				
 				
+				/**
+				 * @ngdoc method
+				 * @name GO.core.data.Store#getIndexChar
+				 * @methodOf GO.core.data.Store
+				 * @description
+				 * Returns the first character of a given attribute name if it's different than the previous index.
+				 *
+				 * @param {string} attr The name of the attribute to check
+				 * @param {int} index Index of record 
+				 *
+				 * @return {string} Index char
+				 */
 				Store.prototype.getIndexChar = function(attr, index){
 					
 					if(!this._indexChars[index]){
@@ -287,8 +393,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#findIndexByAttribute
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#findIndexByAttribute
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Finds a record index by attribute name
 				 *
@@ -311,8 +417,8 @@ angular.module('GO.core')
 				
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#findIndexesByAttribute
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#findIndexesByAttribute
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Finds a record index by attribute name
 				 *
@@ -336,8 +442,8 @@ angular.module('GO.core')
 
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#findModelByAttribute
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#findModelByAttribute
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Finds a record  by attribute name
 				 *
@@ -361,8 +467,8 @@ angular.module('GO.core')
 				
 				/**
 				 * @ngdoc method
-				 * @name GO.data.Store#findModelsByAttribute
-				 * @methodOf GO.data.Store
+				 * @name GO.core.data.Store#findModelsByAttribute
+				 * @methodOf GO.core.data.Store
 				 * @description
 				 * Finds a record  by attribute name
 				 *

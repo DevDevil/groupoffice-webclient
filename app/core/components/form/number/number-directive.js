@@ -1,10 +1,30 @@
-angular.module('GO.core').directive('goNumeric', function($filter, $locale) {
+
+/**
+ * @ngdoc directive
+ * @name GO.core.form.goNumber
+ * @element input
+ * 
+ * @description
+ * An input field with where you can enter numeric values
+ * 
+ * @example
+ * 
+ * <div class="row">
+ *	<label for="number">
+ *  	Number
+ *	</label>
+ *	<input id="number" name="number" ng-model="formModel.number" go-number />
+ * </div>
+ */
+
+angular.module('GO.core.form')
+		.directive('goNumber', function($filter, $locale) {
     return {
         restrict: 'A',
         require: 'ngModel',
         link: function(scope, element, attr, ngModel) {
 			
-			element.addClass('go-numeric');
+			element.addClass('go-number');
 			
 			//Autoselect value
 			element.bind('focus', function(event, el){				

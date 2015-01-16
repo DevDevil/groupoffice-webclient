@@ -1,4 +1,4 @@
-angular.module('GO.core')
+angular.module('GO.core.form')
 
 .service('GoDateParser', ['$locale', 'orderByFilter', function($locale, orderByFilter) {
 

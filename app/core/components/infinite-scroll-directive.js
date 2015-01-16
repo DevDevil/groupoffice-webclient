@@ -2,26 +2,20 @@
 
 /**
  * @ngdoc directive
- * @name GO.infinite-scroll.imInfiniteScroll:imInfiniteScroll
+ * @name GO.core.goInfiniteScroll
  * @element ANY
  *
  * @description
  * Scroll an element infinitely
  *
- * @param {function} imInfiniteScroll function that should be called to load more items
- * @param {expression=} imInfiniteScrollDisabled {@link guide/expression Expression} that returns true or false to disable scrolling. Useful for pending AJAX requests.
- * @param {boolean=} imInfiniteScrollUseDocumentBody By default the element is used for scroll detection. You can set this to true to use the document body.
- *
- * @example
- <example module="myExampleModule">
- <file name="index.html">
- <div ng-controller="ExampleController">
- <div im-infinite-scroll="loadMore()" style="height:100px;overflow:auto">
- <div ng-repeat="item in items" style="border:1px solid grey;height:20px;">{{item.name}}</div>
+ * @param {function} goInfiniteScroll function that should be called to load more items
+ * @param {expression=} goInfiniteScrollDisabled {@link guide/expression Expression} that returns true or false to disable scrolling. Useful for pending AJAX requests.
+ * @example View
+ <div go-infinite-scroll="loadMore()" style="height:100px;overflow:auto">
+	<div ng-repeat="item in items" style="border:1px solid grey;height:20px;">{{item.name}}</div>
  </div>
- </div>
- </file>
- <file name="script.js">
+ 
+ * @example Controller
  angular.module('myExampleModule', ["GO.infiniteScroll"])
  .controller('ExampleController', ['$scope', function($scope) {
  

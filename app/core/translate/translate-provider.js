@@ -1,16 +1,13 @@
 /**
  * @ngdoc service
- * @name GO.Translate
+ * @name GO.core.translate.Translate
  *
  * @description
  * Translate text with this service and provider
  *
  *
  * @example
-
-	 <example module="myTranslatedModule">
-		<file name="index.html">
-			<div ng-controller="TranslateController">
+	 		<div ng-controller="TranslateController">
 				<p>Try the translate service...</p>
 				<button ng-click="translate('Yes');">Translate 'Yes' into Dutch.</button>
 				<button ng-click="translate('No');">Translate 'No' into Dutch.</button>
@@ -20,8 +17,10 @@
 
 				Yes in Dutch is: {{"Yes" | goT}}</p>
 			</div>
-		</file>
-    <file name="script.js">
+			
+* @example
+
+
 			angular.module('myTranslatedModule', ["GO"])
 				.config(['TranslateProvider', function(TranslateProvider) {
 						TranslateProvider.setLanguage('nl');
@@ -36,12 +35,9 @@
 							alert(Translate.t(msg));
 						};
 					}]);
-		 </file>
-	 </example>
-
 
  */
-angular.module('GO.core')
+angular.module('GO.core.translate')
 				.provider('Translate', [function TranslateProvider() {
 
 						var translations = {};

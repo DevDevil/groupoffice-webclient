@@ -1,5 +1,17 @@
 
-angular.module('GO.core')
+
+/**
+ * @ngdoc directive
+ * @name GO.core.form.goSubmit
+ * @element input
+ *
+ * @description
+ * Supply the function to execute on form submit. It also takes care of success and failure notifications.
+ *
+ * @example
+	<form name="userForm"  novalidate go-submit="save()">
+ */
+angular.module('GO.core.form')
 		.directive('goSubmit', ['$log','Alerts','Translate',
 			function($log, Alerts, Translate) {
 

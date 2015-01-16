@@ -1,11 +1,5 @@
 'use strict';
-/**
- * @ngdoc service
- * @name GO.customFields
- *
- * @description
- * Common utilities
- */
+
 angular.module('GO.core').
 		service('CustomFields', ['Store', 'Model', function(Store, Model) {
 

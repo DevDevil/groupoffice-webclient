@@ -1,7 +1,6 @@
 /**
  * @ngdoc filter
- * @name GO.Translate:t
- * @kind function
+ * @name GO.core.translate.goT
  *
  * @description
  * Translates a string into the configured language
@@ -10,44 +9,11 @@
  * @returns {string} Translated text.
  *
  *
- *
  * @example
-
-	 <example module="myTranslatedModule">
-		<file name="index.html">
-			<div ng-controller="TranslateController">
-				<p>Try the translate service...</p>
-				<button ng-click="translate('Yes');">Translate 'Yes' into Dutch.</button>
-				<button ng-click="translate('No');">Translate 'No' into Dutch.</button>
-
-
-				<p>You can also use a filter:<br /><br />
-
-				Yes in Dutch is: {{"Yes" | goT}}</p>
-			</div>
-		</file>
-    <file name="script.js">
-			angular.module('myTranslatedModule', ["GO"])
-				.config(['TranslateProvider', function(TranslateProvider) {
-						TranslateProvider.setLanguage('nl');
-
-						TranslateProvider.addTranslations('nl', {
-							'Yes': 'Ja',
-							'No': 'Nee'
-						});
-					}])
-				.controller('TranslateController', ['$scope', 'Translate', function($scope, Translate) {
-						$scope.translate = function(msg) {
-							alert(Translate.t(msg));
-						};
-					}]);
-		 </file>
-	 </example>
-
-
+ * {{"Save" | goT}}
  */
 
-angular.module('GO.core')
+angular.module('GO.core.translate')
 				.filter('goT', ['Translate',function(Translate) {
 						return function(key) {
 							return Translate.t(key);

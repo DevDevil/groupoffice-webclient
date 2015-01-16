@@ -1,5 +1,20 @@
+'use strict';
+
+/**
+ * @ngdoc directive
+ * @name GO.core.goProgress
+ * @element div
+ *
+ * @description
+ * Linear progress bar
+ *
+ * @param {int} value The value of the bar.
+ * @param {int=} max = Maximum value. Defaults to 100
+ * @example 
+ * <go-progress max="100" value="progressVariable"></go-progress>
+ */
 angular.module('GO.core')
-		.directive('goProgress', function ($filter, $locale) {
+		.directive('goProgress', function () {
 			return {
 				restrict: 'EA',
 				replace: true,
@@ -9,6 +24,9 @@ angular.module('GO.core')
 				},
 				link: function(scope, element, attrs){					
 					var max = parseInt(scope.max);
+					if(!max) {
+						max = 100;
+					}
 					scope.getPercentage = function(){
 						return Math.ceil((max / parseInt(scope.value)) * 100);
 					};

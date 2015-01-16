@@ -1,3 +1,13 @@
+/**
+ * 
+ * @ngdoc service
+ * @name GO
+ * @description
+ * Global singleton object with some common used funcions
+ */
+
+
+
 GOUtils = function () {
 	this.appModules = [
 		'ngAnimate',
@@ -25,7 +35,8 @@ GOUtils.prototype.isEmpty = function (v) {
 };
 
 /**
- * @ngdoc function
+ * @ngdoc method
+ * @methodOf GO
  * @name GO.module
  * @description
  * Register a new angular module. See angular.module and also put it into the 
