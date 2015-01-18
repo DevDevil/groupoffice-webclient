@@ -17,11 +17,11 @@ GO.module('GO.contacts', ['GO.core', 'GO.contacts.controllers']).
 				// Now set up the states
 				$stateProvider
 						.state('contacts', {
-							url: "/contacts",
+							url: "/contacts?gender&age",
 							templateUrl: 'modules/contacts/views/main.html',
 							controller: 'ContactController'
 						})
-
+                                                
 
 
 						.state('contacts.contact', {

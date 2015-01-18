@@ -2,8 +2,9 @@
 
 /* Controllers */
 GO.module('GO.contacts.controllers').
-		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', '$timeout', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, $timeout) {
-
+		controller('ContactController', ['$scope', '$state', 'Translate', 'Store', 'Model', 'Tags', 'CustomFields','Modules', '$timeout', '$stateParams', function($scope, $state, Translate, Store, Model, Tags, CustomFields, Modules, $timeout, $stateParams) {
+                               
+                                
 				$scope.pageTitle = Translate.t('Contacts');
 
 				/* For mobiles, switch list and details on state */
@@ -119,51 +120,85 @@ GO.module('GO.contacts.controllers').
 					$scope.isFilterActive = false;
 				};
 				
+                                
+                                // set filter 
+                                for(var i in $state.params){
+                                    $scope.filters[i] = $state.params[i];
+                                    switch(i) {
+                                        case "gender":
+                                            $scope.filters.gender = $state.params.gender;
+                                            break;
+                                        case "age":
+                                            if($state.params.age) {
+                                                if($state.params.age[0])
+                                                    $scope.filters.age.gt = $state.params.age[0];
+                                                if($state.params.age[1])
+                                                    $scope.filters.age.lt = $state.params.age[1];
+                                            }
+                                            break;
+                                        case "tags":
+                                            break;
+                                        default:
+                                            break;
+                                    } 
+                                }
+//                              
+
+                                
+                                
+//                                $scope.$watch('filters', function(newValue, oldValue) {
+//                                    
+//                                    $scope.loadByFilter();
+//                                }, true);
+
+
+
+
 			
-				$scope.closeSidePanelCallback = function() {
+				$scope.loadByFilter = function() {
 				
 					var where = CustomFields.filterModelToWhereParameter($scope.customFilters);
 
-					var tags = [];
+//					var tags = [];
 
-					var l = $scope.filters.tags.length;
-
-					if (l) {
-						for (var i = 0; i < l; i++) {
-							tags.push($scope.filters.tags[i].id);
-						}
-
-						where.push(['IN', 'tagLink.tagId', tags]);
-					}
+//					var l = $scope.filters.tags.length;
+//
+//					if (l) {
+//						for (var i = 0; i < l; i++) {
+//							tags.push($scope.filters.tags[i].id);
+//						}
+//
+//						where.push(['IN', 'tagLink.tagId', tags]);
+//					}
 
 					if ($scope.filters.gender) {
 						where.push({gender: $scope.filters.gender});
 					}
 					
 					
-					if($scope.filters.age){
-						if($scope.filters.age.lt){		
-
-							var date = new Date();
-							date.setYear(date.getFullYear() - $scope.filters.age.lt);
-							date.setHours(0);
-							date.setMinutes(0);
-							date.setSeconds(0);
-
-							where.push(['AND', '>=',{"dates.date": date.toIntermeshApiFormat()}]);
-						}
-
-						if($scope.filters.age.gt){	
-
-							var date = new Date();						
-							date.setYear(date.getFullYear() - $scope.filters.age.gt);
-							date.setHours(0);
-							date.setMinutes(0);
-							date.setSeconds(0);
-
-							where.push(['AND', '<=',{"dates.date": date.toIntermeshApiFormat()}]);
-						}
-					}
+//					if($scope.filters.age){
+//						if($scope.filters.age.lt){		
+//
+//							var date = new Date();
+//							date.setYear(date.getFullYear() - $scope.filters.age.lt);
+//							date.setHours(0);
+//							date.setMinutes(0);
+//							date.setSeconds(0);
+//
+//							where.push(['AND', '>=',{"dates.date": date.toIntermeshApiFormat()}]);
+//						}
+//
+//						if($scope.filters.age.gt){	
+//
+//							var date = new Date();						
+//							date.setYear(date.getFullYear() - $scope.filters.age.gt);
+//							date.setHours(0);
+//							date.setMinutes(0);
+//							date.setSeconds(0);
+//
+//							where.push(['AND', '<=',{"dates.date": date.toIntermeshApiFormat()}]);
+//						}
+//					}
 
 					$scope.store.loadParams.where = where;
 
