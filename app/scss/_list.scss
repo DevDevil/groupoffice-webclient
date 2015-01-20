@@ -84,7 +84,7 @@ ul.items, ul.properties{
 		}
 
 		a{
-			font-size: 1.2em;
+			//font-size: 1.2em;
 			color: $font-color;
 			width: 100%;
 			
@@ -103,8 +103,7 @@ ul.items, ul.properties{
 
 		&.index {
 			&:first-child{ 
-				border:0;
-				
+				border:0;				
 			}
 			cursor: default;
 			display:block;
@@ -139,6 +138,12 @@ ul.items, ul.properties{
 		}
 	}
 
+}
+
+ul.properties + ul.properties {
+	.index:first-child{
+		border-top: 1px solid $border-color;
+	}
 }
 
 ul.items {

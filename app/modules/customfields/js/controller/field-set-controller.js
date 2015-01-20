@@ -15,8 +15,10 @@ angular.module('GO.customfields.controllers')
 						modelName: $stateParams.modelName
 					})
 					.then(function(result) {	
-
-						$scope.back();
+						
+						//$scope.back();
+		
+						$state.go("customfields.model.fields", {modelName: $stateParams.modelName, fieldSetId: $scope.fieldset.id});
 
 					});
 				};

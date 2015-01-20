@@ -26,7 +26,7 @@ GO.module('GO.contacts.controllers').
 				$scope.contact = new Model(
 						'contacts',
 						{
-							returnAttributes: "*,photo,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
+							returnAttributes: "*,photo,emailAddresses,phoneNumbers,dates,addresses[*,formatted],tags,customfields,company,employees[id, name, photo]"
 						});
 
 

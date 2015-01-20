@@ -4,6 +4,8 @@
  * @name GO
  * @description
  * Global singleton object with some common used funcions
+ * 
+ * This singleton is also added to the $rootScope. So $rootScope.GO.isEmpty will work.
  */
 
 

@@ -429,7 +429,7 @@ angular.module('GO.core.data')
 
 									if (!result.success) {
 			
-										this.loadValidationErrors(data);
+										this._loadValidationErrors(data);
 										
 										deferred.reject({model: this, result: result, validationErrors: data.validationErrors});
 									} else {
