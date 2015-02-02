@@ -125,7 +125,7 @@ angular.module('GO.core.data')
 								if (result.success) {
 									var data = result.data;
 
-									if (data.validationErrors.length) {
+									if (data && data.validationErrors.length) {
 										
 //										this.validationErrors = data.validationErrors;
 										

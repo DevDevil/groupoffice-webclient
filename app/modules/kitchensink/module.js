@@ -24,6 +24,10 @@ GO.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
 							url: "/kitchensink/list",
 							controller: "KsListController",
 							templateUrl: "modules/kitchensink/views/list.html"
+						}).state('kitchensink.alerts', {
+							url: "/kitchensink/alerts",
+							controller: "KsAlertsController",
+							templateUrl: "modules/kitchensink/views/alerts.html"
 						});
 						
 
