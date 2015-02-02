@@ -15,7 +15,15 @@ GO.module('GO.kitchensink', ['GO.core', 'GO.kitchensink.controllers']).
 				$stateProvider
 						.state('kitchensink', {
 							url: "/kitchensink",
+							templateUrl: "modules/kitchensink/views/main.html"
+						})
+						.state('kitchensink.form', {
+							url: "/kitchensink/form",
 							templateUrl: "modules/kitchensink/views/form.html"
+						}).state('kitchensink.list', {
+							url: "/kitchensink/list",
+							controller: "KsListController",
+							templateUrl: "modules/kitchensink/views/list.html"
 						});
 						
 

@@ -340,9 +340,7 @@ angular.module('GO.core.data')
 											modified[attributeName] = [];
 										}
 										
-										modified[attributeName].push({
-											attributes: attr
-										});										
+										modified[attributeName].push(attr);										
 									}
 								}
 							}
@@ -593,10 +591,10 @@ angular.module('GO.core.data')
 						if (result.data) {
 							
 							if(extendAttributes){								
-								for(var key in result.data.attributes){
+								for(var key in result.data){
 									delete this[key];
 								}
-								angular.extend(result.data.attributes, this.attributes);
+								angular.extend(result.data, this.getAttributes());
 							}
 							
 							this.loadData(result.data);
