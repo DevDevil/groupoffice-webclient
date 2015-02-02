@@ -29,8 +29,8 @@
 
 
 
-.card{
-	.btn, button {
+
+.text.btn, button.text {
 		display: inline-block;
 		margin-bottom: 0; // For input.btn
 		font-weight: $btn-font-weight;
@@ -111,8 +111,6 @@
 			@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 		}
 	}
-}
-
 
 
 	button, .btn{

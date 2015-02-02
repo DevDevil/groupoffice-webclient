@@ -182,16 +182,17 @@ GO.module('GO.contacts.controllers').
 				
 				
 				
-				$scope.delete = function(){
-							
-			
-							
+				$scope.delete = function(){							
 							$scope.contact.delete().then(function(result){
 								$scope.syncWithStore(false);
 							});
 						};
-
-
+				
+				$scope.unDelete = function(){							
+							$scope.contact.unDelete().then(function(result){
+								$scope.syncWithStore(false);
+							});
+						};
 				
 				$scope.store.load();
 			
