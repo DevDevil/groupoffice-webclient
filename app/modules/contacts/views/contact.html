@@ -4,7 +4,7 @@
 	
 	<go-mask active="contact.deleted">
 		
-			<button class="text danger" ng-click="unDelete()">Click here undelete</button>
+			<button class="text danger" ng-click="unDelete()">{{"Click here undelete" | goT }}</button>
 		
 	</go-mask>
 
@@ -24,9 +24,8 @@
 
 		<div class="avatar big">
 			<img ng-src="{{contact.photo}}&amp;w=80&amp;h=80&amp;zoomCrop=1" />
-
 		</div>			
-		<div class="title">				
+		<div class="title">
 			<h2>{{contact.name}}</h2>
 			<h3 ng-if="contact.company">{{contact.company.name}}</h3>
 		</div>			
