@@ -1,54 +1,55 @@
-
-<div class="col w1-2">
-
-	<div class="panel pad" ng-controller="KsAutocompleteController">
-
-		<form>
-
-			<div class="row">
-				<label for="autocomplete">
-					Autocomplete
-				</label>
-
-				<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" ng-model="formModel.autocomplete">
-			</div>	
+<menu type="toolbar">
+	<li>
+		<h2>Form</h2>
+	</li>
+</menu>
 
 
-			<div class="row">
-				<label for="date">
-					Date
-				</label>
+<div class="panel pad" ng-controller="KsAutocompleteController">
 
-				<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
-			</div>
+	<form>
 
+		<div class="row">
+			<label for="autocomplete">
+				Autocomplete
+			</label>
 
-			<div class="row">
-				<label for="number">
-					Number
-				</label>
-
-				<input id="number" name="number" ng-model="formModel.number" go-number />
-			</div>
-
-			<div class="row">
-				<label for="multiselect">
-					Multiselect
-				</label>
-
-				<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
-			</div>
+			<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" ng-model="formModel.autocomplete">
+		</div>	
 
 
+		<div class="row">
+			<label for="date">
+				Date
+			</label>
 
-		</form>
+			<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
+		</div>
 
 
-		<pre>
+		<div class="row">
+			<label for="number">
+				Number
+			</label>
+
+			<input id="number" name="number" ng-model="formModel.number" go-number />
+		</div>
+
+		<div class="row">
+			<label for="multiselect">
+				Multiselect
+			</label>
+
+			<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
+		</div>
+
+
+
+	</form>
+
+
+	<pre>
 	{{formModel| json}}
-		</pre>
-
-	</div>
-
+	</pre>
 
 </div>
