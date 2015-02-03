@@ -9,18 +9,22 @@
 	
 	
 	<ul class="panel items" as-sortable="dragControlListeners" ng-model="fieldSetStore.items">
-		<li as-sortable-item ng-repeat="fieldSet in fieldSetStore.items" ui-sref-active="selected">
+		<li as-sortable-item ng-repeat="fieldSet in fieldSetStore.items" ui-sref-active="selected" ng-class="{'deleted': fieldSet.deleted}">
 			
 			<a ui-sref="customfields.model.fields({fieldSetId: fieldSet.id})">
 				{{fieldSet.name}}
 			</a>
 			
-			<div class="dropdown">
+			
+			<div ng-if="fieldSet.deleted" class="danger">
+				<button ng-click="fieldSet.unDelete()" title="Undo delete"><i class="undo"></i></button>
+			</div>
+			<div ng-if="!fieldSet.deleted" class="dropdown">
 				<button class="menu"><i class="menu-dot"></i></button>
 				<menu class="popup top-right">
 
 					<li><a ui-sref='customfields.fieldset({modelName: modelName, fieldSetId: fieldSet.id})'>{{"Edit" | goT}}</a></li>
-					<li><a ng-click="field.delete()">{{"Delete" | goT}}</a></li>
+					<li><a ng-click="fieldSet.delete()">{{"Delete" | goT}}</a></li>
 
 				</menu>
 			</div>

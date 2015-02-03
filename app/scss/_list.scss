@@ -41,20 +41,18 @@ ul.comma-list {
 
 }
 
-
-
 ul.items, ul.properties{
 	
 	list-style-type: none;
 
-	> li{
-		
-		&.deleted {
-			opacity: 0.5;
+	> li{		
+		&.deleted {			
 			background-color: $color-danger-bg !important;
 			a {
+				animation: greyOut .3s forwards; //from animate.scss
 				background-color: $color-danger-bg !important;
-			}
+			}			
+			
 		}
 
 		&:hover{
