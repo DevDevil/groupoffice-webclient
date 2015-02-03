@@ -1,0 +1,10 @@
+.search-button{
+	input{
+		transition: all .3s ease-out;
+		max-width:0px;
+		&:focus, &.active{		 
+		 	max-width: 100px;
+		}
+	}
+	
+}

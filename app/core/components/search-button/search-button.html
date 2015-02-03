@@ -1,0 +1,8 @@
+<form class="search-button" ng-submit="store.search()">
+	<button type="button" ng-show="store.searchQuery == ''"><i class="search"></i></button>
+	<button type="button" ng-show="store.searchQuery != ''" ng-click="store.searchQuery = '';
+		this.focus();
+		store.reset();
+		store.load();"><i class="remove"></i></button>
+	<input ng-class="{'active': store.searchQuery != ''}" type="text" ng-model="store.searchQuery" />
+</form>

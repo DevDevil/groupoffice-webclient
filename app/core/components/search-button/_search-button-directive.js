@@ -22,9 +22,14 @@
  */
 
 angular.module('GO.core')
-				.directive('search', [function() {
+				.directive('searchButton', [function() {
 					return {
-						restrict: 'C',
+						replace: true,
+						restrict: 'E',
+						scope:{
+							store: '='
+						},
+						templateUrl: 'core/components/search-button/search-button.html',
 						link: function(scope, element) {
 							//console.log('t');
 							//var btn = element.find('button')[0];
@@ -51,33 +56,6 @@ angular.module('GO.core')
 								
 								angular.element(btn).on('focus', function(e){						
 									input.focus();
-								});
-							}
-
-						}
-					};
-				}])
-				.directive('dropdown', [function() {
-					return {
-						restrict: 'C',
-						link: function(scope, element) {
-							//console.log('t');
-							//var btn = element.find('button')[0];
-							
-							var children = element.children();
-							var btn;
-							
-							angular.forEach(children, function(c){
-		
-								if(c.tagName == 'A' || c.tagName == 'BUTTON') {
-									btn = c;									
-								}
-							});
-							
-							if(btn) {
-							//mac os x doesn't put focus
-								angular.element(btn).on('click', function(e){						
-									btn.focus();
 								});
 							}
 

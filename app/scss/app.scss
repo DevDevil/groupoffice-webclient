@@ -16,6 +16,7 @@
 @import "animate"; //only enabled for elements with "animate" class on it!
 
 //components
+@import "../core/components/search-button/_search-button.scss";
 @import '../core/components/form/show-error/show-error';
 @import '../core/alerts/alerts';
 @import "../core/components/form/autocomplete/autocomplete";
