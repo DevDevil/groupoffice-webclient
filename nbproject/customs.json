@@ -10,6 +10,7 @@
 		},
 		"go-show-error": {
 			"attributes": {
+				"ng-model": {},
 				"for": {},
 				"attribute-name": {},
 				"go-model": {}

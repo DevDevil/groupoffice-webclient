@@ -11,7 +11,7 @@ angular.module('GO.customfields.controllers')
 				
 				
 				$scope.save = function() {
-					$scope.fieldset.save({
+					return $scope.fieldset.save({
 						modelName: $stateParams.modelName
 					})
 					.then(function(result) {	

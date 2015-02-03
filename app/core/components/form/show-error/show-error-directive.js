@@ -54,7 +54,6 @@ angular.module('GO.core.form')
 
 
 							if ($scope.goModel) {
-
 								$scope.$watch('goModel.validationErrors["' + $scope.attributeName + '"]', function (newValue, oldValue) {
 									
 									if (newValue) {

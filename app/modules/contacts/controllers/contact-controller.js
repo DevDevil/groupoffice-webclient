@@ -65,10 +65,10 @@ GO.module('GO.contacts.controllers').
 
 				$scope.save = function() {
 
-					$scope.contact.save()
+					return $scope.contact.save()
 							.then(function(result) {
 								//success
-	
+
 								$scope.syncWithStore(true);
 								$state.go('contacts.contact.detail', {contactId: $scope.contact.id});
 								

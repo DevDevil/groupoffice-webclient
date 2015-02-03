@@ -499,7 +499,6 @@ angular.module('GO.core.data')
 					if(!obj){
 						obj = this;
 					}
-								
 					
 					if(data.validationErrors){
 						obj.validationErrors = data.validationErrors;

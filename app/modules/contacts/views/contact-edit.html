@@ -46,8 +46,8 @@
 				</span>
 				<input ng-if="contact.isCompany" type="text" id="companyName" name="companyName" ng-model="contact.name" required go-autofocus />
 
-				<go-show-error ng-if="!contact.isCompany" for="contactName" go-model="contact"></go-show-error>
-				<go-show-error ng-if="contact.isCompany" for="companyName" go-model="contact"></go-show-error>
+				<go-show-error ng-if="!contact.isCompany" for="contactName" ng-model="contact"></go-show-error>
+				<go-show-error ng-if="contact.isCompany" for="companyName" ng-model="contact"></go-show-error>
 			</div>
 
 
@@ -79,24 +79,26 @@
 				<label>{{"E-mail"| goT}}</label>
 
 				<span>
-					<div class="group" ng-if="!emailAddress.markDeleted" ng-repeat="emailAddress in contact.emailAddresses">				
-						<input type="email" name="email_{{$index}}" ng-model="emailAddress.email" go-autofocus="$index > 0 && !emailAddress.id">
+					<div ng-repeat="emailAddress in contact.emailAddresses" ng-if="!emailAddress.markDeleted">
+						<div class="group">				
+							<input type="email" name="email_{{$index}}" ng-model="emailAddress.email" go-autofocus="$index > 0 && !emailAddress.id">
 
-						<div class="addon">
-							<select 
-								style="width:100px"
-								ng-model="emailAddress.type" 
-								ng-options="value as label for (value, label) in emailAddressOptions">											
-							</select>
-						</div>
-						
+							<div class="addon">
+								<select 
+									style="width:100px"
+									ng-model="emailAddress.type" 
+									ng-options="value as label for (value, label) in emailAddressOptions">											
+								</select>
+							</div>
 
-						<div class="addon">
-							<button type="button" class="btn" ng-click="emailAddress.markDeleted = true;"><i class="remove"></i></button>
+
+							<div class="addon">
+								<button type="button" class="btn" ng-click="emailAddress.markDeleted = true;"><i class="remove"></i></button>
+							</div>
+
 						</div>
-						<go-show-error for="email_{{$index}}" attribute-name="email" go-model="emailAddress"></go-show-error>
+						<go-show-error for="email_{{$index}}" attribute-name="email" ng-model="emailAddress"></go-show-error>
 					</div>
-
 
 					<button type="button" ng-click="addEmailAddress()">{{"Add e-mail address"| goT}}</button>
 				</span>
@@ -108,21 +110,27 @@
 				<label>{{"Phone"| goT}}</label>
 
 				<span>
-					<div ng-if="!phoneNumber.markDeleted" class="group" ng-repeat="phoneNumber in contact.phoneNumbers">
+					<div ng-if="!phoneNumber.markDeleted" ng-repeat="phoneNumber in contact.phoneNumbers">
 
-						<input class="fill" type="text" name="number_{{$index}}" ng-model="phoneNumber.number" go-autofocus="$index > 0 && !phoneNumber.id">
-						<go-show-error for="number_{{$index}}" attribute-name="number" go-model="phoneNumber"></go-show-error>
+						<div class="group">
+							<input class="fill" type="text" name="number_{{$index}}" ng-model="phoneNumber.number" go-autofocus="$index > 0 && !phoneNumber.id">						
+							<div class="addon">
+								<select style="width: 100px" ng-model="phoneNumber.type" ng-options="value as label for (value, label) in phoneNumberOptions"></select>
+							</div>
 
-						<div class="addon">
-							<select style="width: 100px" ng-model="phoneNumber.type" ng-options="value as label for (value, label) in phoneNumberOptions"></select>
+							<div class="addon">
+								<button type="button" ng-click="phoneNumber.markDeleted = true;"><i class="remove"></i></button>
+							</div>
 						</div>
-						
-						<div class="addon">
-							<button type="button" ng-click="phoneNumber.markDeleted = true;"><i class="remove"></i></button>
-						</div>
 
+						<go-show-error ng-repeat-end for="number_{{$index}}" attribute-name="number" ng-model="phoneNumber"></go-show-error>
 					</div>
+
+
+
 					<button type="button" ng-click="addPhoneNumber()">{{"Add phone number"| goT}}</button>
+
+
 				</span>
 			</div>
 
@@ -149,25 +157,28 @@
 				<label>{{"Special dates"| goT}}</label>			
 
 				<span>
-					<div ng-if="!specialDate.markDeleted" class="group" ng-repeat="specialDate in contact.dates">					 
+					<div ng-repeat="specialDate in contact.dates" ng-if="!specialDate.markDeleted">
+						<div class="group">					 
 
-						<input class="fill" type="text" name="date_{{$index}}" ng-model="specialDate.date" datepicker-popup />
-						<go-show-error for="date_{{$index}}" attribute-name="date" go-model="specialDate"></go-show-error>
+							<input class="fill" type="text" name="date_{{$index}}" ng-model="specialDate.date" datepicker-popup />
 
-						<div class="addon">
-							<select 
-								style="width:100px"
-								ng-model="specialDate.type" 
-								ng-options="value as label for (value, label) in dateOptions">											
-							</select>
+
+							<div class="addon">
+								<select 
+									style="width:100px"
+									ng-model="specialDate.type" 
+									ng-options="value as label for (value, label) in dateOptions">											
+								</select>
+							</div>
+
+							<div class="addon">
+
+								<button type="button" ng-click="specialDate.markDeleted = true;">
+									<i class="remove"></i>
+								</button>
+							</div>
 						</div>
-
-						<div class="addon">
-						
-							<button type="button" ng-click="specialDate.markDeleted = true;">
-								<i class="remove"></i>
-							</button>
-						</div>
+						<go-show-error for="date_{{$index}}" attribute-name="date" ng-model="specialDate"></go-show-error>
 					</div>
 
 					<button type="button" ng-click="addDate()">{{"Add special date"| goT}}</button>
@@ -201,7 +212,7 @@
 
 
 				<div>
-					<div ng-if="!address.markDeleted"ng-repeat="address in contact.addresses">
+					<div ng-if="!address.markDeleted" ng-repeat="address in contact.addresses">
 
 						<div class="group">
 							<select class="control" ng-model="address.type" ng-options="value as label for (value, label) in emailAddressOptions"></select>
@@ -245,6 +256,6 @@
 		</fieldset>
 
 		<go-custom-fields-edit ng-model="contact.customfields" server-model="GO\Modules\Contacts\Model\ContactCustomFields"></go-custom-fields-edit>				
-		
+
 	</div>
 </form>
