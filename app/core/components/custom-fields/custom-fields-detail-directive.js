@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.core')		
+angular.module('GO.core.customFields')		
 		.directive('goCustomFieldsDetail', ['$templateCache', function($templateCache) {
 
 				$templateCache.put('customfield-text-detail.html',
@@ -10,37 +10,37 @@ angular.module('GO.core')
 							</div>');
 
 				$templateCache.put('customfield-textarea-detail.html',
-						'<dl ng-if="!$root.isEmpty(goModel[field.databaseName])">\
-							<dt>{{field.name}}</dt>\
-							<dd><pre>{{goModel[field.databaseName]}}</pre></dd>\
-						</dl>');
+						'<div>\
+							<strong>{{goModel[field.databaseName]}}</strong><br />\
+							<small>{{field.name}}</small>\
+						</div>');
 				
 				$templateCache.put('customfield-select-detail.html',
-						'<dl ng-if="!$root.isEmpty(goModel[field.databaseName])">\
-							<dt>{{field.name}}</dt>\
-							<dd>{{goModel[field.databaseName]}}</dd>\
-						</dl>');
+						'<div>\
+							<strong>{{goModel[field.databaseName]}}</strong><br />\
+							<small>{{field.name}}</small>\
+						</div>');
 						
 				$templateCache.put('customfield-checkbox-detail.html',
-						'<dl>\
-							<dt>&nbsp;</dt><dd><i class="fa" ng-class="{\'fa-square-o\': !goModel[field.databaseName],\'fa-check-square-o\': goModel[field.databaseName]}"></i> {{field.name}}</dd>\
-						</dl>');
+						'<div>\
+							<strong><i ng-class="{\'checkbox-off\': !goModel[field.databaseName],\'checkbox-on\': goModel[field.databaseName]}"></i> {{field.name}}</strong><br />\
+						</div>');
 						
 				$templateCache.put('customfield-date-detail.html',
-						'<dl ng-if="!$root.isEmpty(goModel[field.databaseName])">\
-							<dt>{{field.name}}</dt>\
-							<dd>{{goModel[field.databaseName] | date:\'longDate\'}}</dd>\
-						</dl>');
+						'<div>\
+							<strong>{{goModel[field.databaseName] | date:\'longDate\'}}</strong><br />\
+							<small>{{field.name}}</small>\
+						</div>');
 						
 				$templateCache.put('customfield-datetime.html',
 						'TODO!');
 						
 						
 				$templateCache.put('customfield-number-detail.html',
-						'<dl ng-if="!$root.isEmpty(goModel[field.databaseName])">\
-							<dt>{{field.name}}</dt>\
-							<dd>{{goModel[field.databaseName] | number}}</dd>\
-						</dl>');
+						'<div>\
+							<strong>{{goModel[field.databaseName] | number}}</strong><br />\
+							<small>{{field.name}}</small>\
+						</div>');
 
 				return {
 					restrict: 'E',
