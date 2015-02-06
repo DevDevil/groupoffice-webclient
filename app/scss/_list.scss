@@ -24,22 +24,7 @@ ul.comma-list {
 }
 
 
-.loading-more{
-	padding: 10px 20px;
 
-	opacity: 1;	
-
-	transition: all 0.3s ease-out;
-	/*	.ng-hide-remove.ng-hide-remove-active {
-			transition-delay: 0;
-		}*/
-
-	&.ng-hide{
-		opacity: 0;
-	}
-
-
-}
 
 ul.items, ul.properties{
 	
@@ -134,6 +119,30 @@ ul.items, ul.properties{
 			}
 
 		}
+		
+		&.loading-more{
+			padding: 10px 20px;
+			opacity: 1;	
+			display: block;
+
+			i{
+				display: inline-block;
+				padding:0px !important;
+				width:auto;
+			}
+
+			transition: all 0.3s ease-out;
+			/*	.ng-hide-remove.ng-hide-remove-active {
+					transition-delay: 0;
+				}*/
+
+			&.ng-hide{
+				opacity: 0;
+			}
+
+
+		}
+
 	}
 
 }

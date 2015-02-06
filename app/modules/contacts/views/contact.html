@@ -12,11 +12,11 @@
 		<menu type="toolbar">
 			<li></li>
 			<li>
-				<a class="btn" ng-disabled="!contact.permissions.editAccess" ui-sref="contacts.edit({contactId: contact.id})"><i class="pencil"></i></a>
+				<a class="btn" ng-disabled="!contact.permissions.write" ui-sref="contacts.edit({contactId: contact.id})"><i class="pencil"></i></a>
 				<div class="dropdown">
 					<button><i class="menu-dot"></i></button>
 					<menu class="popup top-right">
-						<li><a ng-click="delete()">Delete</a></li>						
+						<li><a ng-click="delete()" ng-disabled="!contact.permissions.delete">Delete</a></li>						
 					</menu>
 				</div>
 			</li>
