@@ -3,8 +3,7 @@
 	 data-flow-files-submitted="$flow.upload()"
 	 data-flow-file-success="uploadSuccess($file, $message);"
 	 data-flow-complete="filesStore.reload()">
-	<ul class="panel list"
-		>
+	<ul class="panel items">
 
 
 		<!--		<div ng-repeat="file in $flow.files" class="list-group-item" ng-if="!file.isComplete()">				
@@ -23,10 +22,10 @@
 					</div>
 				</div>-->
 
-		<li ng-repeat="file in filesStore.items">
+		<li ng-class="{'deleted': file.deleted}" ng-repeat="file in filesStore.items">
 
 
-			<a ng-class="{'deleted-visible': file.deleted}" target="_blank" href="{{file.downloadUrl}}">
+			<a target="_blank" href="{{file.downloadUrl}}">
 				<i class="file"></i>
 
 				<span ng-if="!file.rename">							
@@ -36,12 +35,21 @@
 				<input ng-if="file.rename" type="text" ng-model="file.name" ng-blur="saveFile($event, file)" ng-click="$event.stopPropagation();
 						$event.preventDefault();" autoselect required im-keypress="{13 : '$event.preventDefault();saveFile($event, file);'}" />
 
-				<span class="right">
-					<i class="pencil"ng-click="renameFile($event, file);"></i>
-
-					<im-soft-delete-button im-model="file" im-size="xs"></im-soft-delete-button>
-				</span>
+				
 			</a>
+			
+			<div ng-if="file.deleted" class="danger">
+				<button ng-click="file.unDelete()" title="Undo delete"><i class="undo"></i></button>
+			</div>
+			<div ng-if="!file.deleted" class="dropdown">
+				<button class="menu"><i class="menu-dot"></i></button>
+				<menu class="popup top-right">
+
+					<li><a>{{"Rename" | goT}}</a></li>
+					<li><a ng-click="file.delete()">{{"Delete" | goT}}</a></li>
+
+				</menu>
+			</div>
 		</li>
 
 		<li ng-if="!filesStore.busy" class="show-if-only-child pad">

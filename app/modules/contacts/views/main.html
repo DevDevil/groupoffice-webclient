@@ -77,15 +77,12 @@
 			<div class="icon">
 				<div class="avatar">
 					<img ng-src="{{contact.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
-				</div>
-				
+				</div>				
 			</div>
 			
-			<a ui-sref="contacts.contact.detail({contactId: contact.id})">
-				
+			<a ui-sref="contacts.contact.detail({contactId: contact.id})">				
 				{{contact.name}}
 				<br /><small>{{contact.company.name}}</small>
-
 			</a>
 		</li>
 
