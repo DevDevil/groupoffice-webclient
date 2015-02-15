@@ -76,7 +76,7 @@
 		<li ng-repeat-end ng-class="{'deleted': contact.deleted}" ui-sref-active="selected">
 			<div class="icon">
 				<div class="avatar">
-					<img ng-src="{{contact.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
+					<img ng-src="{{contact.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1&amp;access_token={{oauth2AccessToken}}" />
 				</div>				
 			</div>
 			

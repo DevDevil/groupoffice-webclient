@@ -12,7 +12,8 @@
     "angular-i18n": "latest",
     "angular-elastic": "latest",
     "fastclick": "latest",
-    "ng-flow": "latest"
+    "ng-flow": "latest",
+    "angular-cookies": "~1.3.13"
   },
   "devDependencies": {}
 }

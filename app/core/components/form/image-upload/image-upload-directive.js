@@ -33,12 +33,17 @@ angular.module('GO.core.form')
 					controller: function ($scope, $element, $attrs, $transclude, Utils) {
 						$scope.flowInit = {
 							singleFile: true,
-							target: Utils.url('upload')
+							target: Utils.url('upload'),
+							headers: {
+								'Authorization' : 'Bearer '+Utils.getAccessToken()
+							}
 						};
 					},
 					link: function (scope, element, attrs) {
 						
 						element.addClass('go-image-upload');
+						
+						scope.oauth2AccessToken = Utils.getAccessToken();
 			
 						scope.uploadSuccess = function ($file, $message) {
 

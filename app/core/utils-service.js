@@ -6,7 +6,7 @@
  * Common utilities
  */
 angular.module('GO.core').
-		service('Utils', [function () {
+		service('Utils', ['$http', '$rootScope', function ($http, $rootScope) {
 
 				var Utils = function () {
 					this.baseUrl = localStorage.baseUrl || "../../groupoffice-server/html/index.php/";
@@ -14,6 +14,38 @@ angular.module('GO.core').
 					//Use sessionStorage from browser so it survives browser reloads
 					this.defaultParams = angular.fromJson(sessionStorage.defaultParams);
 				};
+				
+//				Utils.prototype.setAccessToken = function(accessToken, remember) {
+//					
+//					if(accessToken) {
+//						$http.defaults.headers.common.Authorization = 'Bearer '+accessToken;		
+//					}else
+//					{
+//						delete $http.defaults.headers.common.Authorization;
+//					}
+//					
+//					$rootScope.oauth2AccessToken = sessionStorage.accessToken = accessToken;
+//
+//					if(remember) {
+//						localStorage.accessToken = data.access_token;
+//					}else
+//					{
+//						delete localStorage.accessToken;
+//					}
+//				};
+//				
+//				Utils.prototype.getAccessToken = function(){					
+//					
+//					if(sessionStorage.accessToken) {
+//						return sessionStorage.accessToken;
+//					}
+//					
+//					if(localStorage.accessToken) {
+//						return localStorage.accessToken;
+//					}
+//					
+//					return null;
+//				};
 
 				/**
 				 * @ngdoc method

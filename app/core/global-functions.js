@@ -13,6 +13,7 @@
 GOUtils = function () {
 	this.appModules = [
 		'ngAnimate',
+		'ngCookies',
 		'ui.router',
 		'monospaced.elastic',
 		'flow', // https://github.com/flowjs/ng-flow

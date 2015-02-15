@@ -51,7 +51,7 @@
 			</div>
 
 
-			<div class="animate-show-height" style="height:150px;clear:both;" ng-show="showNameParts">
+			<div ng-if="!contact.isCompany" class="animate-show-height" style="height:150px;clear:both;" ng-show="showNameParts">
 				<div class="row">
 					<label for="firstName">{{"First name"| goT}}</label>
 

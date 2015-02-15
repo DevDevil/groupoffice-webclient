@@ -3,7 +3,7 @@
 
 angular.module('GO.core.controllers')
 
-		.controller('LoginController', function ($scope, $rootScope, $http, $state, Utils, Translate, Modules) {
+		.controller('LoginController', function ($scope, $rootScope, $http, $state, Utils, Translate, Alerts) {
 
 			$scope.master = $scope.user = {
 				username: '',
@@ -12,43 +12,27 @@ angular.module('GO.core.controllers')
 			};
 
 			$scope.config = {url: Utils.baseUrl || "http://localhost/groupoffice-server/html/"};
-
+			
+			
+			
 			$scope.login = function (user) {
 
 				//We set the base Group-Office URL given from the form.
 				Utils.setBaseUrl($scope.config.url);
 
 				var url = Utils.url('auth');
-
+				
 				$http.post(url, user)
 						.success(function (data, status, header) {
-
-							if (!data.success) {
-								alert(Translate.t('You entered an incorrect username or password'));
-//													
-//													$scope.loginForm.username.$setValidity('badLogin', false);
-
-							} else {
-
-								//Returned when remember is enabled. We create an interceptor that adds the token.
-//													if(data.authorizationToken){
-//														localStorage.authorizationToken = data.authorizationToken;
-//														//$http.defaults.headers.common.Authorization = 'Bearer '+data.token;
-//													}
-
-								//Set the security token returned by Group-Office that must be used in all requests to prevent
-								//Cross site scripting attacks
-//													Utils.setDefaultParams({
-//														securityToken: data.securityToken
-//													});
-
+								
 								$rootScope.loggedIn = true;
-								
 								$state.go("dashboard");
-								
-								//TODO: Get modules from service
-
-							}
+						})
+						.error(function(data, status, header){
+							
+							//$scope.loginForm.username.$setValidity(Translate.t('You entered an incorrect username or password'), false);
+					
+							Alerts.addAlert(Translate.t('You entered an incorrect username or password'), 'warning');
 						});
 			};
 
