@@ -25,7 +25,7 @@
 		<li ng-class="{'deleted': file.deleted}" ng-repeat="file in filesStore.items">
 
 
-			<a target="_blank" href="{{file.downloadUrl}}">
+			<a target="_blank" href="{{file.downloadUrl}}&amp;XSRFToken={{XSRFToken}}">
 				<i class="file"></i>
 
 				<span ng-if="!file.rename">							
