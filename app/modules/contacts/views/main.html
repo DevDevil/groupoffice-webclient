@@ -34,7 +34,9 @@
 	</div>
 </aside>-->
 
-<div class="col w1-3">
+<div class="cards-sm" ng-class="{'card-2': !listActive}">
+
+<div class="u-1 u-md-1-3">
 
 
 	<menu type="toolbar" class="pad-list-index">
@@ -93,10 +95,11 @@
 
 	<a class="btn action" ui-sref='contacts.edit({contactId: 0})'><i class="plus"></i></a>
 </div>
-<div class="col fill" ui-view>
+<div class="u-1 u-md-2-3" ui-view>
 
 
 
 
 
+</div>
 </div>

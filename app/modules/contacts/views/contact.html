@@ -10,7 +10,11 @@
 
 	<header>
 		<menu type="toolbar">
-			<li></li>
+			<li>
+				<a class="btn hide-md" ng-click="setListActive(true)">				
+					<i class="back"></i>
+				</a>
+			</li>
 			<li>
 				<a class="btn" ng-disabled="!contact.permissions.write" ui-sref="contacts.edit({contactId: contact.id})"><i class="pencil"></i></a>
 				<div class="dropdown">

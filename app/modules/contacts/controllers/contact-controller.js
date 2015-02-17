@@ -15,7 +15,19 @@ GO.module('GO.contacts.controllers').
 						{
 							returnAttributes: "id,name,photo,company.name"
 						});
-						
+					
+					
+				$scope.listActive = true;						
+				$scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+						$scope.listActive = toState.name === 'contacts';
+					});
+					
+				$scope.setListActive = function(active){
+					$scope.listActive = active;
+				};
+					
+					
+					
 				
 
 
