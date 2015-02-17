@@ -5,21 +5,10 @@ angular.module('GO').config(function ($httpProvider, $provide) {
 			$httpProvider.defaults.useXDomain = true;
 
 
-			$provide.factory('myHttpInterceptor', ['$injector', '$q', '$log', '$cookies', '$timeout',   function ($injector, $q, $log, $cookies, $timeout) {
+			$provide.factory('myHttpInterceptor', ['$injector', '$q', '$log', 'Utils', '$rootScope',  function ($injector, $q, $log, Utils, $rootScope) {
 					
 				
-				//use own getcookie function as $cookies seems to suffer from a small delay tat we realy don't need here.
-			//I had to use $timeout(getcookie, 100) here.
-			var getCookie = function (cname) {
-				var name = cname + "=";
-				var ca = document.cookie.split(';');
-				for(var i=0; i<ca.length; i++) {
-					var c = ca[i];
-					while (c.charAt(0)==' ') c = c.substring(1);
-					if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-				}
-				return null;
-			};
+		
 
 				
 					return {
@@ -27,10 +16,11 @@ angular.module('GO').config(function ($httpProvider, $provide) {
 					
 						response: function (response) {
 							
-							var XSRFToken = getCookie("XSRFToken");
+							var XSRFToken = Utils.getXSRFToken();
 							
 							if(XSRFToken) {
 								$httpProvider.defaults.headers.common['X-XSRFToken'] = XSRFToken;
+								$rootScope.XSRFToken = XSRFToken;
 							}
 							
 //							var contentType = response.headers('Content-Type');

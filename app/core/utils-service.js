@@ -6,13 +6,31 @@
  * Common utilities
  */
 angular.module('GO.core').
-		service('Utils', ['$http', '$rootScope', function ($http, $rootScope) {
+		service('Utils', [function () {
 
 				var Utils = function () {
 					this.baseUrl = localStorage.baseUrl || "../../groupoffice-server/html/index.php/";
 
 					//Use sessionStorage from browser so it survives browser reloads
 					this.defaultParams = angular.fromJson(sessionStorage.defaultParams);
+				};
+				
+				
+						//use own getcookie function as $cookies seems to suffer from a small delay tat we realy don't need here.
+				//I had to use $timeout(getcookie, 100) here.
+				Utils.prototype.getCookie = function (cname) {
+					var name = cname + "=";
+					var ca = document.cookie.split(';');
+					for(var i=0; i<ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0)==' ') c = c.substring(1);
+						if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+					}
+					return null;
+				};
+				
+				Utils.prototype.getXSRFToken = function() {
+					return this.getCookie('XSRFToken');
 				};
 				
 //				Utils.prototype.setAccessToken = function(accessToken, remember) {

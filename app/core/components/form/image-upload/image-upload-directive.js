@@ -35,7 +35,7 @@ angular.module('GO.core.form')
 							singleFile: true,
 							target: Utils.url('upload'),
 							headers: {
-								'Authorization' : 'Bearer '+Utils.getAccessToken()
+								'X-XSRFToken' : Utils.getXSRFToken()
 							}
 						};
 					},
@@ -43,7 +43,7 @@ angular.module('GO.core.form')
 						
 						element.addClass('go-image-upload');
 						
-						scope.oauth2AccessToken = Utils.getAccessToken();
+						scope.XSRFToken = Utils.getXSRFToken();
 			
 						scope.uploadSuccess = function ($file, $message) {
 
