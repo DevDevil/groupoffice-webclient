@@ -22,7 +22,7 @@
 	</go-mask>
 
 	<header ng-include="'views/header.html'"></header>
-	<main class="g" ui-view></main>			
+	<main ui-view></main>			
 	<div ng-include="'core/alerts/alerts.html'"></div>		
 
 
@@ -162,8 +162,12 @@
 	<script src="modules/customfields/js/controller/fields-controller.js" type="text/javascript"></script>
 	<script src="modules/customfields/js/controller/model-controller.js" type="text/javascript"></script>
 
-
-
+	<script src="modules/email/module.js" type="text/javascript"></script>
+	
+	<script src="modules/email/controllers/message-controller.js" type="text/javascript"></script>
+	<script src="modules/email/controllers/email-controller.js" type="text/javascript"></script>
+	<script src="modules/email/controllers/folder-controller.js" type="text/javascript"></script>
+	
 	<script src="app.js"></script>  
 	<script src="core/http-interceptor.js" type="text/javascript"></script>
 	<!-- endinject -->

@@ -15,6 +15,11 @@
 				"attribute-name": {},
 				"go-model": {}
 			}
+		},
+		"search-button": {
+			"attributes": {
+				"store": {}
+			}
 		}
 	},
 	"attributes": {

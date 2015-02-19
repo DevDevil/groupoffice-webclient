@@ -20,7 +20,7 @@ angular.module('GO').config(function ($httpProvider, $provide) {
 							
 							if(XSRFToken) {
 								$httpProvider.defaults.headers.common['X-XSRFToken'] = XSRFToken;
-								$rootScope.XSRFToken = XSRFToken;
+								$rootScope.XSRFToken = XSRFToken;							
 							}
 							
 //							var contentType = response.headers('Content-Type');
