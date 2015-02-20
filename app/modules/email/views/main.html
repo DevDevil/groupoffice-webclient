@@ -1,0 +1,24 @@
+<!--<div class="cards-sm" ng-class="{'card-2': !listActive}">-->
+
+	<aside>
+
+		<div class="panel">			
+			<div>
+				
+				<ul class="items">
+					<li ng-repeat-start="account in accountStore.items">
+						<strong>{{account.fromEmail}}</strong>
+					</li>
+					<li ng-repeat-end ng-repeat="folder in account.folders" ui-sref-active="selected">
+						<a ui-sref="email.threads({folderId: folder.id})">
+							<i class="folder"></i> {{folder.name}} <span class="badge" ng-if="folder.unseenCount>0">{{folder.unseenCount}}</span>
+						</a>
+					</li>
+				</ul>				
+			</div>			
+		</div>		
+	</aside>
+	
+	<ui-view></ui-view>
+	
+<!--</div>-->
