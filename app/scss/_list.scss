@@ -36,8 +36,7 @@ ul.items, ul.properties{
 			a {
 				animation: greyOut .3s forwards; //from animate.scss
 				background-color: $color-danger-bg !important;
-			}			
-			
+			}
 		}
 
 		&:hover{
@@ -82,7 +81,10 @@ ul.items, ul.properties{
 			background-color: $color-bg-selected;
 		}
 
-
+		strong {
+			font-weight: normal;
+		}
+		
 
 		&.index {
 			&:first-child{ 

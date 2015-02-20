@@ -64,7 +64,7 @@ angular.module('GO').config(function ($httpProvider, $provide) {
 								$injector.get('$state').go('login');
 							} else
 							{
-								$injector.get('Alerts').addAlert('Oops, a server error occurred', 'Error ' + status);
+								$injector.get('Alerts').addAlert('Oops, a server error occurred: ' + status,'danger');
 
 								var contentType = response.headers('Content-Type');
 

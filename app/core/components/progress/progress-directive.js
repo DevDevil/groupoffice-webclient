@@ -7,6 +7,12 @@
  *
  * @description
  * Linear progress bar
+ * 
+ * <code>
+ * 
+ * <go-progress value="75" max="100"></go-progress>
+ * 
+ * </code>
  *
  * @param {int} value The value of the bar.
  * @param {int=} max = Maximum value. Defaults to 100

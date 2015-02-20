@@ -45,8 +45,8 @@
  * @param {object=} loadParams Extra GET parameters for the store action
  */
 angular.module('GO.core.data')
-		.factory('Store', ['$http', 'Utils', 'Model', '$q', '$timeout', function($http, Utils, Model, $q, $timeout) {
-
+		.factory('Store', ['$http', 'Utils', '$injector', '$q', '$timeout', function($http, Utils, $injector, $q, $timeout) {
+			
 				var Store = function(restRoute, loadParams) {
 					
 					/**
@@ -174,7 +174,7 @@ angular.module('GO.core.data')
 								if(data.success){
 
 									//When there are less results then the limit we sent then we must have gotten the last results.
-									this.allRecordsLoaded = data.results.length < defaultParams.limit;
+									this._allRecordsLoaded = data.results.length < defaultParams.limit;
 
 									this.loadData(data.results);
 
@@ -235,7 +235,9 @@ angular.module('GO.core.data')
 					
 						this.items.push(model);
 					}
-				};				
+				};		
+				
+				Store.prototype.modelName = "Model";
 				
 				Store.prototype._createModel = function(){
 					
@@ -243,8 +245,11 @@ angular.module('GO.core.data')
 					if(this.loadParams.returnAttributes){
 						baseParams.returnAttributes = this.loadParams.returnAttributes;
 					}
-
-					var model = new Model(this.restRoute, baseParams);
+					
+					
+					var modelName = $injector.get(this.modelName);
+					
+					var model = new modelName(this.restRoute, baseParams);
 					
 					return model;
 				};

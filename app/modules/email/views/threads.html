@@ -1,0 +1,54 @@
+<div class="col u-1 u-md-2-5">
+
+
+		<menu type="toolbar" class="pad-list-index">
+			<li>
+				<div ng-if="sync.active" style="width: 100px;">
+					<div>{{sync.text}}</div>
+					<go-progress value="sync.percentage"></go-progress>
+				</div>
+			</li>
+			<li>
+				<!--<input type="search" /><i class="search"></i>-->
+
+			<search-button store="store"></search-button>
+
+			<div class="dropdown">
+				<button class="menu"><i class="menu-dot"></i></button>
+				<menu class="popup top-right">
+					<li><a ng-click="store.reload()">Refresh</a></li>
+				</menu>
+			</div>
+			</li>
+		</menu>
+
+
+
+		<ul class="items panel em-messages" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+			<li ng-repeat="thread in store.items track by thread.id" ng-class="{'deleted': thread.deleted, 'seen': !thread.seen}" ui-sref-active="selected">
+<!--				<div class="icon">
+					<div class="avatar">
+						<img ng-src="{{thread.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1&amp;XSRFToken={{XSRFToken}}" />
+					</div>				
+				</div>-->
+
+				<a ui-sref="email.threads.thread({threadId: thread.id})">				
+					<div class="from">{{thread.getFrom()}}</div>					
+					<div class="subject">{{thread.subject}}</div>
+					<div class="excerpt">{{thread.excerpt}}</div>
+					
+					<div class="date"><span ng-if="thread.messageCount>1" class="count">{{thread.messageCount}}» </span><i ng-if="thread.answered" class="reply"></i><i ng-if="thread.hasAttachments" class="paperclip"></i>{{thread.date| date}}</div>
+					
+				</a>
+			</li>
+
+			<li ng-show="store.busy" class="loading-more animate"><i class="reload animate-spin"></i> {{"Loading more items..."| goT}}</li>
+
+		</ul>
+
+
+		<a class="btn action" ui-sref='email.compose({threadId: 0})'><i class="plus"></i></a>
+	</div>
+	<div class="col fill" ui-view>
+
+	</div>

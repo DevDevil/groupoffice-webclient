@@ -17,14 +17,15 @@
 	</head>
 	<body ng-controller="BodyController">	
 
+	
+	<header ng-include="'views/header.html'"></header>
+	<main ui-view></main>			
+
+	<div ng-include="'core/alerts/alerts.html'"></div>		
+
 	<go-mask ng-cloak active="showMask">
 		<i class="reload animate-spin"></i> {{"Please wait"| goT}}...
 	</go-mask>
-
-	<header ng-include="'views/header.html'"></header>
-	<main ui-view></main>			
-	<div ng-include="'core/alerts/alerts.html'"></div>		
-
 
 
 
@@ -86,7 +87,7 @@
 	<script src="modules/kitchensink/controllers/ks-list-controller.js" type="text/javascript"></script>	
 	<script src="modules/kitchensink/controllers/ks-autocomplete-controller.js"></script>  
 	<script src="modules/kitchensink/controllers/ks-alerts-controller.js" type="text/javascript"></script>
-
+	<script src="modules/kitchensink/controllers/ks-modal-controller.js" type="text/javascript"></script>
 	<script src="modules/users/module.js"></script>  
 
 	<script src="core/components/custom-fields/custom-fields-detail-directive.js"></script>  
@@ -164,9 +165,10 @@
 
 	<script src="modules/email/module.js" type="text/javascript"></script>
 	
-	<script src="modules/email/controllers/message-controller.js" type="text/javascript"></script>
+	<script src="modules/email/models/thread.js" type="text/javascript"></script>
+	<script src="modules/email/controllers/thread-controller.js" type="text/javascript"></script>
 	<script src="modules/email/controllers/email-controller.js" type="text/javascript"></script>
-	<script src="modules/email/controllers/folder-controller.js" type="text/javascript"></script>
+	<script src="modules/email/controllers/threads-controller.js" type="text/javascript"></script>
 	
 	<script src="app.js"></script>  
 	<script src="core/http-interceptor.js" type="text/javascript"></script>

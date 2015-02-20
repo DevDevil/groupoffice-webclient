@@ -17,7 +17,6 @@ GOUtils = function () {
 		'ui.router',
 		'monospaced.elastic',
 		'flow', // https://github.com/flowjs/ng-flow
-
 		'GO.core',
 		'GO.core.controllers'
 	];
