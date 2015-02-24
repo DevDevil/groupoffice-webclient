@@ -28,7 +28,7 @@ angular.module('GO', GO.appModules).//See app/core/global-functions.js for the d
 			//only enable ngAnimate on elements with the "animate" class
 			$animateProvider.classNameFilter(/animate/);
 		}).
-		run(function (Utils, $rootScope, $cookies, $http) {
+		run(function (Utils, $rootScope, $http) {
 			//FastClick.attach(document.body);
 			
 			$rootScope.GO = GO;
