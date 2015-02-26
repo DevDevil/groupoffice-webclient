@@ -16,6 +16,9 @@ angular.module('GO.email.controllers').
 				
 				$scope.store.modelName = "Thread";
 				
+				
+				
+				
 //				$scope.store.loadData = function(data){
 					
 					//for debug
