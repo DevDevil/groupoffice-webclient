@@ -1,24 +1,25 @@
-<div class="col w1-3">
-	<!--	<div class="panel pad">
-			<div class="card pad">-->
-	<menu type="toolbar">
-		<li><h2>{{"Model"| goT}}</h2></li>
-		<li></li>
-	</menu>
-	
+
+	<div class="col u-1 u-md-1-3">
+		<!--	<div class="panel pad">
+				<div class="card pad">-->
+		<menu type="toolbar">
+			<li><h2>{{"Model"| goT}}</h2></li>
+			<li></li>
+		</menu>
+
 
 	<ul class="panel items">
-		<li ui-sref-active="selected" ng-repeat="model in models">
-			<a ui-sref="customfields.model({modelName: model.customFieldsModelName})">
-				<i class="folder"></i> {{model.modelName| goT}}
-			</a>
-		</li>
-	</ul>
+			<li ui-sref-active="selected" ng-repeat="model in models">
+				<a ui-sref="customfields.model({modelName: model.customFieldsModelName})">
+					<i class="folder"></i> {{model.modelName| goT}}
+				</a>
+			</li>
+		</ul>
 
-	<!--		</div>
-		</div>-->
+		<!--		</div>
+			</div>-->
 
 
-</div>
+	</div>
 
-<ui-view></ui-view>
+	<ui-view></ui-view>

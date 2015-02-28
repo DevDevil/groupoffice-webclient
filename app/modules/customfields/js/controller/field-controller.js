@@ -49,7 +49,7 @@ angular.module('GO.customfields.controllers')
 				];
 
 				$scope.save = function () {
-					$scope.field.save()
+					return $scope.field.save()
 							.then(function (result) {
 
 								$scope.back();

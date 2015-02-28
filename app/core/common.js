@@ -42,6 +42,16 @@ angular.module('GO.core.data',[]);
 
 /**
  * @ngdoc module
+ * @name GO.core.customFields
+ * 
+ * @description
+ * Data handling 
+ */
+angular.module('GO.core.customFields',[]);
+
+
+/**
+ * @ngdoc module
  * @name GO.core
  * 
  * @description
@@ -52,5 +62,6 @@ angular.module('GO.core',
 		'GO.core.filters', 
 		'GO.core.translate', 
 		'GO.core.form',
-		'GO.core.data'
+		'GO.core.data',
+		'GO.core.customFields'
 	]);

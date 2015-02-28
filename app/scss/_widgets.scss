@@ -165,12 +165,14 @@ aside{
 	@extend .col;
 	width: 15%;
 	
+	box-shadow: 1px 0px 2px 0px  $border-color;
+		
+	z-index: $z-aside;
+	
 	.panel{		
-		box-shadow: 1px 0px 2px 0px  $border-color;
 		
-		z-index: $z-aside;
 		
-		.list{
+		ul.items{
 			i{
 				margin: 0px 20px;
 				font-size: 1.2em;
@@ -191,30 +193,49 @@ aside{
  * MODAL DIALOGS
  * Usage: <section class="dialog open"></section>
  */
-section.dialog {
+section.modal {
     position: fixed;
     z-index: $z-modal;
     left: 50%;
     top: 50%;
-    padding: 25px 25px 50px;
+    padding: 30px 20px;
     width: 65%;
     border-radius: 2px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
-    background-color: #FFF;
-    pointer-events: none;
-    opacity: 0;
+    background-color: #FFF;    
+    opacity: 1;
     outline: rgba(0,0,0,.5) solid 10000px;
     will-change: transform, opacity;
-    transform: translate(-50%, -50%) scale(1.15);
-    transition:
-      transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
-      opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
-    &.open {
-        pointer-events: auto;
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
+    
+	transition:
+          transform .3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity .3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+	
+    
+    &.ng-hide {
+        
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.15);
         transition:
-          transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
-          opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+			transform .1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+			opacity .1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
     }
+}
+
+
+.badge {
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: #FFF;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	background-color: #777;
+	border-radius: 10px;
+	margin-left: 10px;
 }

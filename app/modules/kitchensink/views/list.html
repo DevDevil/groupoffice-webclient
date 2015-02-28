@@ -1,0 +1,23 @@
+<menu type="toolbar">
+	
+	<li><h2>Contacts</h2></li>
+	
+</menu>
+<ul class="items panel" go-infinite-scroll="store.nextPage()" go-infinite-scroll-disabled="!store.shouldLoad()">
+	<li ng-repeat-start="contact in store.items track by contact.id" class="index" ng-if="store.getIndexChar('name', $index) !== ''"><h2>{{::store.getIndexChar("name", $index)}}</h2></li>
+	<li ng-repeat-end ng-class="{'deleted': contact.deleted}">
+		<div class="icon">
+			<div class="avatar">
+				<img ng-src="{{contact.photo}}&amp;w=50&amp;h=50&amp;zoomCrop=1" />
+			</div>
+		</div>
+
+		<a ui-sref-active="active" ui-sref="contacts.contact.detail({contactId: contact.id})">
+			{{contact.name}}
+			<br /><small>{{contact.company.name}}</small>
+		</a>
+	</li>
+
+	<li ng-show="store.busy" class="loading-more animate"><i class="reload animate-spin"></i> {{"Loading more items..."| goT}}</li>
+
+</ul>

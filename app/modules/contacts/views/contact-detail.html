@@ -49,7 +49,9 @@
 
 </section>-->
 
-<ul class="panel properties">
+<div class="panel">
+
+<ul class="properties">
 	<li ng-if="contact.phoneNumbers.length" class="index"><i class="phone"></i></li>
 
 	<li ng-repeat="phoneNumber in contact.phoneNumbers" >
@@ -65,6 +67,44 @@
 		<a href="mailto:{{emailAddress.email}}">
 			<strong>{{emailAddress.email}}</strong><br>
 			<small>{{emailAddressOptions[emailAddress.type]}}</small>
+		</a>
+	</li>
+	
+	
+	
+	
+	<li ng-if="contact.addresses.length" class="index"><i class="location"></i></li>
+
+	<li ng-repeat="address in contact.addresses">
+		<a target="_blank" href="http://maps.google.com/?q={{address.street + ', ' + address.zipCode + ', ' + address.state + ', ' + address.country| encodeURIComponent}}">
+
+			<strong ng-bind-html="address.formatted | nl2br"></strong><br />
+
+			<small>{{emailAddressOptions[address.type]}}</small>			
+		</a>
+	</li>
+	
+	<li ng-if="contact.tags.length" class="index"><i class="labels"></i></li>
+
+	<li ng-if="contact.tags.length">
+		<div>
+			<ul class="comma-list">
+				<li  ng-repeat="tag in contact.tags">
+					{{tag.name}}
+				</li>
+
+			</ul>
+			<br />
+			<small>{{"Tags"| goT}}</small>		
+		</div>
+	</li>
+	
+	<li ng-if="contact.dates.length" class="index"><i class="calendar"></i></li>
+
+	<li ng-repeat="date in contact.dates" >
+		<a>
+			<strong>{{date.date|date:"longDate"}} ({{date.date|age}}{{'yr'| goT}})</strong><br>
+			<small>{{dateOptions[date.type]}}</small>			
 		</a>
 	</li>
 </ul>
@@ -171,3 +211,5 @@
 
 
 <go-custom-fields-detail ng-model="contact.customfields" server-model="GO\Modules\Contacts\Model\ContactCustomFields"></go-custom-fields-detail>
+
+</div>

@@ -2,12 +2,8 @@
 .go-image-upload{
 	
 	
-	.dropdown{
-		
-		> a{
-			line-height:0;
-			display:block;
-		}
+	.dropdown{		
+		display: block; //inline block override to prevent line-height from interfering
 	}
 	
 	.img-container{

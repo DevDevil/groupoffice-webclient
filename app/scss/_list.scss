@@ -24,35 +24,17 @@ ul.comma-list {
 }
 
 
-.loading-more{
-	padding: 10px 20px;
-
-	opacity: 1;	
-
-	transition: all 0.3s ease-out;
-	/*	.ng-hide-remove.ng-hide-remove-active {
-			transition-delay: 0;
-		}*/
-
-	&.ng-hide{
-		opacity: 0;
-	}
-
-
-}
-
 
 
 ul.items, ul.properties{
 	
 	list-style-type: none;
 
-	> li{
-		
-		&.deleted {
-			opacity: 0.5;
+	> li{		
+		&.deleted {			
 			background-color: $color-danger-bg !important;
 			a {
+				animation: greyOut .3s forwards; //from animate.scss
 				background-color: $color-danger-bg !important;
 			}
 		}
@@ -84,7 +66,7 @@ ul.items, ul.properties{
 		}
 
 		a{
-			font-size: 1.2em;
+			//font-size: 1.2em;
 			color: $font-color;
 			width: 100%;
 			
@@ -99,12 +81,14 @@ ul.items, ul.properties{
 			background-color: $color-bg-selected;
 		}
 
-
+		strong {
+			font-weight: normal;
+		}
+		
 
 		&.index {
 			&:first-child{ 
-				border:0;
-				
+				border:0;				
 			}
 			cursor: default;
 			display:block;
@@ -137,8 +121,38 @@ ul.items, ul.properties{
 			}
 
 		}
+		
+		&.loading-more{
+			padding: 10px 20px;
+			opacity: 1;	
+			display: block;
+
+			i{
+				display: inline-block;
+				padding:0px !important;
+				width:auto;
+			}
+
+			transition: all 0.3s ease-out;
+			/*	.ng-hide-remove.ng-hide-remove-active {
+					transition-delay: 0;
+				}*/
+
+			&.ng-hide{
+				opacity: 0;
+			}
+
+
+		}
+
 	}
 
+}
+
+ul.properties + ul.properties {
+	.index:first-child{
+		border-top: 1px solid $border-color;
+	}
 }
 
 ul.items {

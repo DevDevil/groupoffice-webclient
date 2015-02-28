@@ -1,0 +1,92 @@
+.em-messages{
+	> li {
+		
+		position:relative;
+		
+		.date{
+			position:absolute; 
+			top:10px; 
+			right:10px;		
+			font-size: .8em;
+		}
+
+		.excerpt, .subject,.from{
+			white-space: nowrap; 
+			overflow: hidden; 
+			text-overflow: ellipsis;
+			display: block;		
+		}
+
+
+		.subject{
+			font-weight:bold;
+			font-size: .9em;
+		}
+
+		.excerpt{
+			font-size: .9em;
+		}
+
+		.from{		
+			font-weight:bold;
+			margin-bottom:3px;
+		}
+		
+		.count {
+			//font-size: .8em;
+			color: $color-link;
+		}
+
+
+
+		&.seen{
+			.subject, .from{
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+
+
+.em-message{
+	
+	position: relative;
+	
+	&.from-you{
+		background-color: #DCEDC8;
+	}
+	
+	.em-show-quote{
+		
+		position:absolute;
+		right:10px;
+		bottom: 10px;
+	}
+	
+	dl{
+		margin-bottom: 6px;
+		dt{
+			width: 80px;
+			text-align:left;
+		}
+		
+		dd{
+			margin-left: 0;
+		}
+	}
+	
+	.body{
+		margin-top: 10px;
+	}
+	
+	.date{
+/*		position:absolute; 
+		top:10px; 
+		right:10px;		*/
+		float: left;
+		font-size: 0.8em;
+		margin-top: 4px;
+		margin-right: 10px;
+	}
+}

@@ -24,7 +24,7 @@ angular.module('GO.core').
 				Alerts.prototype.addAlert = function (msg, type, timeout) {
 					
 					if(!timeout){
-						timeout = 2000;
+						timeout = 4000;
 					}
 					
 					if(!type){
@@ -40,7 +40,7 @@ angular.module('GO.core').
 //					});
 					
 					$timeout(function(){
-						$rootScope.alerts.splice($rootScope.alerts.length-1, 1);
+						$rootScope.alerts.splice(0, 1);
 					}.bind(this), timeout);
 				};
 

@@ -23,7 +23,7 @@ angular.module('GO.core')
 						scope: {
 							active: '=active'
 						},
-						template: '<div class="go-mask" ng-show="active">\
+						template: '<div class="go-mask" ng-if="active">\
 							<div class="go-mask-screen"></div>\
 							<div class="go-mask-msg" ng-transclude></div>\
 						</div>'

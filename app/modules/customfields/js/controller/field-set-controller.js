@@ -11,12 +11,14 @@ angular.module('GO.customfields.controllers')
 				
 				
 				$scope.save = function() {
-					$scope.fieldset.save({
+					return $scope.fieldset.save({
 						modelName: $stateParams.modelName
 					})
 					.then(function(result) {	
-
-						$scope.back();
+						
+						//$scope.back();
+		
+						$state.go("customfields.model.fields", {modelName: $stateParams.modelName, fieldSetId: $scope.fieldset.id});
 
 					});
 				};

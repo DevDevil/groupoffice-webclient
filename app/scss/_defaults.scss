@@ -29,6 +29,13 @@ a {
 	&:hover {
 		color: $color-link-hover;
 	}
+	
+	&[disabled] {
+		cursor: disabled;
+		pointer-events: none; // Future-proof disabling of clicks
+		opacity: .65;
+		box-shadow: none;
+	}
 }
 
 
@@ -46,7 +53,11 @@ small {
 
 strong {
 	color: $cGrey9;
-	font-weight: 400;
+	font-weight: bold;
+}
+
+p {
+	margin-bottom: 10px;
 }
 
 //h1 is used only in the header

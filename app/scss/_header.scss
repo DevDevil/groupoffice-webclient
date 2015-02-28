@@ -4,32 +4,38 @@ body > header{
 	color: $color-header;
 	height: $height-header;		
 	background-color: $color-header-bg;	
-	line-height: $height-header;	
 	padding: 0 15px;
 
 	.left{		
+		height: $height-header;		
+		display: table;
 		
 		> * {
-			line-height: $line-height;
+			display: table-cell;
+			vertical-align:middle;
 		}
 
 		.logo {
 			font-size: 2em;
 			height: 45px;
-			display: inline-block;
+			line-height: 45px;
 			padding-left: 60px;
 			margin-left: 15px;
-			line-height: 45px;
 			background-image: url('../resources/groupoffice-logo.png');
 			background-position: left middle;
-			background-repeat: no-repeat;			
+			background-repeat: no-repeat;	
+			
 		}	
 	}
 	
-	.right{		
-		text-align:right;		
+	.right{	
+		height: $height-header;		
+		display: table;
+		
 		> * {			
-			line-height: $line-height;
+			text-align:right;		
+			display: table-cell;
+			vertical-align:middle;
 		}
 	}
 }

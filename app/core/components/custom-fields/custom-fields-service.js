@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.core').
+angular.module('GO.core.customFields').
 		service('CustomFields', ['Store', 'Model', function(Store, Model) {
 
 				var loadedFieldSets = {};

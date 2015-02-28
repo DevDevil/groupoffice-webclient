@@ -4,6 +4,8 @@ form{
 			
 			@extend .form-input;
 			
+			//width: $width-form-field;
+			
 			> ul:first-child{	
 				display: inline;
 				margin: 0;

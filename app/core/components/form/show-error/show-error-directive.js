@@ -27,7 +27,7 @@ angular.module('GO.core.form')
 					scope: {
 						'for': '@',
 						'attributeName': '@?',
-						goModel: '=?'
+						goModel: '=?ngModel'
 					},
 					// require that the element is a child of form
 					require: '^form',
@@ -54,10 +54,8 @@ angular.module('GO.core.form')
 
 
 							if ($scope.goModel) {
-
 								$scope.$watch('goModel.validationErrors["' + $scope.attributeName + '"]', function (newValue, oldValue) {
-
-
+									
 									if (newValue) {
 										serverError = newValue;
 

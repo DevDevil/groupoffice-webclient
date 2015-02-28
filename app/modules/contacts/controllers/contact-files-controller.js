@@ -11,7 +11,7 @@ GO.module('GO.contacts.controllers').
 				$scope.filesStore =  new Store(
 						'contacts/'+$stateParams.contactId+'/files',
 						{
-							returnAttributes: 'id,name'
+							returnAttributes: 'id,name,deleted'
 						});
 						
 				$scope.filesStore.load();
@@ -26,9 +26,7 @@ GO.module('GO.contacts.controllers').
 				
 				$scope.uploadSuccess = function($file, $message){
 					var result = angular.fromJson($message);			
-					
-//					console.log(result);
-//					$scope.filesStore.items.push(result.data.file);
+
 
 					var file = new Model('contacts/'+$stateParams.contactId+'/files');
 					file.name = result.file;

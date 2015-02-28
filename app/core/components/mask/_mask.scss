@@ -32,6 +32,9 @@
 	}
 
 	.go-mask-screen{
+		
+		animation: mask 1s forwards; //from animate.scss
+		
 		position:absolute;
 		top:0;
 		bottom:0;
@@ -39,7 +42,11 @@
 		left:0;
 		z-index:100000;
 		background-color:#f1f1f1;
-		opacity:0.5;
 		border-radius: 4px;
 	}
+}
+
+@keyframes mask{
+	0%{opacity: 0}
+	100%{opacity: .5}
 }

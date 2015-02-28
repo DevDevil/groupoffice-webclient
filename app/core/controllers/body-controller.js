@@ -33,15 +33,13 @@ angular.module('GO.core.controllers')
 				//$scope.modulesService = Modules;
 
 				$scope.logout = function () {
-					//for "remember my login"
-					delete localStorage.authorizationToken;
-
+				
 					var url = Utils.url('auth');
-
+					
 					$http.delete(url)
 							.success(function (data, status, header) {
 //								$state.go('login');
-
+					
 								//make sure page is cleared
 								document.location = "";
 							});

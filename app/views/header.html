@@ -1,17 +1,20 @@
 <nav class="left">	
-	<div class="dropdown" ng-if="loggedIn">
-		<button>
-			<i class="menu-ham"></i>
-		</button>
+	<div>
+		<div class="dropdown" ng-if="loggedIn">
+			<button>
+				<i class="menu-ham"></i>
+			</button>
 
-		<menu class="popup">	
-			<li ng-repeat="launcher in ::launchers"><a ui-sref="{{launcher.state}}">{{::launcher.title| goT}}</a></li>			
-		</menu>
+			<menu class="popup">	
+				<li ng-repeat="launcher in ::launchers"><a ui-sref="{{launcher.state}}">{{::launcher.title| goT}}</a></li>			
+			</menu>
+		</div>
 	</div>
-	<h1 class="logo">Group Office</h1>
+	<div><h1 class="logo">Group Office</h1></div>
 </nav>
 <nav class="right" ng-if="loggedIn">
 
+	<div>
 	<button>
 		<i class="info"></i>
 	</button>
@@ -31,5 +34,6 @@
 			<li><a>About</a></li>
 			<li><a ng-click="logout()">Logout</a></li>	
 		</menu>
+	</div>
 	</div>
 </nav>

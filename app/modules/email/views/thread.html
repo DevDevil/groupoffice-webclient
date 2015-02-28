@@ -1,0 +1,82 @@
+<menu type="toolbar" class="pad-list-index">
+	<li>
+		
+	</li>
+	<li>
+		<a class="btn" ng-click="message.delete(message.subject);">
+			<i class="trash"></i>
+		</a>		
+		
+		<a class="btn" ng-click="">
+			<i class="message"></i>
+		</a>		
+		
+		<div class="dropdown">
+			<button class="menu"><i class="menu-dot"></i></button>
+			<menu class="popup top-right">
+				<li>
+					<a ng-click="toggleMessageFlag('seen')">
+						<span ng-if="!message.seen">{{"Mark as read"| goT}}</span>
+						<span ng-if="message.seen">{{"Mark as unread"| goT}}</span>
+					</a>
+				</li>
+
+				<li>
+					<a ng-click="toggleMessageFlag('flagged')">
+						<span ng-if="!message.flagged">{{"Set flag"| goT}}</span>
+						<span ng-if="message.flagged">{{"Remove flag"| goT}}</span>
+					</a>
+				</li>
+			</menu>
+		</div>
+	</li>
+</menu>
+
+
+
+<div class="panel pad grey" go-infinite-scroll="threadStore.nextPage()" go-infinite-scroll-disabled="!threadStore.shouldLoad()" ng-class="{'from-you': message.isSentByCurrentUser}">
+
+	<div class="card"  ng-repeat="message in threadStore.items track by message.id">
+	<ul class="properties">	
+		<li>
+			<a>
+				<strong><span ng-if="message.isSentByCurrentUser">{{"You"| goT}}</span> <span ng-if="!message.isSentByCurrentUser">{{message.from.personal|| message.from.email}}</span></strong><br>
+				<small>{{"From"| goT}}</small>
+			</a>
+		</li>
+
+		<li>
+			<div>
+				<ul class="comma-list"><li ng-repeat="address in message.to">{{address.personal|| address.email}}</li></ul><br />
+				<small>{{"To"| goT}}</small>
+			</div>
+		</li>
+	</ul>
+
+	<div ng-if="message.attachments.length" class="em-attachments">
+
+		<a ng-if="!attachment.foundInBody" class="btn" ng-repeat="attachment in message.attachments" href="{{attachment.url}}" target="_blank">
+			{{attachment.filename}}
+		</a>				 
+
+		<div style="clear:both"></div>
+	</div>
+
+	<div class="pad" ng-bind-html='message.body'></div>
+
+	<div ng-if="message.quote">
+
+		<!--			<a ng-if="!message.showQuote" class="btn" ng-click="message.showQuote = true"><i class="fa fa-chevron-right"></i> {{"Show more" | goT}}</a>
+					<a ng-if="message.showQuote" class="btn" ng-click="message.showQuote = false"><i class="fa fa-chevron-down"></i> {{"Hide more" | goT}}</a>-->
+
+		<div ng-if="message.showQuote" ng-bind-html='message.quote'></div>
+
+		<a  class="em-show-quote" ng-click="message.showQuote = !message.showQuote">{{"..."| goT}}</a>
+	</div>
+	</div>
+
+</div>
+
+<div ng-if="threadStore.busy" class="list-group-item go-list-item-loading"><i class="fa fa-spinner go-rotate"></i> {{"Loading more items..."| goT}}</div>
+
+

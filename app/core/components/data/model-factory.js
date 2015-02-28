@@ -125,7 +125,7 @@ angular.module('GO.core.data')
 								if (result.success) {
 									var data = result.data;
 
-									if (data.validationErrors.length) {
+									if (data && data.validationErrors.length) {
 										
 //										this.validationErrors = data.validationErrors;
 										
@@ -340,9 +340,7 @@ angular.module('GO.core.data')
 											modified[attributeName] = [];
 										}
 										
-										modified[attributeName].push({
-											attributes: attr
-										});										
+										modified[attributeName].push(attr);										
 									}
 								}
 							}
@@ -429,7 +427,7 @@ angular.module('GO.core.data')
 
 									if (!result.success) {
 			
-										this.loadValidationErrors(data);
+										this._loadValidationErrors(data);
 										
 										deferred.reject({model: this, result: result, validationErrors: data.validationErrors});
 									} else {
@@ -501,7 +499,6 @@ angular.module('GO.core.data')
 					if(!obj){
 						obj = this;
 					}
-								
 					
 					if(data.validationErrors){
 						obj.validationErrors = data.validationErrors;
@@ -593,10 +590,10 @@ angular.module('GO.core.data')
 						if (result.data) {
 							
 							if(extendAttributes){								
-								for(var key in result.data.attributes){
+								for(var key in result.data){
 									delete this[key];
 								}
-								angular.extend(result.data.attributes, this.attributes);
+								angular.extend(result.data, this.getAttributes());
 							}
 							
 							this.loadData(result.data);

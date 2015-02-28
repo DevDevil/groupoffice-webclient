@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GO.core')
+angular.module('GO.core.customFields')
 		.directive('goCustomFieldsFilter', ['$templateCache', function($templateCache) {
 
 				$templateCache.put('customfield-filtertext.html',

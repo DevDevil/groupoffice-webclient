@@ -16,7 +16,7 @@ form{
 	
 	&.stretch{
 		label,input, .form-input, textarea, select, .group{
-			width: 100%;
+				width: 100%;
 		}
 		
 		label{
@@ -48,6 +48,10 @@ form{
 			width: 140px;
 			color: $color-small;
 		}*/
+
+		> input, > .form-input, > textarea, > select{
+			width: $width-form-field;
+		}
 	}
 
 	.group {
@@ -87,9 +91,6 @@ form{
 		outline: 0;
 		box-shadow:none;
 
-		.row > & {
-			width: $width-form-field;
-		}
 		
 		display: inline-block;
 

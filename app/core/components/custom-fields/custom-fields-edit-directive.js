@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name GO.core.customfields.goCustomFieldsEdit
+ * @name GO.core.customFields.goCustomFieldsEdit
  * 
  * @description
  * Prints custom fields form fieldsets.
@@ -14,7 +14,7 @@
  * @example
  * <go-custom-fields-edit ng-model="contact.customfields" server-model="GO\Modules\Contacts\Model\ContactCustomFields"></go-custom-fields-edit>				
  */
-angular.module('GO.core')
+angular.module('GO.core.customFields')
 		.directive('goCustomFieldsEdit', ['$templateCache', '$compile','CustomFields', function($templateCache, $compile, CustomFields) {
 
 

@@ -21,6 +21,7 @@
 		background-color: white;
 		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
 		
+		margin-bottom: 20px;
 }
 
 
@@ -36,6 +37,10 @@
 	top: 0;
 	width: 100%;
 	
+	&.grey{
+		background-color: #f1f1f1;
+	}
+	
 	.col:last-child & {
 		border-right: 0px;
 	}
@@ -50,8 +55,7 @@ main{
 		.avatar, .go-image-upload{
 			float:left;
 			@extend %middle;
-			z-index: 100;
-			line-height: 0;
+			//z-index: 100;
 			margin-right: 30px;
 		}
 		
@@ -82,35 +86,54 @@ main{
 .pad { padding:20px; }
 
 
-.col {
-	min-height: 1px;
-	border: 0 none;
-	float: left;
+.cards-sm {
 	height: 100%;
-	position: relative;
-	
-	&.fill{
-		overflow:hidden;	
-		float: none;
-	}
 }
 
 
-.w1-2,
-.w3-6,
-.w2-4	{ width:50%; }
-.w1-3,
-.w2-6	{ width:33.3333333%; }
-.w1-4	{ width:25%; }
-.w2-3,
-.w4-6	{ width:66.6666666%; }
-.w1-5	{ width:20%; }
-.w2-5	{ width:40%; }
-.w3-5	{ width:60%; }
-.w4-5	{ width:80%; }
-.w1-6	{ width:16.6666666%; }
-.w5-6	{ width:83.3333333%; }
 
+
+	.cards-sm {		
+		height: 100%;
+		left:0;
+		transition: all .3s ease-out;
+		position: relative;
+
+		font-size: 0rem;
+		letter-spacing: -.31em;
+		word-spacing: -.43em;
+		white-space: nowrap;
+		@media screen and (max-width: $screen-sm-max) {
+			&.card-2{
+				left: -100%;
+			}
+
+			&.card-3{
+				left: -200%;
+			}
+		}
+
+		> * {
+			height: 100%;
+			position: relative;
+			display: inline-block;
+			font-size: 1rem;
+			letter-spacing: normal;
+			vertical-align: top;
+			word-spacing: normal;
+			white-space: normal;
+			width: 100%;
+		}
+	}
+
+
+
+@media screen and (min-width: $screen-md-min) {
+
+	.hide-md {
+		display:none !important;
+	}
+}
 
 
 

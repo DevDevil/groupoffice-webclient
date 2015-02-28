@@ -16,7 +16,19 @@ GO.module('GO.contacts.controllers').
 						{
 							returnAttributes: "id,name,photo,company.name"
 						});
-						
+					
+					
+				$scope.listActive = true;						
+				$scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+						$scope.listActive = toState.name === 'contacts';
+					});
+					
+				$scope.setListActive = function(active){
+					$scope.listActive = active;
+				};
+					
+					
+					
 				
 
 
@@ -27,7 +39,7 @@ GO.module('GO.contacts.controllers').
 				$scope.contact = new Model(
 						'contacts',
 						{
-							returnAttributes: "*,photo,emailAddresses,phoneNumbers,dates,addresses[*, formatted],tags,customfields,company,employees[id, name, photoFilePath]"
+							returnAttributes: "*,photo,emailAddresses,phoneNumbers,dates,addresses[*,formatted],tags,customfields,company,employees[id, name, photo]"
 						});
 
 
@@ -66,10 +78,10 @@ GO.module('GO.contacts.controllers').
 
 				$scope.save = function() {
 
-					$scope.contact.save()
+					return $scope.contact.save()
 							.then(function(result) {
 								//success
-	
+
 								$scope.syncWithStore(true);
 								$state.go('contacts.contact.detail', {contactId: $scope.contact.id});
 								
@@ -217,16 +229,17 @@ GO.module('GO.contacts.controllers').
 				
 				
 				
-				$scope.delete = function(){
-							
-			
-							
+				$scope.delete = function(){							
 							$scope.contact.delete().then(function(result){
 								$scope.syncWithStore(false);
 							});
 						};
-
-
+				
+				$scope.unDelete = function(){							
+							$scope.contact.unDelete().then(function(result){
+								$scope.syncWithStore(false);
+							});
+						};
 				
 				$scope.store.load();
 			

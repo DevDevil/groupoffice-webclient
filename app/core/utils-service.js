@@ -14,6 +14,56 @@ angular.module('GO.core').
 					//Use sessionStorage from browser so it survives browser reloads
 					this.defaultParams = angular.fromJson(sessionStorage.defaultParams);
 				};
+				
+				
+						//use own getcookie function as $cookies seems to suffer from a small delay tat we realy don't need here.
+				//I had to use $timeout(getcookie, 100) here.
+				Utils.prototype.getCookie = function (cname) {
+					var name = cname + "=";
+					var ca = document.cookie.split(';');
+					for(var i=0; i<ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0)==' ') c = c.substring(1);
+						if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+					}
+					return null;
+				};
+				
+				Utils.prototype.getXSRFToken = function() {
+					return this.getCookie('XSRFToken');
+				};
+				
+//				Utils.prototype.setAccessToken = function(accessToken, remember) {
+//					
+//					if(accessToken) {
+//						$http.defaults.headers.common.Authorization = 'Bearer '+accessToken;		
+//					}else
+//					{
+//						delete $http.defaults.headers.common.Authorization;
+//					}
+//					
+//					$rootScope.oauth2AccessToken = sessionStorage.accessToken = accessToken;
+//
+//					if(remember) {
+//						localStorage.accessToken = data.access_token;
+//					}else
+//					{
+//						delete localStorage.accessToken;
+//					}
+//				};
+//				
+//				Utils.prototype.getAccessToken = function(){					
+//					
+//					if(sessionStorage.accessToken) {
+//						return sessionStorage.accessToken;
+//					}
+//					
+//					if(localStorage.accessToken) {
+//						return localStorage.accessToken;
+//					}
+//					
+//					return null;
+//				};
 
 				/**
 				 * @ngdoc method

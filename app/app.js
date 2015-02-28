@@ -22,13 +22,24 @@ angular.module('GO', GO.appModules).//See app/core/global-functions.js for the d
 
 
 			}]).
-		config(function ($animateProvider) {
+		config(function ($animateProvider) {			
+
 
 			//only enable ngAnimate on elements with the "animate" class
 			$animateProvider.classNameFilter(/animate/);
 		}).
-		run(function (Utils) {
+		run(function (Utils, $rootScope, $http) {
 			//FastClick.attach(document.body);
+			
+			$rootScope.GO = GO;
+			
+			
+			//$http.defaults.headers.common['X-XSRF-TOKEN'] = $cookies.XSRFToken;
+
+			
+			//$rootScope.oauth2AccessToken = Utils.getAccessToken();			
+			
+			//Utils.setAccessToken($rootScope.oauth2AccessToken);
 
 			//Special config
 			//$rootScope.title = appTitle;

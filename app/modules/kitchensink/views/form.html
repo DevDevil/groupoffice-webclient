@@ -1,133 +1,55 @@
-<!--<h1>Kitchensink</h1>-->
+<menu type="toolbar">
+	<li>
+		<h2>Form</h2>
+	</li>
+</menu>
 
-<div class="col w1-2">
-	
-	<div class="panel">
-		
-		<ul class="list2">
-			
-			<li class="index"><h2>M</h2></li>
-			
-			<li>
-				
-				<div>
-					<div class="avatar">
-						<img src="http://localhost/groupoffice-server/html/index.php/contacts/2043/thumb?modifiedAt=2015-01-07T14%3A36%3A47Z&w=50&h=50&zoomCrop=1" />
-					</div>
-				</div>
-				
-				<a href="#">Merijn Schering<br /><small>Intermesh BV<br />CEO</small></a>
-				
-				
-				<div class="dropdown">
-					<button class="menu"><i class="menu-dot"></i></button>
-					<menu class="popup top-right">
 
-						<li><a ui-sref='customfields.model.fields.field({fieldId: field.id})'>Edit</a></li>
-						<li><a ng-click="field.delete()">Delete</a></li>
+<div class="panel pad" ng-controller="KsAutocompleteController">
 
-					</menu>
-				</div>				
-				
-			</li>
-			
-			
-			
-			<li>
-				
-				<div>
-					<div class="avatar">
-						<img src="http://localhost/groupoffice-server/html/index.php/contacts/2043/thumb?modifiedAt=2015-01-07T14%3A36%3A47Z&w=50&h=50&zoomCrop=1" />
-					</div>
-				</div>
-				
-				<a href="#">Merijn Schering<br /><small>Intermesh BV</small></a>
-				
-				
-				<div class="dropdown">
-					<button class="menu"><i class="menu-dot"></i></button>
-					<menu class="popup top-right">
+	<form>
 
-						<li><a ui-sref='customfields.model.fields.field({fieldId: field.id})'>Edit</a></li>
-						<li><a ng-click="field.delete()">Delete</a></li>
+		<div class="row">
+			<label for="autocomplete">
+				Autocomplete
+			</label>
 
-					</menu>
-				</div>				
-				
-			</li>
-			
-			<li class="index"><h2>M</h2></li>
-			
-			
-		</ul>
-		
-		
-	</div>
-	
-</div>
+			<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" ng-model="formModel.autocomplete">
+		</div>	
+
+
+		<div class="row">
+			<label for="date">
+				Date
+			</label>
+
+			<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
+		</div>
+
+
+		<div class="row">
+			<label for="number">
+				Number
+			</label>
+
+			<input id="number" name="number" ng-model="formModel.number" go-number />
+		</div>
+
+		<div class="row">
+			<label for="multiselect">
+				Multiselect
+			</label>
+
+			<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
+		</div>
 
 
 
+	</form>
 
 
-
-
-
-
-
-
-
-
-<div class="col w1-2">
-
-	<div class="panel pad" ng-controller="KsAutocompleteController">
-
-		<form>
-
-			<div class="row">
-				<label for="autocomplete">
-					Autocomplete
-				</label>
-
-				<input name="autocomplete" id="autocomplete" type="text" go-autocomplete="model as model.name for model in getAutoCompleteData($viewValue)" ng-model="formModel.autocomplete">
-			</div>	
-
-
-			<div class="row">
-				<label for="date">
-					Date
-				</label>
-
-				<input id="date" name="date" ng-model="formModel.date" datepicker-popup />
-			</div>
-
-
-			<div class="row">
-				<label for="number">
-					Number
-				</label>
-
-				<input id="number" name="number" ng-model="formModel.number" go-number />
-			</div>
-
-			<div class="row">
-				<label for="multiselect">
-					Multiselect
-				</label>
-
-				<input id="multiselect" name="multiselect" display-attribute="name" ng-model="formModel.multiselect" go-multiselect="getMultiselectModels(input)" auto-create="true" placeholder="Enter animals..." />
-			</div>
-
-
-
-		</form>
-
-
-		<pre>
+	<pre>
 	{{formModel| json}}
-		</pre>
-
-	</div>
-
+	</pre>
 
 </div>
